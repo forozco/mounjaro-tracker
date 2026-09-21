@@ -175,6 +175,7 @@ function condicion(c) {
   if (!c) return null;
   const cup = c.match(/^Cupón ([A-Z0-9]{4,})$/);
   if (cup) return `con el cupón ${cup[1]}`;
+  if (/Enlace/.test(c)) return "con tarjeta Enlace Lilly y receta";
   if (/Recompensas/.test(c)) return "con tarjeta Benavides Recompensas";
   if (/Cuídate/.test(c)) return "con tarjeta Cuídate Mucho";
   if (/Club Salud/.test(c)) return "con Club Salud";
@@ -201,7 +202,8 @@ function condiciones(o, conReceta, sinDetalle) {
   const det = sinDetalle ? null : detalle(v); if (det) partes.push(det);
   if (v.regalo_valor > 0) partes.push("incluye agujas");
   if (v.limite) partes.push(`máximo ${v.limite} al mes`);
-  if (conReceta && /^No/.test(o.receta || "")) partes.push("no piden receta");
+  const enlace = (v.condiciones_tratamiento || []).some(c => /Enlace/.test(c || ""));
+  if (conReceta && !enlace && /^No/.test(o.receta || "")) partes.push("no piden receta");
   return [...new Set(partes)];
 }
 

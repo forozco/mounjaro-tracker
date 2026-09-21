@@ -143,8 +143,12 @@ async (tokens) => {
   const text = document.body.innerText;
   for (const [el, d] of hidden) el.style.display = d;
 
-  const lines = [...new Set(text.split('\n').map(s => s.replace(/\s+/g, ' ').trim()).filter(s => s && s.length <= 220))];
-  const promo = lines.filter(s => /(%|compra|gratis|2x1|3x2|recompensa|monedero|precio final|promoci|descuento|dcto|acumula|l[ií]mite|meses sin|oferta|antes|ahorra|club)/i.test(s));
+  // Los párrafos largos (como el aviso de Enlace Lilly de San Pablo) se parten en frases
+  // en lugar de descartarse.
+  const lines = [...new Set(text.split('\n').map(s => s.replace(/\s+/g, ' ').trim())
+    .flatMap(s => s.length <= 220 ? [s] : s.split(/(?<=[.;])\s+/).map(x => x.trim()))
+    .filter(s => s && s.length <= 220))];
+  const promo = lines.filter(s => /(%|compra|gratis|2x1|3x2|recompensa|monedero|precio final|promoci|descuento|dcto|acumula|l[ií]mite|meses sin|oferta|antes|ahorra|club|enlace|programa)/i.test(s));
   const receta = lines.filter(s => /receta/i.test(s));
   const imgs = new Set();
   for (const img of document.querySelectorAll('img,source')) {

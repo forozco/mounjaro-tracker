@@ -98,7 +98,7 @@ def _canal(c: str | None) -> str:
 def _condicion(c: str) -> str | None:
     if m := re.match(r"^Cupón ([A-Z0-9]{4,})$", c or ""):
         return f"con el cupón {m.group(1)}"
-    for clave, texto in (("Recompensas", "con tarjeta Benavides Recompensas"), ("Cuídate", "con tarjeta Cuídate Mucho"),
+    for clave, texto in (("Enlace", "con tarjeta Enlace Lilly y receta"), ("Recompensas", "con tarjeta Benavides Recompensas"), ("Cuídate", "con tarjeta Cuídate Mucho"),
                          ("Club Salud", "con Club Salud"), ("Monedero", "con Monedero del Ahorro"),
                          ("lealtad", "con la tarjeta de la farmacia"), ("código", "con un código de promoción")):
         if clave in (c or ""):
@@ -121,7 +121,8 @@ def condiciones(o: dict, con_receta: bool = False) -> str:
         partes.append("incluye agujas")
     if v.get("limite"):
         partes.append(f"máximo {v['limite']} al mes")
-    if con_receta and (o.get("receta") or "").startswith("No"):
+    enlace = any("Enlace" in (c or "") for c in v.get("condiciones_tratamiento") or [])
+    if con_receta and not enlace and (o.get("receta") or "").startswith("No"):
         partes.append("no piden receta")
     texto = " · ".join(dict.fromkeys(partes))
     return texto[:1].upper() + texto[1:]

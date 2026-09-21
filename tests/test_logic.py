@@ -138,6 +138,23 @@ motivos, _ = notify.decide(_latest(), {}, datetime(2026, 9, 21, 7, 0))
 check("resumen diario en la corrida de la mañana", any("Resumen" in m for m in motivos), motivos)
 
 print()
+# --- Enlace Lilly escrito en la ficha de San Pablo (un párrafo partido en frases) ---
+p = parse_text([
+    'Este producto es parte del programa de laboratorio "Enlace Eli-Lilly", el cual determina la mecánica para proporcionar sus beneficios.',
+    "En la 4ª compra recibirás hasta un 35% de descuento.",
+    "1ª compra hasta un 20%, 2ª compra hasta un 25%, 3ª compra hasta un 30%.",
+    "Obtén este descuento con tu tarjeta del programa.",
+    "Válido en máximo 2 piezas cada 30 días y en compras realizadas desde el 05 mayo del 2026.",
+], "página")
+t = [x for x in p if x.kind == "tiers"]
+check("escalonado de Enlace en texto", len(t) == 1 and t[0].tiers == [20, 25, 30, 35], [x.label for x in p])
+check("el 35% de la 4ª compra no se toma como descuento de hoy", not any(x.kind == "pct" for x in p), [x.label for x in p])
+check("condición Enlace Lilly", t and t[0].condition == "Tarjeta Enlace Lilly", t and t[0].condition)
+check("límite de Enlace", any(x.kind == "limit" and x.n == 2 for x in p))
+v = evaluate(5964, p)
+check("promedio con Enlace en San Pablo", abs(v["promedio_por_pluma"] - 4323.9) < 1, v["promedio_por_pluma"])
+check("primera compra con Enlace", abs(v["desglose_tratamiento"][0] - 4771.2) < 1, v["desglose_tratamiento"])
+
 if fallos:
     print(f"{len(fallos)} prueba(s) fallaron: {', '.join(fallos)}")
     sys.exit(1)

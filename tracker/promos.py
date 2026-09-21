@@ -25,6 +25,7 @@ class Promo:
 
 
 _CONDITIONS = [
+    (re.compile(r"enlace\s*(eli[\s-]*)?lilly|tarjeta del programa", re.I), "Tarjeta Enlace Lilly"),
     (re.compile(r"recompensa", re.I), "Tarjeta Benavides Recompensas"),
     (re.compile(r"monedero", re.I), "Monedero de la farmacia"),
     (re.compile(r"club\s*salud", re.I), "Club Salud San Pablo"),
@@ -63,6 +64,8 @@ _LIMIT = re.compile(r"(?:l[ií]mite|m[aá]ximo)[^.\n]{0,30}?(\d+)\s*piezas?", re
 _MSI = re.compile(r"(\d{1,2})\s*(?:meses\s*sin\s*intereses|msi)", re.I)
 _COMPRA = re.compile(r"compra", re.I)
 _ORDINAL_COMPRA = re.compile(r"(\d)\s*[a-zº°]{0,3}\s*compra", re.I)
+# "1ª compra hasta un 20%, 2ª compra hasta un 25%…": escalonado escrito en texto
+_TIER_TXT = re.compile(r"(\d)\s*[ªaº°]?\s*compra[^%.\d]{0,30}?(\d{1,2})\s?%", re.I)
 _VIGENCIA = re.compile(r"(?:v[aá]lid[ao]s?|vigencia|promoci[oó]n v[aá]lida)[^.\n]{0,15}?(del?\s*\d{1,2}[^.\n]{0,40}?(?:al|hasta)\s*(?:el\s*)?\d{1,2}[^.\n]{0,25})", re.I)
 # Un código de cupón trae letras Y dígitos (MOUNJARO40); así no se confunde con
 # palabras de la frase ("cupón correspondiente…").
@@ -118,6 +121,17 @@ def parse_text(lines: list[str], source: str) -> list[Promo]:
             promos.append(Promo("vigencia", "Vigencia: " + " ".join(m.group(1).split())[:60], source, raw=line))
         if m := _MSI.search(line):
             promos.append(Promo("msi", f"{m.group(1)} meses sin intereses", source, n=int(m.group(1)), raw=line))
+    # Escalonado escrito en el texto: manda sobre los % sueltos de esas frases, que
+    # de otro modo se leerían como "35% en todas las compras".
+    niveles = {}
+    for n, pct in _TIER_TXT.findall(" ".join(joined.split())):
+        niveles.setdefault(int(n), float(pct))
+    if len(niveles) >= 2 and sorted(niveles) == list(range(1, len(niveles) + 1)):
+        tiers = [niveles[k] for k in sorted(niveles)]
+        if tiers == sorted(tiers):
+            promos = [x for x in promos if not (x.kind == "pct" and _COMPRA.search(x.raw))]
+            promos.append(Promo("tiers", "Escalonado por compra: " + " → ".join(f"{t:g}%" for t in tiers), source,
+                                tiers=tiers, condition=context_cond, canal=context_canal, raw=joined[:300]))
     if cup := buscar_cupon(joined):
         promos.append(Promo("cupon", f"Cupón {cup}", source, condition=f"Cupón {cup}",
                             canal=context_canal, raw=cup))
