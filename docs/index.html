@@ -128,6 +128,13 @@
   .gallery img { width: 100%; height: 130px; object-fit: contain; background: #fff;
     border: 1px solid var(--rule); border-radius: 3px; }
   .gallery span { color: var(--muted); }
+  /* Enlace Lilly */
+  .enlace { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--rule); }
+  .enlace h2 { margin: 0; font-size: 17px; font-weight: 500; }
+  .enlace > p { margin: 6px 0 0; color: var(--muted); font-size: 15px; max-width: 60ch; text-wrap: pretty; }
+  .enlace ul { margin: 12px 0 0; padding: 0 0 0 18px; color: var(--muted); font-size: 15px; display: grid; gap: 5px; max-width: 60ch; }
+  .enlace li strong { color: var(--ink); font-weight: 500; }
+  .enlace .hoy { color: var(--ink); }
   .note { margin-top: 44px; color: var(--faint); font-size: 13px; line-height: 1.55; max-width: 60ch; }
   .note p { margin: 0 0 8px; }
 
@@ -148,6 +155,27 @@
     <summary id="extra-title">Promociones vistas en las páginas</summary>
     <div class="gallery" id="gallery"></div>
   </details>
+
+  <section class="enlace" aria-labelledby="enlace-t">
+    <h2 id="enlace-t">Enlace Lilly</h2>
+    <p>El programa de descuentos de Lilly, el fabricante. No es de una farmacia: la misma tarjeta sirve en
+      varias cadenas.</p>
+    <ul>
+      <li>Presentas la <strong>tarjeta y tu receta</strong> en cada compra para que quede registrada.</li>
+      <li>El descuento va <strong>por tandas: sube con cada compra</strong>. 20% la 1.ª, 25% la 2.ª, 30% la 3.ª y 35% la 4.ª.
+        San Pablo lo publica así como Enlace, y Benavides anuncia la misma escala.</li>
+      <li>Las compras se acumulan <strong>en la misma cadena</strong>; si cambias de farmacia, empiezas de nuevo.</li>
+      <li>Máximo <strong>2 piezas cada 30 días</strong>.</li>
+      <li><strong>En línea solo la encontramos en San Pablo</strong>: en el carrito aparece como “Programa de
+        Laboratorio Eli Lilly” y el descuento se aplica ahí mismo. En las demás, preséntala en sucursal.</li>
+      <li>Aplica en Del Ahorro, San Pablo, Benavides, Guadalajara, YZA y la
+        <a href="https://mx.lilly.com/tienda/Inicio/ResultadoBusqueda?criterio=mounjaro" target="_blank" rel="noopener">Tienda Lilly</a>,
+        aunque no todas las dosis aplican en todas las cadenas.</li>
+      <li id="enlace-hoy" class="hoy" hidden></li>
+    </ul>
+    <p><a href="https://latam.lilly.com/enlace/" target="_blank" rel="noopener">Activar o consultar una tarjeta</a></p>
+  </section>
+
 
   <div class="note">
     <p id="problems" class="warn" hidden></p>
@@ -348,6 +376,12 @@ function render() {
       <img src="${esc(b.thumb || b.src)}" alt="" loading="lazy" onerror="this.remove()">
       ${esc(b.pharmacy_name)}<span>${esc(que)}</span></a>`;
   }).join("");
+
+  const conEnlace = DATA.ofertas.filter(o => o.dose === DOSE && (o.promos || []).some(p => /Enlace/.test(p.condition || "")));
+  $("enlace-hoy").hidden = !conEnlace.length;
+  $("enlace-hoy").innerHTML = conEnlace.length
+    ? `En esta revisión, la de ${DOSE} mg trae Enlace en ${conEnlace.map(o =>
+        `${esc(o.pharmacy_name)} (<span class="num">${MX(o.valor.promedio_por_pluma)}</span> promedio)`).join(", ")}.` : "";
 
   const errs = Object.keys(DATA.errores || {});
   $("problems").hidden = !errs.length;
