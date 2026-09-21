@@ -1,0 +1,5 @@
+playwright==1.63.0
+pytesseract==0.3.13
+pillow>=10.4
+numpy>=2.0
+requests>=2.32

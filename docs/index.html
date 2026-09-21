@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mounjaro KwikPen · comparador de precios</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f5f5f4; --surface-1: #fcfcfb; --surface-2: #f0efed; --border: #e0dfdb;
+    --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #85837c;
+    --accent: #2a78d6; --good-bg: #ecfdf5; --good-br: #a7f3d0; --good-tx: #065f46;
+    --warn-tx: #9a3412; --warn-bg: #fff7ed;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #121211; --surface-1: #1a1a19; --surface-2: #232321; --border: #35352f;
+      --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #96958c;
+      --accent: #3987e5; --good-bg: #052e22; --good-br: #126b4b; --good-tx: #6ee7b7;
+      --warn-tx: #fdba74; --warn-bg: #2a1a0d;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #121211; --surface-1: #1a1a19; --surface-2: #232321; --border: #35352f;
+    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #96958c;
+    --accent: #3987e5; --good-bg: #052e22; --good-br: #126b4b; --good-tx: #6ee7b7;
+    --warn-tx: #fdba74; --warn-bg: #2a1a0d;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text-primary);
+    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 24px 16px 64px; }
+  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between; }
+  h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
+  h2 { font-size: 17px; margin: 32px 0 12px; }
+  h3 { font-size: 13px; margin: 0 0 6px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .06em; }
+  .muted { color: var(--text-muted); font-size: 13px; }
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .hero { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin: 2px 0; }
+  .best { background: var(--good-bg); border-color: var(--good-br); }
+  .best h3 { color: var(--good-tx); }
+  .pill { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px;
+    background: var(--surface-2); border: 1px solid var(--border); color: var(--text-secondary); margin: 2px 4px 2px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .thumbs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+  .thumbs img { width: 92px; height: 92px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: #fff; }
+  .warn { color: var(--warn-tx); }
+  .banner { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+  .banner img { width: 190px; border-radius: 10px; border: 1px solid var(--border); background: #fff; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--text-secondary); margin: 6px 0 2px; }
+  .chartbox { position: relative; }
+  .tip { position: absolute; pointer-events: none; background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 8px; padding: 7px 9px; font-size: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.14); opacity: 0; transition: opacity .1s; }
+  button.theme { background: var(--surface-1); border: 1px solid var(--border); color: var(--text-secondary);
+    border-radius: 8px; padding: 5px 10px; font-size: 12px; cursor: pointer; }
+  @media (max-width: 640px) {
+    .banner img { width: 120px; }
+    th, td { padding: 8px 5px; font-size: 13px; }
+    .hide-s { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Mounjaro KwikPen · dónde conviene comprar</h1>
+      <div class="muted" id="meta">Cargando…</div>
+    </div>
+    <button class="theme" id="theme">Cambiar tema</button>
+  </header>
+  <main id="app"></main>
+  <p class="muted" style="margin-top:36px">
+    Datos tomados de las páginas públicas de cada farmacia, incluidas las promociones que
+    solo aparecen dentro de imágenes (leídas con OCR, por lo que pueden tener errores).
+    Muchas promociones piden tarjeta de lealtad, tienen vigencia o límite de piezas.
+    Verifica siempre en la farmacia antes de comprar. Mounjaro es un medicamento que requiere
+    supervisión médica.
+  </p>
+</div>
+<script>
+const MX = n => n == null ? "—" : "$" + Math.round(n).toLocaleString("es-MX");
+const SERIES = ["--s1","--s2","--s3","--s4","--s5"];
+const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h != null) e.innerHTML = h; return e; };
+
+document.getElementById("theme").onclick = () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  const dark = cur ? cur === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  document.documentElement.setAttribute("data-theme", dark ? "light" : "dark");
+  render();
+};
+
+let DATA = null, HIST = [];
+
+async function load() {
+  const bust = "?v=" + Date.now();
+  DATA = await (await fetch("data/latest.json" + bust)).json();
+  try { HIST = await (await fetch("data/history.json" + bust)).json(); } catch (e) { HIST = []; }
+  render();
+}
+
+function colorOf(pharmacyKey) {
+  const keys = Object.keys(DATA.farmacias);
+  return `var(${SERIES[keys.indexOf(pharmacyKey) % SERIES.length]})`;
+}
+
+function render() {
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+  const gen = new Date(DATA.generado);
+  document.getElementById("meta").textContent =
+    `Actualizado ${gen.toLocaleString("es-MX", { dateStyle: "medium", timeStyle: "short" })} · ${DATA.zona} (C.P. ${DATA.cp}) · se revisa 3 veces al día`;
+
+  for (const dose of DATA.dosis) {
+    const rec = (DATA.recomendacion || {})[dose];
+    const offers = DATA.ofertas.filter(o => o.dose === dose);
+    app.appendChild(el("h2", null, `KwikPen ${dose} mg`));
+    if (!offers.length) { app.appendChild(el("p", "warn", "Sin resultados en esta revisión.")); continue; }
+
+    if (rec) {
+      const cards = el("div", "cards");
+      cards.appendChild(recCard("Mejor para comprar hoy (1 pluma)", rec.hoy, ""));
+      cards.appendChild(recCard(`Mejor valor para tu tratamiento (${DATA.horizonte_plumas} plumas)`, rec.tratamiento, "best",
+        rec.ventaja_vs_segundo ? `${MX(rec.ventaja_vs_segundo)} por pluma abajo de la segunda opción` : ""));
+      app.appendChild(cards);
+    }
+    app.appendChild(tableFor(offers));
+    app.appendChild(chartFor(dose));
+  }
+
+  if (DATA.banners?.length) {
+    app.appendChild(el("h2", null, "Promos encontradas en banners e imágenes"));
+    const box = el("div", "card");
+    DATA.banners.forEach(b => {
+      const d = el("div", "banner");
+      // el OCR deja mucho ruido: solo se muestra el texto que trae precio, % o la marca
+      const util = (b.texto || "").split("\n")
+        .filter(l => /(\$\s?\d|\d\s?%|mounjaro|cup[oó]n|gratis|compra)/i.test(l) && l.length < 120).slice(0, 3).join(" · ");
+      d.innerHTML = `<a href="${b.link || b.pagina}" target="_blank" rel="noopener"><img src="${b.src}" alt="${b.alt || ""}" loading="lazy"></a>
+        <div><b>${b.pharmacy_name}</b><div class="muted">${(b.promos || []).join(" · ") || b.alt || "imagen con Mounjaro"}</div>
+        ${b.canal ? `<span class="pill">${b.canal}</span>` : ""}${b.condicion ? `<span class="pill">${b.condicion}</span>` : ""}
+        ${util ? `<div class="muted" style="margin-top:4px">${util}</div>` : ""}</div>`;
+      box.appendChild(d);
+    });
+    app.appendChild(box);
+  }
+
+  const errs = Object.entries(DATA.errores || {});
+  if (errs.length) {
+    app.appendChild(el("h2", null, "Farmacias que fallaron"));
+    app.appendChild(el("div", "card warn", errs.map(([k, v]) => `<div>${DATA.farmacias[k] || k}: ${v}</div>`).join("")));
+  }
+}
+
+function recCard(title, pick, cls, extra) {
+  const c = el("div", "card " + cls);
+  c.innerHTML = `<h3>${title}</h3>
+    <div class="hero">${MX(pick.precio)} <span class="muted" style="font-size:14px">por pluma</span></div>
+    <div><b>${pick.pharmacy_name}</b></div>
+    <div class="muted">${pick.escenario}</div>
+    <div style="margin-top:6px">
+      <span class="pill">Cómo: ${pick.canal}</span>
+      ${(pick.condiciones || []).map(x => `<span class="pill">${x}</span>`).join("")}
+      <span class="pill">Receta: ${pick.receta}</span>
+    </div>
+    ${extra ? `<div class="muted" style="margin-top:6px">${extra}</div>` : ""}
+    <div style="margin-top:8px"><a href="${pick.url}" target="_blank" rel="noopener">Ver producto →</a></div>`;
+  return c;
+}
+
+function tableFor(offers) {
+  const box = el("div", "card");
+  const t = el("table");
+  t.innerHTML = `<thead><tr><th>Farmacia</th><th class="num">En línea</th><th class="num">Hoy</th>
+    <th class="num">Por pluma</th><th class="hide-s">Cómo comprar</th><th class="hide-s">Promos detectadas</th><th class="hide-s">Receta</th></tr></thead>`;
+  const tb = el("tbody");
+  offers.slice().sort((a, b) => (a.valor?.promedio_por_pluma ?? 1e9) - (b.valor?.promedio_por_pluma ?? 1e9)).forEach(o => {
+    const v = o.valor || {};
+    const promos = (o.promos || []).filter(p => p.kind !== "msi").map(p =>
+      `<span class="pill" title="${(p.raw || "").replace(/"/g, "'")}">${p.label}${p.source === "imagen" ? " 📷" : ""}</span>`).join("") || "—";
+    const tr = el("tr");
+    tr.innerHTML = `<td><span class="swatch" style="background:${colorOf(o.pharmacy)}"></span>
+        <a href="${o.url}" target="_blank" rel="noopener">${o.pharmacy_name}</a>
+        ${o.in_stock === false ? '<div class="warn">agotado</div>' : ""}
+        ${(DATA.notas_farmacia || {})[o.pharmacy] ? `<div class="muted" style="font-size:12px">${DATA.notas_farmacia[o.pharmacy]}</div>` : ""}</td>
+      <td class="num">${MX(o.precio_linea)}</td>
+      <td class="num">${MX(v.precio_hoy)}</td>
+      <td class="num"><b>${MX(v.promedio_por_pluma)}</b>${v.ahorro_vs_linea_pct > 0 ? `<div class="muted">-${v.ahorro_vs_linea_pct}%</div>` : ""}</td>
+      <td class="hide-s">${v.canal_tratamiento || "En línea"}${v.limite ? `<div class="muted">límite ${v.limite} pzas</div>` : ""}</td>
+      <td class="hide-s">${promos}</td>
+      <td class="hide-s">${o.receta_checkout?.resultado ? o.receta_checkout.resultado : (o.receta || "—")}</td>`;
+    tb.appendChild(tr);
+    if (o.imagenes_promo?.length) {
+      const tr2 = el("tr");
+      const td = el("td");
+      td.colSpan = 7;
+      td.innerHTML = `<div class="thumbs">` + o.imagenes_promo.map(i =>
+        `<a href="${i.url}" target="_blank" rel="noopener" title="${(i.promos || []).join(', ')}"><img src="${i.url}" loading="lazy" alt=""></a>`).join("") + `</div>`;
+      tr2.appendChild(td);
+      tb.appendChild(tr2);
+    }
+  });
+  t.appendChild(tb);
+  box.appendChild(t);
+  return box;
+}
+
+function chartFor(dose) {
+  const box = el("div", "card");
+  box.appendChild(el("h3", null, "Costo por pluma en el tiempo"));
+  const points = {};
+  HIST.forEach(run => (run.o || []).forEach(o => {
+    if (o.d !== dose || o.a == null) return;
+    (points[o.p] = points[o.p] || []).push({ t: new Date(run.t).getTime(), v: o.a });
+  }));
+  const keys = Object.keys(points);
+  if (!keys.length || HIST.length < 2) {
+    box.appendChild(el("p", "muted", "El historial se dibuja cuando haya al menos dos revisiones."));
+    return box;
+  }
+  const W = 900, H = 260, P = { t: 14, r: 16, b: 26, l: 54 };
+  const all = keys.flatMap(k => points[k]);
+  const xs = all.map(p => p.t), ys = all.map(p => p.v);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs) || x0 + 1;
+  let y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const pad = (y1 - y0) * 0.15 || 100; y0 -= pad; y1 += pad;
+  const sx = t => P.l + (W - P.l - P.r) * (x1 === x0 ? 0.5 : (t - x0) / (x1 - x0));
+  const sy = v => P.t + (H - P.t - P.b) * (1 - (v - y0) / (y1 - y0));
+
+  const ticks = 4, gridlines = [], labels = [];
+  for (let i = 0; i <= ticks; i++) {
+    const v = y0 + (y1 - y0) * i / ticks, y = sy(v);
+    gridlines.push(`<line x1="${P.l}" x2="${W - P.r}" y1="${y}" y2="${y}" stroke="var(--border)" stroke-width="1"/>`);
+    labels.push(`<text x="${P.l - 8}" y="${y + 4}" text-anchor="end" font-size="11" fill="var(--text-muted)">${MX(v)}</text>`);
+  }
+  const paths = keys.map(k => {
+    const pts = points[k].sort((a, b) => a.t - b.t);
+    const d = pts.map((p, i) => `${i ? "L" : "M"}${sx(p.t).toFixed(1)},${sy(p.v).toFixed(1)}`).join(" ");
+    const dots = pts.length < 40 ? pts.map(p =>
+      `<circle cx="${sx(p.t).toFixed(1)}" cy="${sy(p.v).toFixed(1)}" r="4" fill="${colorOf(k)}" stroke="var(--surface-1)" stroke-width="2"/>`).join("") : "";
+    return `<path d="${d}" fill="none" stroke="${colorOf(k)}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>${dots}`;
+  }).join("");
+  const fmt = t => new Date(t).toLocaleDateString("es-MX", { day: "numeric", month: "short" });
+
+  const legend = el("div", "legend", keys.map(k =>
+    `<span><span class="swatch" style="background:${colorOf(k)}"></span>${DATA.farmacias[k] || k}</span>`).join(""));
+  box.appendChild(legend);
+  const holder = el("div", "chartbox");
+  holder.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img"
+      aria-label="Costo por pluma de ${dose} mg por farmacia a lo largo del tiempo">
+    ${gridlines.join("")}${labels.join("")}
+    <text x="${P.l}" y="${H - 8}" font-size="11" fill="var(--text-muted)">${fmt(x0)}</text>
+    <text x="${W - P.r}" y="${H - 8}" font-size="11" text-anchor="end" fill="var(--text-muted)">${fmt(x1)}</text>
+    ${paths}
+    <line id="cross-${dose}" y1="${P.t}" y2="${H - P.b}" stroke="var(--text-muted)" stroke-width="1" opacity="0"/>
+    <rect x="${P.l}" y="${P.t}" width="${W - P.l - P.r}" height="${H - P.t - P.b}" fill="transparent" id="hit-${dose}"/>
+  </svg><div class="tip" id="tip-${dose}"></div>`;
+  box.appendChild(holder);
+
+  const svg = holder.querySelector("svg"), tip = holder.querySelector(".tip"), cross = holder.querySelector(`#cross-${dose}`);
+  holder.querySelector(`#hit-${dose}`).addEventListener("mousemove", ev => {
+    const r = svg.getBoundingClientRect(), vx = (ev.clientX - r.left) / r.width * W;
+    const t = x0 + (x1 - x0) * Math.min(1, Math.max(0, (vx - P.l) / (W - P.l - P.r)));
+    const rows = keys.map(k => {
+      const p = points[k].reduce((a, b) => Math.abs(b.t - t) < Math.abs(a.t - t) ? b : a);
+      return { k, p };
+    }).sort((a, b) => a.p.v - b.p.v);
+    cross.setAttribute("x1", sx(rows[0].p.t)); cross.setAttribute("x2", sx(rows[0].p.t)); cross.setAttribute("opacity", "1");
+    tip.innerHTML = `<b>${new Date(rows[0].p.t).toLocaleString("es-MX", { dateStyle: "medium", timeStyle: "short" })}</b>` +
+      rows.map(r => `<div><span class="swatch" style="background:${colorOf(r.k)}"></span>${DATA.farmacias[r.k] || r.k}: ${MX(r.p.v)}</div>`).join("");
+    tip.style.opacity = 1;
+    tip.style.left = Math.min(r.width - 190, Math.max(0, ev.clientX - r.left + 12)) + "px";
+    tip.style.top = (ev.clientY - r.top - 10) + "px";
+  });
+  holder.addEventListener("mouseleave", () => { tip.style.opacity = 0; cross.setAttribute("opacity", "0"); });
+  return box;
+}
+
+load().catch(e => document.getElementById("app").innerHTML =
+  `<div class="card warn">No se pudo cargar la información: ${e}. Si el robot aún no ha corrido, espera la primera revisión.</div>`);
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+name: Rastreador Mounjaro
+
+on:
+  schedule:
+    # 3 revisiones al día, hora CDMX (UTC-6, México ya no cambia de horario)
+    - cron: "0 13 * * *"   # 07:00 mañana
+    - cron: "0 20 * * *"   # 14:00 tarde
+    - cron: "0 3 * * *"    # 21:00 noche
+  workflow_dispatch:
+    inputs:
+      check_receta:
+        description: "Probar el carrito para ver si piden receta"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tracker
+  cancel-in-progress: false
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar Tesseract (OCR en español) y xvfb
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-spa xvfb
+
+      - name: Instalar dependencias
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chrome
+
+      - name: Probar la lógica de promos y valor
+        run: python tests/test_logic.py
+
+      - name: Revisar precios
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          CHECK_RECETA: ${{ inputs.check_receta && '1' || '' }}
+          TZ: America/Mexico_City
+          OCR_WORKERS: "3"
+        run: xvfb-run -a python -m tracker
+
+      - name: Guardar resultados
+        if: always()
+        run: |
+          git config user.name "mounjaro-tracker"
+          git config user.email "actions@github.com"
+          git add data docs/data
+          git diff --staged --quiet || git commit -m "Revisión $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git push
+
+      - name: Guardar reporte como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte
+          path: |
+            data/last_email.html
+            data/latest.json
+          retention-days: 14

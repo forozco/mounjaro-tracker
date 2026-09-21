@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+tessdata/
+data/last_email.html
+.DS_Store

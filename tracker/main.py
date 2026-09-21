@@ -1,0 +1,327 @@
+"""Corrida completa: buscar → leer páginas e imágenes → evaluar valor → guardar → avisar."""
+import asyncio
+import hashlib
+import json
+import os
+import re
+import time
+import traceback
+from datetime import datetime
+from pathlib import Path
+from zoneinfo import ZoneInfo
+
+from . import config, notify, receta
+from .browser import BANNERS_JS, PDP_JS, Browser
+from .ocr import ocr_bytes
+from .products import Product, classify
+from .promos import Promo, canal_of, condition_of, dedupe, parse_image, parse_text
+from .sources import magento, sanpablo, sfcc
+from .value import evaluate, recommend
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA = ROOT / "data"
+DOCS_DATA = ROOT / "docs" / "data"
+TZ = ZoneInfo("America/Mexico_City")
+MAX_IMAGES_PER_PRODUCT = 8
+OCR_CACHE_MAX = 600
+_RECETA_REQ = re.compile(r"(requiere|necesari|obligatori|sub(e|ir)|adjunt|present(a|ar)|carga|v[aá]lida|indispensable)[^.]{0,40}receta|receta[^.]{0,30}(requerid|obligatori|necesari|indispensable|v[aá]lida)", re.I)
+_RECETA_NO = re.compile(r"(no|sin)\s+(requiere|necesita)[^.]{0,15}receta|sin\s+receta", re.I)
+
+
+def log(*a):
+    print(datetime.now(TZ).strftime("%H:%M:%S"), *a, flush=True)
+
+
+def load_json(path: Path, default):
+    try:
+        return json.loads(path.read_text())
+    except Exception:
+        return default
+
+
+def save_json(path: Path, obj):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=1))
+
+
+def _img_key(url: str) -> str:
+    return re.sub(r"Fsp\d+Wx\d+H_", "", url.split("?")[0])
+
+
+_IS_IMG = re.compile(r"\.(jpe?g|png|webp|avif|gif)(\?|$)|/image|/media/|demandware\.static|/dw/image", re.I)
+
+
+def _normalize_img(pharmacy: str, url: str) -> str:
+    if pharmacy == "guadalajara":
+        return url.split("?")[0]  # sin ?w=80&h=80 → imagen completa
+    return url
+
+
+class Runner:
+    def __init__(self):
+        self.state = load_json(DATA / "state.json", {})
+        self.ocr_cache: dict = self.state.setdefault("ocr_cache", {})
+        self.errors: dict[str, str] = {}
+        self.ocr_sem = asyncio.Semaphore(int(os.environ.get("OCR_WORKERS", "4")))
+
+    async def ocr_url(self, br: Browser, url: str, quick: bool = False) -> dict | None:
+        key = _img_key(url) + ("#q" if quick else "")
+        if key in self.ocr_cache:
+            self.ocr_cache[key]["t"] = time.time()
+            return self.ocr_cache[key]["r"]
+        data = await br.fetch_bytes(url)
+        if not data:
+            return None
+        try:
+            async with self.ocr_sem:
+                res = await asyncio.to_thread(ocr_bytes, data, quick)
+        except Exception as e:
+            log("  OCR falló", url[:80], e)
+            return None
+        self.ocr_cache[key] = {"t": time.time(), "r": res}
+        return res
+
+    # ---------- productos ----------
+    async def collect(self, br: Browser) -> list[Product]:
+        products: list[Product] = []
+        tasks = {
+            "ahorro": lambda: asyncio.to_thread(magento.search, "ahorro"),
+            "benavides": lambda: asyncio.to_thread(magento.search, "benavides"),
+            "sanpablo": lambda: sanpablo.search(br),
+            "guadalajara": lambda: sfcc.search(br, "guadalajara"),
+            "yza": lambda: sfcc.search(br, "yza"),
+        }
+        only = [x for x in os.environ.get("ONLY", "").split(",") if x]
+        for ph, fn in tasks.items():
+            if only and ph not in only:
+                continue
+            for attempt in (1, 2):
+                try:
+                    found = await fn()
+                    kept = []
+                    for p in found:
+                        dose = classify(p.name, p.url)
+                        if dose in config.DOSES:
+                            p.dose = dose
+                            kept.append(p)
+                    log(f"{ph}: {len(found)} resultados, {len(kept)} KwikPen de interés")
+                    if not kept:
+                        raise RuntimeError("no se encontró Mounjaro KwikPen en el buscador")
+                    products += kept
+                    self.errors.pop(ph, None)
+                    break
+                except Exception as e:
+                    self.errors[ph] = f"{type(e).__name__}: {e}"
+                    log(f"{ph}: ERROR intento {attempt}: {e}")
+                    if attempt == 1:
+                        await asyncio.sleep(5)
+        return products
+
+    async def enrich(self, br: Browser, p: Product) -> dict:
+        page = await br.page()
+        pdp = {"promo": [], "receta": [], "images": [], "agotado": False, "addDisabled": None}
+        try:
+            await br.goto(page, p.url, 6000)
+            await page.mouse.wheel(0, 700)
+            await page.wait_for_timeout(1200)
+            pdp = await page.evaluate(PDP_JS, p.image_tokens or [p.sku])
+        except Exception as e:
+            log(f"  página de producto falló {p.url}: {e}")
+        finally:
+            await page.close()
+
+        # promos de texto
+        promos: list[Promo] = parse_text(pdp["promo"], "página") + parse_text(p.listing_text, "buscador")
+
+        # imágenes de la galería (API + página)
+        imgs = [_normalize_img(p.pharmacy, u) for u in p.images + pdp["images"] if _IS_IMG.search(u)]
+        imgs = list(dict.fromkeys(imgs))
+        uniq, seen = [], set()
+        for u in imgs:
+            k = _img_key(u)
+            if k not in seen:
+                seen.add(k)
+                uniq.append(u)
+        image_results = []
+        targets = uniq[:MAX_IMAGES_PER_PRODUCT]
+        for url, res in zip(targets, await asyncio.gather(*[self.ocr_url(br, u) for u in targets])):
+            if not res:
+                continue
+            found = parse_image(res, p.online_price)
+            promos += found
+            if found:
+                image_results.append({"url": url, "promos": [f.label for f in found], "texto": res["text"][:400]})
+
+        promos = dedupe(promos)
+        in_stock = p.in_stock
+        if in_stock is None:
+            in_stock = not (pdp.get("agotado") or pdp.get("addDisabled") is True)
+
+        receta_lines = pdp.get("receta", [])[:6]
+        known = config.RECETA_KNOWN.get(p.pharmacy)
+        if known:
+            receta = {"si": "Sí", "no": "No"}[known] + " (según tu experiencia)"
+        elif any(_RECETA_REQ.search(l) for l in receta_lines):
+            receta = "Sí (lo indica la página)"
+        elif any(_RECETA_NO.search(l) for l in receta_lines):
+            receta = "No (lo indica la página)"
+        else:
+            receta = "No indicado en la página"
+
+        valor = evaluate(p.online_price, promos) if p.online_price else None
+        return {
+            "id": f"{p.pharmacy}:{p.sku}",
+            "pharmacy": p.pharmacy,
+            "pharmacy_name": config.PHARMACIES[p.pharmacy]["name"],
+            "dose": p.dose,
+            "name": p.name,
+            "url": p.url,
+            "sku": p.sku,
+            "precio_lista": p.list_price,
+            "precio_linea": p.online_price,
+            "in_stock": in_stock,
+            "promos": [x.to_dict() for x in promos],
+            "imagenes_promo": image_results,
+            "imagenes": uniq[:MAX_IMAGES_PER_PRODUCT],
+            "receta": receta,
+            "receta_texto": receta_lines,
+            "valor": valor,
+        }
+
+    # ---------- banners ----------
+    async def banners(self, br: Browser) -> list[dict]:
+        hits = []
+        kw = re.compile(config.BANNER_KEYWORDS, re.I)
+        for ph, cfg in config.PHARMACIES.items():
+            for url in [cfg["home"], *cfg.get("promo_pages", [])]:
+                page = await br.page()
+                try:
+                    await br.goto(page, url, 6000)
+                    for _ in range(3):
+                        await page.mouse.wheel(0, 900)
+                        await page.wait_for_timeout(700)
+                    items = await page.evaluate(BANNERS_JS)
+                except Exception as e:
+                    log(f"banners {ph} falló: {e}")
+                    items = []
+                finally:
+                    await page.close()
+                items = items[:16]
+                # pasada rápida: solo se analiza a fondo lo que menciona Mounjaro
+                quick = await asyncio.gather(*[self.ocr_url(br, b["src"], quick=True) for b in items])
+                for b, q in zip(items, quick):
+                    meta = f"{b['alt']} {b['href']} {b['src']}"
+                    if not (kw.search(meta) or kw.search((q or {}).get("text", ""))):
+                        continue
+                    res = await self.ocr_url(br, b["src"])
+                    text = (res or {}).get("text", "")
+                    promos = dedupe((parse_image(res, None) if res else []) + parse_text([b["alt"]], "imagen"))
+                    hits.append({
+                        "pharmacy": ph, "pharmacy_name": cfg["name"], "pagina": url,
+                        "src": b["src"], "link": b["href"], "alt": b["alt"],
+                        "texto": text[:500], "promos": [p.label for p in promos],
+                        "condicion": condition_of(text + " " + b["alt"]),
+                        "canal": canal_of(text + " " + b["alt"]),
+                        "hash": hashlib.sha1(_img_key(b["src"]).encode()).hexdigest()[:12],
+                    })
+        log(f"banners con Mounjaro: {len(hits)}")
+        return hits
+
+    async def check_receta(self, br: Browser, offers: list[dict]):
+        """Prueba el carrito/checkout de cada farmacia (cada RECETA_CHECK_DAYS días)."""
+        store = self.state.setdefault("receta", {})
+        if os.environ.get("SKIP_RECETA") == "1":
+            for o in offers:
+                if prev := store.get(o["pharmacy"]):
+                    o["receta_checkout"] = prev["r"]
+            return
+        force = os.environ.get("CHECK_RECETA") == "1"
+        for o in offers:
+            prev = store.get(o["pharmacy"])
+            fresh = prev and (time.time() - prev.get("t", 0)) < config.RECETA_CHECK_DAYS * 86400
+            if fresh and not force:
+                o["receta_checkout"] = prev["r"]
+                continue
+            if any(x.get("pharmacy") == o["pharmacy"] and x.get("_done") for x in offers):
+                continue
+            log(f"probando carrito en {o['pharmacy']}…")
+            res = await receta.check(br, o["pharmacy"], o["url"])
+            store[o["pharmacy"]] = {"t": time.time(), "r": res}
+            o["receta_checkout"] = res
+            o["_done"] = True
+        for o in offers:
+            o.pop("_done", None)
+            if "receta_checkout" not in o and (prev := store.get(o["pharmacy"])):
+                o["receta_checkout"] = prev["r"]
+
+    async def run(self):
+        started = datetime.now(TZ)
+        async with Browser() as br:
+            products = await self.collect(br)
+            offers = []
+            for p in products:
+                log(f"leyendo {p.pharmacy} {p.dose}mg: {p.name}")
+                offers.append(await self.enrich(br, p))
+            banners = await self.banners(br)
+            await self.check_receta(br, offers)
+            for o in offers:
+                # lo que pasa al cerrar la compra manda sobre el aviso de la ficha
+                chk = (o.get("receta_checkout") or {}).get("resultado", "")
+                if chk.startswith(("Sí", "Menciona", "No pidió")):
+                    o["receta"] = chk
+
+        # si una farmacia tiene 2+ productos para la misma dosis, conservar el de mejor valor
+        best: dict[tuple, dict] = {}
+        for o in offers:
+            k = (o["pharmacy"], o["dose"])
+            if o["valor"] and (k not in best or o["valor"]["promedio_por_pluma"] < best[k]["valor"]["promedio_por_pluma"]):
+                best[k] = o
+        offers = sorted(best.values(), key=lambda o: (float(o["dose"]), o["valor"]["promedio_por_pluma"]))
+
+        latest = {
+            "generado": started.isoformat(timespec="minutes"),
+            "zona": config.ZONE, "cp": config.POSTAL_CODE,
+            "horizonte_plumas": config.HORIZON_PENS,
+            "dosis": config.DOSES,
+            "ofertas": offers,
+            "recomendacion": recommend(offers),
+            "banners": banners,
+            "errores": self.errors,
+            "farmacias": {k: v["name"] for k, v in config.PHARMACIES.items()},
+            "notas_farmacia": config.NOTAS_FARMACIA,
+        }
+        self.persist(latest)
+        notify.maybe_send(latest, self.state, started)
+        self.trim_cache()
+        save_json(DATA / "state.json", self.state)
+        log("listo")
+        return latest
+
+    def persist(self, latest: dict):
+        save_json(DATA / "latest.json", latest)
+        public = json.loads(json.dumps(latest))
+        save_json(DOCS_DATA / "latest.json", public)
+        hist = load_json(DOCS_DATA / "history.json", [])
+        hist.append({
+            "t": latest["generado"],
+            "o": [{"p": o["pharmacy"], "d": o["dose"], "l": o["precio_linea"],
+                   "h": o["valor"]["precio_hoy"], "a": o["valor"]["promedio_por_pluma"]} for o in latest["ofertas"]],
+        })
+        save_json(DOCS_DATA / "history.json", hist[-1500:])
+
+    def trim_cache(self):
+        if len(self.ocr_cache) > OCR_CACHE_MAX:
+            keep = sorted(self.ocr_cache.items(), key=lambda kv: kv[1].get("t", 0), reverse=True)[:OCR_CACHE_MAX]
+            self.state["ocr_cache"] = dict(keep)
+
+
+def main():
+    try:
+        asyncio.run(Runner().run())
+    except Exception:
+        traceback.print_exc()
+        raise
+
+
+if __name__ == "__main__":
+    main()
