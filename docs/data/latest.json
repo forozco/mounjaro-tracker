@@ -1,5 +1,5 @@
 {
- "generado": "2026-09-20T18:30-06:00",
+ "generado": "2026-09-20T18:38-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -166,86 +166,6 @@
    }
   },
   {
-   "id": "sanpablo:000000000070009211",
-   "pharmacy": "sanpablo",
-   "pharmacy_name": "Farmacias San Pablo",
-   "dose": "2.5",
-   "name": "Mounjaro 2.5 MG 2.4 ML Solución Caja",
-   "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-2-5-mg-2-4-ml-solucion-caja/p/000000000070009211",
-   "sku": "000000000070009211",
-   "precio_lista": 5862,
-   "precio_linea": 5862,
-   "in_stock": true,
-   "promos": [
-    {
-     "kind": "image_price",
-     "label": "Precio en imagen desde $3,520",
-     "source": "imagen",
-     "price": 3520.0,
-     "raw": "$3,520"
-    }
-   ],
-   "imagenes_promo": [
-    {
-     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hd4/h80/82381290930206/Fsp480Wx480H_Fsp800Wx800H_70009211_1k0t06fqj.jpg",
-     "promos": [
-      "Precio en imagen desde $3,520"
-     ],
-     "texto": "moro\nrzepatida\nSolución\n25 mg/05mL\nSi cot\ndae\nTio\nA\nPrSriroN\na pa\ncumpa\no\nronca\nce\nHasta\n40%\nIf trzepaida\nmounjaro' (¿EE\nSolución\n25 m9/05mL\ncc pa\nrn e\n4a COMPRA ENLACE ELI LILY\n$3,520.%\nHasta o 40%\nys COMPRA ENLACE EL] Ly L $3,520.00 ,"
-    },
-    {
-     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h82/h81/82381290995742/Fsp275Wx275H_Fsp800Wx800H_70009211_1k0t06fqj.jpg",
-     "promos": [
-      "Precio en imagen desde $3,520"
-     ],
-     "texto": "ea\nES\nE.\nES\nA\n3,\no]\na 4a COMPRA ENLACE o A L $3,520.%"
-    },
-    {
-     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hc3/h7d/82381290864670/Fsp800Wx800H_70009211_1k0t06fqj.jpg",
-     "promos": [
-      "Precio en imagen desde $3,520"
-     ],
-     "texto": "HP3466.\nmounjaro'\nCa\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nInyectable\nFórmula;\nCada0.5 mL contienen:\n“Tirzepatida.\n25m9\nVehiculo cbp.\n05m.\nLa pluma precargada KwiPen*.\n'multidosis puede entregar\n4 dosis de 0.6 ml.\nCaja con 1 pluma precargada,\nKoi\n'mulidosis con 244 mLe\ninstructivo anexo.\nDOSIS: La que el médico señale.\nJÍA DE ADMINISTRACIÓN:\nHasta\n0%\nHi]\nHP3466\n'\nHi\nmounjaro\nEd\ntirzepatida\n\"CE\nSoluci"
-    }
-   ],
-   "imagenes": [
-    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hd4/h80/82381290930206/Fsp480Wx480H_Fsp800Wx800H_70009211_1k0t06fqj.jpg",
-    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h82/h81/82381290995742/Fsp275Wx275H_Fsp800Wx800H_70009211_1k0t06fqj.jpg",
-    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hc3/h7d/82381290864670/Fsp800Wx800H_70009211_1k0t06fqj.jpg",
-    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h3f/hcc/82381291061278/Fsp100Wx100H_Fsp800Wx800H_70009211_1k0t06fqj.jpg"
-   ],
-   "receta": "No (según tu experiencia)",
-   "receta_texto": [],
-   "valor": {
-    "precio_linea": 5862,
-    "precio_hoy": 3520.0,
-    "precio_hoy_pagas": 3520.0,
-    "escenario_hoy": "Precio en imagen desde $3,520",
-    "condiciones_hoy": [
-     "Promo vista en imagen: revisa condiciones"
-    ],
-    "canal_hoy": "En línea",
-    "promedio_por_pluma": 3520.0,
-    "total_tratamiento": 14080.0,
-    "escenario_tratamiento": "Precio en imagen desde $3,520",
-    "condiciones_tratamiento": [
-     "Promo vista en imagen: revisa condiciones"
-    ],
-    "canal_tratamiento": "En línea",
-    "notas_tratamiento": [],
-    "desglose_tratamiento": [
-     3520.0,
-     3520.0,
-     3520.0,
-     3520.0
-    ],
-    "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 40.0,
-    "limite": null,
-    "msi": null
-   }
-  },
-  {
    "id": "ahorro:7501082243710",
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
@@ -259,10 +179,10 @@
    "promos": [
     {
      "kind": "image_price",
-     "label": "Precio en imagen desde $3,709",
+     "label": "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE",
      "source": "imagen",
      "price": 3709.0,
-     "condition": "Cupón / código",
+     "condition": "Cupón CORRESPONDIENTE",
      "raw": "$3,709"
     }
    ],
@@ -270,14 +190,14 @@
     {
      "url": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_32__1.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&format=jpeg",
      "promos": [
-      "Precio en imagen desde $3,709"
+      "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE"
      ],
      "texto": "814-885\nmounjaro' (CERES\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nNus\nInyectable\nnos\nNO\n27\nFdemult:\nSO\n93\ny\nCirus 0.8 mL contanant:\n934\npa\nTimepatida...\n2.5 mg\nwo\nVeniture dup.\n0.6 mL\nLa prima precargada KaloPen9\nmultibovet puede entregar\n4 dosis de 0.6 mL.\ni\nDías con 1 pienta precargada\nKelnPure\nMulticales von 2.4 mL e\nInstructive areha,\nDOREB: Le\nque el médica emusa,\nVÍA DE AD|\nIMINISTRACIÓN:\nS. Laise"
     },
     {
      "url": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_32_.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&format=jpeg",
      "promos": [
-      "Precio en imagen desde $3,709"
+      "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE"
      ],
      "texto": "814-885\nmounjaro' (CERES\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nNus\nInyectable\nnos\nNO\n27\nFdemult:\nSO\n93\ny\nCirus 0.8 mL contanant:\n934\npa\nTimepatida...\n2.5 mg\nwo\nVeniture dup.\n0.6 mL\nLa prima precargada KaloPen9\nmultibovet puede entregar\n4 dosis de 0.6 mL.\ni\nDías con 1 pienta precargada\nKelnPure\nMulticales von 2.4 mL e\nInstructive areha,\nDOREB: Le\nque el médica emusa,\nVÍA DE AD|\nIMINISTRACIÓN:\nS. Laise"
     }
@@ -296,16 +216,16 @@
     "precio_linea": 6310,
     "precio_hoy": 3709.0,
     "precio_hoy_pagas": 3709.0,
-    "escenario_hoy": "Precio en imagen desde $3,709",
+    "escenario_hoy": "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE",
     "condiciones_hoy": [
-     "Cupón / código"
+     "Cupón CORRESPONDIENTE"
     ],
     "canal_hoy": "En línea",
     "promedio_por_pluma": 3709.0,
     "total_tratamiento": 14836.0,
-    "escenario_tratamiento": "Precio en imagen desde $3,709",
+    "escenario_tratamiento": "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE",
     "condiciones_tratamiento": [
-     "Cupón / código"
+     "Cupón CORRESPONDIENTE"
     ],
     "canal_tratamiento": "En línea",
     "notas_tratamiento": [],
@@ -335,7 +255,6 @@
    "promos": [],
    "imagenes_promo": [],
    "imagenes": [
-    "https://www.yza.mx/mounjaro-tirzepatida-2.5-mg0.6-ml-sol/MXYZ_7501082243710.html",
     "https://www.yza.mx/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_YzaMexico/default/dw75e7db36/images/large/7501082243710_1.jpg?sw=1000&sh=1000",
     "https://www.yza.mx/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_YzaMexico/default/dw0f32691d/images/large/7501082243710_2.jpg?sw=1000&sh=1000",
     "https://www.yza.mx/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_YzaMexico/default/dw44eadad9/images/large/7501082243710_3.jpg?sw=1000&sh=1000",
@@ -370,105 +289,88 @@
    }
   },
   {
-   "id": "sanpablo:000000000070009209",
+   "id": "sanpablo:000000000070009211",
    "pharmacy": "sanpablo",
    "pharmacy_name": "Farmacias San Pablo",
-   "dose": "5",
-   "name": "Mounjaro 5.0 MG 2.4 ML Solución Caja",
-   "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-5-0-mg-2-4-ml-solucion-caja/p/000000000070009209",
-   "sku": "000000000070009209",
-   "precio_lista": 5964,
-   "precio_linea": 5964,
+   "dose": "2.5",
+   "name": "Mounjaro 2.5 MG 2.4 ML Solución Caja",
+   "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-2-5-mg-2-4-ml-solucion-caja/p/000000000070009211",
+   "sku": "000000000070009211",
+   "precio_lista": 5862,
+   "precio_linea": 5862,
    "in_stock": true,
    "promos": [
     {
-     "kind": "pct",
-     "label": "20% de descuento",
-     "source": "página",
-     "pct": 20.0,
-     "condition": "Club Salud San Pablo",
-     "raw": "20% de Descuento"
-    },
-    {
      "kind": "buy_n_get_1",
-     "label": "Acumula 4 y el siguiente gratis",
+     "label": "Acumula 6 y el siguiente gratis",
      "source": "página",
-     "n": 4,
+     "n": 6,
      "condition": "Club Salud San Pablo",
-     "raw": "Programa Club Salud: Acumula 4 y el 5º es GRATIS."
+     "raw": "Programa Club Salud: Acumula 6 y el 7º es GRATIS."
     },
     {
-     "kind": "pct",
-     "label": "10% de descuento",
-     "source": "página",
-     "pct": 10.0,
-     "condition": "Club Salud San Pablo",
-     "raw": "10% de Descuento"
-    },
-    {
-     "kind": "image_price",
-     "label": "Precio en imagen desde $3,879",
+     "kind": "tier_at",
+     "label": "4ª compra: $3,520",
      "source": "imagen",
-     "price": 3879.0,
-     "raw": "$3,879"
+     "n": 4,
+     "price": 3520.0,
+     "raw": "$3,520"
     }
    ],
    "imagenes_promo": [
     {
-     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/he7/h61/82381290012702/Fsp480Wx480H_Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hd4/h80/82381290930206/Fsp480Wx480H_Fsp800Wx800H_70009211_1k0t06fqj.jpg",
      "promos": [
-      "Precio en imagen desde $3,879"
+      "4ª compra: $3,520"
      ],
-     "texto": "eos\nmounjaro'\nútirzepatida\nSolución\n5 mg/0.5 ml\nInyectable\nFárma\nnom conren:\nec\nrr)\nEN\nMo\na rc Ru\na pon rr\non\npm\ncc\na Sd Lo\npi\n08: La ques másco ser.\nDEAD\nHasta\n35%\nones\nSolución\ntirzepatida\nInyectable\n5mg/0.6 mL.\nFont:\nres\noem\ncaco;\nEa\nDEAD\nDOSIS: Luo más sr.\n4a COMPRA ENLACE EL] LILY\n$3,879,\nHasta o 35%\nys COMPRA ENLACE ELI Ly L $3,879.00 |"
+     "texto": "moro\nrzepatida\nSolución\n25 mg/05mL\nSi cot\ndae\nTio\nA\nPrSriroN\na pa\ncumpa\no\nronca\nce\nHasta\n40%\nIf trzepaida\nmounjaro' (¿EE\nSolución\n25 m9/05mL\ncc pa\nrn e\n4a COMPRA ENLACE ELI LILY\n$3,520.%\nHasta o 40%\nys COMPRA ENLACE EL] Ly L $3,520.00 ,"
     },
     {
-     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h95/h62/82381290078238/Fsp275Wx275H_Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h82/h81/82381290995742/Fsp275Wx275H_Fsp800Wx800H_70009211_1k0t06fqj.jpg",
      "promos": [
-      "Precio en imagen desde $3,879"
+      "4ª compra: $3,520"
      ],
-     "texto": "Di]\nEno\n=>\n=—\n==\na\n=\n==.\n==\nEs\n+\nE\n35% Y\nso E\n4a COMPR)\n(CE ELI LILY\n$3,879.00\na 4a COMPRA ENLACE 0 A , $3,879,.%"
+     "texto": "ea\nES\nE.\nES\nA\n3,\no]\na 4a COMPRA ENLACE o A L $3,520.%"
     },
     {
-     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h9a/h96/82381289947166/Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hc3/h7d/82381290864670/Fsp800Wx800H_70009211_1k0t06fqj.jpg",
      "promos": [
-      "Precio en imagen desde $3,879"
+      "4ª compra: $3,520"
      ],
-     "texto": "HP3455\nmounjaro'\nEE\ntirzepatida\nSolución\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 ml contienen:\nTirzepatida\n5mg\nVehículo cbp\n.. 0.5 ML.\nLa pluma precargada KwikPend\nmultidosis puede entregar 4 dosis\nde 0.6 mL.\nCaja con 1 pluma precargada\nKwikPen* multidosis con 2.4 mL. e\ninstructivo anexo.\nDOSIS: La que el médico señale.\nVÍA DE ADMINISTRACIÓN:\nHasta\n35%\nHP3455\nmounjaro”\ntirzepatida\nSolución\n5 mg/0"
+     "texto": "HP3466.\nmounjaro'\nCa\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nInyectable\nFórmula;\nCada0.5 mL contienen:\n“Tirzepatida.\n25m9\nVehiculo cbp.\n05m.\nLa pluma precargada KwiPen*.\n'multidosis puede entregar\n4 dosis de 0.6 ml.\nCaja con 1 pluma precargada,\nKoi\n'mulidosis con 244 mLe\ninstructivo anexo.\nDOSIS: La que el médico señale.\nJÍA DE ADMINISTRACIÓN:\nHasta\n0%\nHi]\nHP3466\n'\nHi\nmounjaro\nEd\ntirzepatida\n\"CE\nSoluci"
     }
    ],
    "imagenes": [
-    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/he7/h61/82381290012702/Fsp480Wx480H_Fsp800Wx800H_70009209_1k0t06fqj.jpg",
-    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h95/h62/82381290078238/Fsp275Wx275H_Fsp800Wx800H_70009209_1k0t06fqj.jpg",
-    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h9a/h96/82381289947166/Fsp800Wx800H_70009209_1k0t06fqj.jpg",
-    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/ha6/h65/82381290143774/Fsp100Wx100H_Fsp800Wx800H_70009209_1k0t06fqj.jpg"
+    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hd4/h80/82381290930206/Fsp480Wx480H_Fsp800Wx800H_70009211_1k0t06fqj.jpg",
+    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h82/h81/82381290995742/Fsp275Wx275H_Fsp800Wx800H_70009211_1k0t06fqj.jpg",
+    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hc3/h7d/82381290864670/Fsp800Wx800H_70009211_1k0t06fqj.jpg",
+    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h3f/hcc/82381291061278/Fsp100Wx100H_Fsp800Wx800H_70009211_1k0t06fqj.jpg"
    ],
    "receta": "No (según tu experiencia)",
    "receta_texto": [],
    "valor": {
-    "precio_linea": 5964,
-    "precio_hoy": 3879.0,
-    "precio_hoy_pagas": 3879.0,
-    "escenario_hoy": "Precio en imagen desde $3,879",
-    "condiciones_hoy": [
-     "Promo vista en imagen: revisa condiciones"
-    ],
+    "precio_linea": 5862,
+    "precio_hoy": 5862,
+    "precio_hoy_pagas": 5862,
+    "escenario_hoy": "Precio en línea",
+    "condiciones_hoy": [],
     "canal_hoy": "En línea",
-    "promedio_por_pluma": 3879.0,
-    "total_tratamiento": 15516.0,
-    "escenario_tratamiento": "Precio en imagen desde $3,879",
-    "condiciones_tratamiento": [
-     "Promo vista en imagen: revisa condiciones"
-    ],
+    "promedio_por_pluma": 5276.5,
+    "total_tratamiento": 21106.0,
+    "escenario_tratamiento": "4ª compra: $3,520",
+    "condiciones_tratamiento": [],
     "canal_tratamiento": "En línea",
-    "notas_tratamiento": [],
+    "notas_tratamiento": [
+     "Ese precio aplica hasta tu compra número 4"
+    ],
     "desglose_tratamiento": [
-     3879.0,
-     3879.0,
-     3879.0,
-     3879.0
+     5862,
+     5862,
+     5862,
+     3520.0
     ],
     "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 35.0,
+    "ahorro_vs_linea_pct": 10.0,
     "limite": null,
     "msi": null
    }
@@ -683,7 +585,6 @@
    "promos": [],
    "imagenes_promo": [],
    "imagenes": [
-    "https://www.yza.mx/mounjaro-tirzepatida-5-mg0.6-ml-sol/MXYZ_7501082243727.html",
     "https://www.yza.mx/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_YzaMexico/default/dw0f0a174f/images/large/7501082243727_1.jpg?sw=1000&sh=1000",
     "https://www.yza.mx/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_YzaMexico/default/dwdb67e2fb/images/large/7501082243727_2.jpg?sw=1000&sh=1000",
     "https://www.yza.mx/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_YzaMexico/default/dw419ddd21/images/large/7501082243727_3.jpg?sw=1000&sh=1000",
@@ -713,6 +614,103 @@
     ],
     "regalo_valor": 0,
     "ahorro_vs_linea_pct": 0.0,
+    "limite": null,
+    "msi": null
+   }
+  },
+  {
+   "id": "sanpablo:000000000070009209",
+   "pharmacy": "sanpablo",
+   "pharmacy_name": "Farmacias San Pablo",
+   "dose": "5",
+   "name": "Mounjaro 5.0 MG 2.4 ML Solución Caja",
+   "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-5-0-mg-2-4-ml-solucion-caja/p/000000000070009209",
+   "sku": "000000000070009209",
+   "precio_lista": 5964,
+   "precio_linea": 5964,
+   "in_stock": true,
+   "promos": [
+    {
+     "kind": "pct",
+     "label": "10% de descuento",
+     "source": "página",
+     "pct": 10.0,
+     "condition": "Club Salud San Pablo",
+     "raw": "10% de Descuento"
+    },
+    {
+     "kind": "buy_n_get_1",
+     "label": "Acumula 6 y el siguiente gratis",
+     "source": "página",
+     "n": 6,
+     "condition": "Club Salud San Pablo",
+     "raw": "Programa Club Salud: Acumula 6 y el 7º es GRATIS."
+    },
+    {
+     "kind": "tier_at",
+     "label": "4ª compra: $3,879",
+     "source": "imagen",
+     "n": 4,
+     "price": 3879.0,
+     "raw": "$3,879"
+    }
+   ],
+   "imagenes_promo": [
+    {
+     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/he7/h61/82381290012702/Fsp480Wx480H_Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+     "promos": [
+      "4ª compra: $3,879"
+     ],
+     "texto": "eos\nmounjaro'\nútirzepatida\nSolución\n5 mg/0.5 ml\nInyectable\nFárma\nnom conren:\nec\nrr)\nEN\nMo\na rc Ru\na pon rr\non\npm\ncc\na Sd Lo\npi\n08: La ques másco ser.\nDEAD\nHasta\n35%\nones\nSolución\ntirzepatida\nInyectable\n5mg/0.6 mL.\nFont:\nres\noem\ncaco;\nEa\nDEAD\nDOSIS: Luo más sr.\n4a COMPRA ENLACE EL] LILY\n$3,879,\nHasta o 35%\nys COMPRA ENLACE ELI Ly L $3,879.00 |"
+    },
+    {
+     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h95/h62/82381290078238/Fsp275Wx275H_Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+     "promos": [
+      "4ª compra: $3,879"
+     ],
+     "texto": "Di]\nEno\n=>\n=—\n==\na\n=\n==.\n==\nEs\n+\nE\n35% Y\nso E\n4a COMPR)\n(CE ELI LILY\n$3,879.00\na 4a COMPRA ENLACE 0 A , $3,879,.%"
+    },
+    {
+     "url": "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h9a/h96/82381289947166/Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+     "promos": [
+      "4ª compra: $3,879"
+     ],
+     "texto": "HP3455\nmounjaro'\nEE\ntirzepatida\nSolución\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 ml contienen:\nTirzepatida\n5mg\nVehículo cbp\n.. 0.5 ML.\nLa pluma precargada KwikPend\nmultidosis puede entregar 4 dosis\nde 0.6 mL.\nCaja con 1 pluma precargada\nKwikPen* multidosis con 2.4 mL. e\ninstructivo anexo.\nDOSIS: La que el médico señale.\nVÍA DE ADMINISTRACIÓN:\nHasta\n35%\nHP3455\nmounjaro”\ntirzepatida\nSolución\n5 mg/0"
+    }
+   ],
+   "imagenes": [
+    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/he7/h61/82381290012702/Fsp480Wx480H_Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h95/h62/82381290078238/Fsp275Wx275H_Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h9a/h96/82381289947166/Fsp800Wx800H_70009209_1k0t06fqj.jpg",
+    "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/ha6/h65/82381290143774/Fsp100Wx100H_Fsp800Wx800H_70009209_1k0t06fqj.jpg"
+   ],
+   "receta": "No (según tu experiencia)",
+   "receta_texto": [],
+   "valor": {
+    "precio_linea": 5964,
+    "precio_hoy": 5367.6,
+    "precio_hoy_pagas": 5367.6,
+    "escenario_hoy": "10% de descuento",
+    "condiciones_hoy": [
+     "Club Salud San Pablo"
+    ],
+    "canal_hoy": "En línea",
+    "promedio_por_pluma": 5367.6,
+    "total_tratamiento": 21470.4,
+    "escenario_tratamiento": "10% de descuento",
+    "condiciones_tratamiento": [
+     "Club Salud San Pablo"
+    ],
+    "canal_tratamiento": "En línea",
+    "notas_tratamiento": [],
+    "desglose_tratamiento": [
+     5367.6,
+     5367.6,
+     5367.6,
+     5367.6
+    ],
+    "regalo_valor": 0,
+    "ahorro_vs_linea_pct": 10.0,
     "limite": null,
     "msi": null
    }
@@ -805,46 +803,46 @@
    "ranking": [
     "guadalajara:1460706",
     "benavides:1050874",
-    "sanpablo:000000000070009211",
     "ahorro:7501082243710",
-    "yza:MXYZ_7501082243710"
+    "yza:MXYZ_7501082243710",
+    "sanpablo:000000000070009211"
    ]
   },
   "5": {
    "hoy": {
-    "id": "sanpablo:000000000070009209",
-    "pharmacy": "sanpablo",
-    "pharmacy_name": "Farmacias San Pablo",
-    "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-5-0-mg-2-4-ml-solucion-caja/p/000000000070009209",
-    "precio": 3879.0,
-    "pagas": 3879.0,
-    "escenario": "Precio en imagen desde $3,879",
+    "id": "benavides:1050873",
+    "pharmacy": "benavides",
+    "pharmacy_name": "Farmacias Benavides",
+    "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
+    "precio": 3882.0,
+    "pagas": 3882.0,
+    "escenario": "Precio en imagen desde $3,882",
     "condiciones": [
-     "Promo vista en imagen: revisa condiciones"
+     "Tarjeta Benavides Recompensas"
     ],
-    "canal": "En línea",
-    "receta": "No (según tu experiencia)"
+    "canal": "En línea/app (por confirmar en la imagen)",
+    "receta": "Sí (lo indica la página)"
    },
    "tratamiento": {
-    "id": "sanpablo:000000000070009209",
-    "pharmacy": "sanpablo",
-    "pharmacy_name": "Farmacias San Pablo",
-    "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-5-0-mg-2-4-ml-solucion-caja/p/000000000070009209",
-    "precio": 3879.0,
+    "id": "benavides:1050873",
+    "pharmacy": "benavides",
+    "pharmacy_name": "Farmacias Benavides",
+    "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
+    "precio": 3882.0,
     "pagas": null,
-    "escenario": "Precio en imagen desde $3,879",
+    "escenario": "Precio en imagen desde $3,882",
     "condiciones": [
-     "Promo vista en imagen: revisa condiciones"
+     "Tarjeta Benavides Recompensas"
     ],
-    "canal": "En línea",
-    "receta": "No (según tu experiencia)"
+    "canal": "En línea/app (por confirmar en la imagen)",
+    "receta": "Sí (lo indica la página)"
    },
-   "ventaja_vs_segundo": 3.0,
+   "ventaja_vs_segundo": 798.0,
    "ranking": [
-    "sanpablo:000000000070009209",
     "benavides:1050873",
     "guadalajara:1460714",
     "yza:MXYZ_7501082243727",
+    "sanpablo:000000000070009209",
     "ahorro:7501082243727"
    ]
   }
@@ -859,6 +857,7 @@
    "alt": "",
    "texto": "il\nloo\nde\nhen\nsl\nñ\nDocti\n5]\nlb creación\nJen\nmoujaro\nnp\nmosaro CEE\nIl smoime\nSola\nzepatida\nSms\ne instructivo anexo.\nCaja con 30 tabletas.\nInyectable\n15mo/06 me\nrra\nhi\nFoundayz”\n0.8 mg\nY\nFoundayz:\nll\nE\nE\ntraen\nTableta\nOrforglipron\n(orforglipron)\nÍJ\nmounjaro-\nmd AE\nil reparó\n123 mejo cm\nmg\n1 slo\n' 1omgosme\nVía de administración: Oral.\ne instructivo anexo.\nCaja con 30 tabletas.\nFsagnsm\nim\nFoundayz”\nFoundayz\nMounjaro\n0.8 mg y 2.5 mg\nUltra-Fine\"\n2.5, 5,7.5, 10, 12.5 y 15 mg/O.6 ml.\n=\nTableta\nOrforglip",
    "promos": [
+    "Vigencia: del 1al 30 de septiembre del 2026 S",
     "40% de descuento (imagen)"
    ],
    "condicion": "Tarjeta Benavides Recompensas",
@@ -874,6 +873,7 @@
    "alt": "",
    "texto": "<Í\nye\nAHORA\nS\nBLE -\nDIS\nPONI\nNS\nCaja con 30 tabletas\ne instructivo anexo.\nFoundayz:\nFoundayz”\n0.8 mg\nTA4178\n(orforglipron)\nOrforglipron\nTableta\nCaja con 30 tabletas\ne instructivo anexo.\nVía de administración: Oral.\nFoundayz”\nFoundayz\nOrforglipron\n0.8 mg y 2.5 mg\nTableta\nVía de administración: Oral.\nc/30 tabs.\n1052379 - 1052385\nbenavides\nrecompensas\nembecto:\nUltra\nne\nAgujas pe\nlas\nGRATIS\n%o\nEn la compra de\n*Presentando tu tarjeta\n32G\n10\nMounjaro Pluma\ne\nBenavides Recompensas\nmm\n1027946\nf-.\nla\nHP9",
    "promos": [
+    "Vigencia: del 1 al 30 de septiembre del 2026",
     "Límite 2 piezas",
     "Escalonado por compra: 35% → 38% → 40%"
    ],
@@ -889,7 +889,9 @@
    "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
    "alt": "Aprovecha",
    "texto": "-\nmoofiro CEE\nmos EEN\npei\nmame\nEmp\nra\nEl\n=\nMETE\n3,771,\n4,920\n6,428\nprecios en\na C Mounjaro Tirzepatida 2.5 Mg/0.6 MI Sal )\neN q Mounijaro Tirzepatida 5 Mg/0.6 MI sal )\nA 1 Mounjaro Tirzepatida 7.5 Mg/0.6 MI Sal)\nMounjaro.\nES\nz\nmou\nE\nmouffiro\" GER\nmr\n>\nnos\nE\nE\n5\n\"6,403\n\"7,999\n7,999\nLo,\n(- Mounjaro Kwikpen 10 Mg/O.6 MI Sol >)\nEcol C Mounjaro Kwikpen 12.5 Mg/0.6 MI Sol J\nE C Mounjaro Kwikpen 15 Mg/O0.6 MI Sol )\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consu",
-   "promos": [],
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre 2026"
+   ],
    "condicion": null,
    "canal": null,
    "hash": "3ab25a96e1fb"
@@ -898,11 +900,28 @@
    "pharmacy": "yza",
    "pharmacy_name": "Farmacias YZA",
    "pagina": "https://www.yza.mx/",
-   "src": "https://ilpqgczhqhtmsypfafjr.supabase.co/functions/v1/r2-image?key=campaigns%2F180fe1ab-045e-42a9-b442-19368730436e%2Fd472d3f4-24f5-4187-bd47-a86bf2165731.webp&itok=1789952771.unv3uJ3FCzjf3vdy0wh4_UgeFZtM5YiYy_I77kMchgw",
+   "src": "https://ilpqgczhqhtmsypfafjr.supabase.co/functions/v1/r2-image?key=campaigns%2F180fe1ab-045e-42a9-b442-19368730436e%2Fd472d3f4-24f5-4187-bd47-a86bf2165731.webp&itok=1789953270.4j9-s9v25jA-LwLEJG-tKJqntBKYB6oqHRreJH1FrkU",
    "link": "",
    "alt": "",
    "texto": "3,771,\n:/920\n6,428\nMounjaro Tirzeptida 2.5 Mg\nMounjaro Tirzepatid.\n/06MISol\nMounjaro\nirzepati\n/06MISol\n6,403\n==.\n7,999\nmes\n7.999\n((Mcaniaro Kwvikpen 10 M\nMounjaro Kwikpen 12.5 MiJ0.6 MISol\nKnen 15 M/0.6 MISol\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consulta a tu médico.\nMejores precios\nen Mounjaro.\na]\na]\na Sn.\n:4/920\n6,428\n(Gama Trcpaid 25050501)\nMETIO)\n2 (cuna Treat 15Mg0 OMS)\nE\nZE\n7.\n6,403\n999\n999\nMCTATENTIIEO)\n2 eno open 25902155)\nMERINETEO)\nPromoció",
-   "promos": [],
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre 2026"
+   ],
+   "condicion": null,
+   "canal": null,
+   "hash": "3e60f567f7df"
+  },
+  {
+   "pharmacy": "yza",
+   "pharmacy_name": "Farmacias YZA",
+   "pagina": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
+   "src": "https://ilpqgczhqhtmsypfafjr.supabase.co/functions/v1/r2-image?key=campaigns%2F180fe1ab-045e-42a9-b442-19368730436e%2F43cd721c-af79-48fe-bf53-969d91035b91.webp&itok=1789953270.07NYDTlaevPSSS5wVPTux3LDH2F3bolY72Gg_KNdG7c",
+   "link": "",
+   "alt": "",
+   "texto": "3,771,\n:/920\n6,428\nMounjaro Tirzeptida 2.5 Mg\nMounjaro Tirzepatid.\n/06MISol\nMounjaro\nirzepati\n/06MISol\n6,403\n==.\n7,999\nmes\n7.999\n((Mcaniaro Kwvikpen 10 M\nMounjaro Kwikpen 12.5 MiJ0.6 MISol\nKnen 15 M/0.6 MISol\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consulta a tu médico.\nMejores precios\nen Mounjaro.\na]\na]\na Sn.\n:4/920\n6,428\n(Gama Trcpaid 25050501)\nMETIO)\n2 (cuna Treat 15Mg0 OMS)\nE\nZE\n7.\n6,403\n999\n999\nMCTATENTIIEO)\n2 eno open 25902155)\nMERINETEO)\nPromoció",
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre 2026"
+   ],
    "condicion": null,
    "canal": null,
    "hash": "3e60f567f7df"

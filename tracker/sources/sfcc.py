@@ -21,9 +21,9 @@ async def search(br: Browser, pharmacy: str, terms=("mounjaro kwikpen", "mounjar
     found: dict[str, Product] = {}
     try:
         for q in terms:
-            resp = await br.goto(page, SITES[pharmacy].format(q=quote_plus(q)), 7000)
-            if resp and resp.status >= 400:
-                raise RuntimeError(f"buscador respondió {resp.status}")
+            _, bloqueado = await br.goto_ok(page, SITES[pharmacy].format(q=quote_plus(q)), 7000)
+            if bloqueado:
+                raise RuntimeError("el buscador respondió con bloqueo o página de error")
             for t in await page.evaluate(SFCC_TILES_JS):
                 if not t.get("pid") or t["pid"] in found or not t.get("href"):
                     continue

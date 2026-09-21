@@ -67,7 +67,8 @@ async def check(br: Browser, pharmacy: str, product_url: str) -> dict:
                 seen.append(scan)
                 # intentar avanzar un paso del checkout
                 try:
-                    btn = page.get_by_role("button", name=re.compile(r"proceder|continuar|pagar|finalizar|checkout", re.I)).first
+                    # solo avanzar un paso; nunca botones que confirmen la compra
+                    btn = page.get_by_role("button", name=re.compile(r"proceder|continuar(?! comprando)|checkout", re.I)).first
                     if await btn.count():
                         await btn.click(timeout=8000)
                         await page.wait_for_timeout(7000)

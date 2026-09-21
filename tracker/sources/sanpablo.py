@@ -27,7 +27,9 @@ def _image_urls(obj) -> list[str]:
 async def search(br: Browser) -> list[Product]:
     page = await br.page()
     try:
-        await br.goto(page, BASE + "/", 5000)
+        _, bloqueado = await br.goto_ok(page, BASE + "/", 5000)
+        if bloqueado:
+            raise RuntimeError("el sitio respondió con bloqueo o página de error")
         found: dict[str, Product] = {}
         for q in ("mounjaro", "tirzepatida"):
             status, data = await page.evaluate(

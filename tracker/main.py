@@ -120,11 +120,16 @@ class Runner:
     async def enrich(self, br: Browser, p: Product) -> dict:
         page = await br.page()
         pdp = {"promo": [], "receta": [], "images": [], "agotado": False, "addDisabled": None}
+        bloqueado = False
         try:
-            await br.goto(page, p.url, 6000)
-            await page.mouse.wheel(0, 700)
-            await page.wait_for_timeout(1200)
-            pdp = await page.evaluate(PDP_JS, p.image_tokens or [p.sku])
+            _, bloqueado = await br.goto_ok(page, p.url, 6000)
+            if bloqueado:
+                log(f"  {p.pharmacy}: la página del producto vino bloqueada o con error")
+                self.errors[p.pharmacy] = "la página del producto respondió bloqueo o error; los datos pueden estar incompletos"
+            else:
+                await page.mouse.wheel(0, 700)
+                await page.wait_for_timeout(1200)
+                pdp = await page.evaluate(PDP_JS, p.image_tokens or [p.sku])
         except Exception as e:
             log(f"  página de producto falló {p.url}: {e}")
         finally:
@@ -185,6 +190,7 @@ class Runner:
             "imagenes": uniq[:MAX_IMAGES_PER_PRODUCT],
             "receta": receta,
             "receta_texto": receta_lines,
+            "pagina_bloqueada": bloqueado,
             "valor": valor,
         }
 
@@ -196,7 +202,10 @@ class Runner:
             for url in [cfg["home"], *cfg.get("promo_pages", [])]:
                 page = await br.page()
                 try:
-                    await br.goto(page, url, 6000)
+                    _, bloqueado = await br.goto_ok(page, url, 6000)
+                    if bloqueado:
+                        log(f"banners {ph}: página bloqueada o con error, se omite")
+                        continue
                     for _ in range(3):
                         await page.mouse.wheel(0, 900)
                         await page.wait_for_timeout(700)

@@ -194,6 +194,7 @@ function tableFor(offers) {
     tr.innerHTML = `<td><span class="swatch" style="background:${colorOf(o.pharmacy)}"></span>
         <a href="${o.url}" target="_blank" rel="noopener">${o.pharmacy_name}</a>
         ${o.in_stock === false ? '<div class="warn">agotado</div>' : ""}
+        ${o.pagina_bloqueada ? '<div class="warn" style="font-size:12px">su página respondió bloqueo: puede faltar alguna promo</div>' : ""}
         ${(DATA.notas_farmacia || {})[o.pharmacy] ? `<div class="muted" style="font-size:12px">${DATA.notas_farmacia[o.pharmacy]}</div>` : ""}</td>
       <td class="num">${MX(o.precio_linea)}</td>
       <td class="num">${MX(v.precio_hoy)}</td>

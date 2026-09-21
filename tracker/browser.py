@@ -1,11 +1,20 @@
 """Navegador real (Chrome) con Playwright. San Pablo y Guadalajara bloquean navegadores
 "headless", así que se usa Chrome con ventana; en GitHub Actions corre dentro de xvfb."""
 import os
+import re
 
 from playwright.async_api import BrowserContext, Page, async_playwright
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/140.0 Safari/537.36")
+
+# Señales de que el sitio nos mandó una página de error o nos bloqueó el anti-bot
+# (Incapsula en Ahorro, Akamai en San Pablo, etc.) en lugar de la página real.
+BLOCK_RE = re.compile(
+    r"incapsula|request unsuccessful|access denied|acceso denegado|pardon the interruption|"
+    r"attention required|unusual traffic|tráfico inusual|forbidden|error 4\d\d|error 5\d\d|"
+    r"servicio no disponible|página no (est[áa] )?disponible|intenta m[áa]s tarde|"
+    r"temporarily unavailable|502 bad gateway|503 service", re.I)
 
 
 class Browser:
@@ -36,6 +45,23 @@ class Browser:
         resp = await page.goto(url, wait_until="domcontentloaded", timeout=90000)
         await page.wait_for_timeout(wait_ms)
         return resp
+
+    async def goto_ok(self, page: Page, url: str, wait_ms: int = 6000) -> tuple[object, bool]:
+        """Navega y detecta páginas de error o bloqueo del anti-bot; reintenta una vez.
+        Regresa (respuesta, bloqueado)."""
+        for intento in (1, 2):
+            resp = await self.goto(page, url, wait_ms)
+            try:
+                marca = (await page.title() or "") + " " + (await page.inner_text("body"))[:600]
+            except Exception:
+                marca = ""
+            status = getattr(resp, "status", 200) or 200
+            if not (status >= 400 or BLOCK_RE.search(marca)):
+                return resp, False
+            if intento == 1:
+                print(f"  {url[:70]} respondió bloqueo/error ({status}); reintentando en 15 s")
+                await page.wait_for_timeout(15000)
+        return resp, True
 
     async def fetch_bytes(self, url: str) -> bytes | None:
         try:
