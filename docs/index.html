@@ -74,6 +74,16 @@
   .pair .s { color: var(--muted); font-size: 14px; }
   .pair a { text-decoration: none; }
   .pair.one { grid-template-columns: 1fr; }
+  .year { margin: 26px 0 0; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .year .k { color: var(--muted); font-size: 13px; }
+  .year ol { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 7px; }
+  .year li { display: grid; grid-template-columns: 1fr auto; gap: 0 12px; align-items: baseline; }
+  .year .nm { font-weight: 500; }
+  .year .av { font-weight: 500; text-align: right; }
+  .year li:first-child .av { color: var(--accent); }
+  .year .st { grid-column: 1 / -1; color: var(--muted); font-size: 13px; }
+  .year .st.dudoso { color: var(--warn); }
+  .year .fin { margin: 12px 0 0; font-size: 15px; text-wrap: pretty; }
   .steps { margin: 20px 0 0; }
   .steps .k { color: var(--muted); font-size: 13px; }
   .steps ol { list-style: none; margin: 8px 0 0; padding: 0; display: grid;
@@ -251,6 +261,51 @@ function hace(fecha) {
   return "actualizado el " + fecha.toLocaleDateString("es-MX", { day: "numeric", month: "long" });
 }
 
+// Costo promedio a un año (12 plumas, una al mes) y qué tan seguro es ese número
+const MESES = 12;
+function anual(o) {
+  const v = o.valor, d = v.desglose_tratamiento || [], e = v.escenario_tratamiento || "";
+  const ult = d[d.length - 1];
+  const esc = d.length > 1 && Math.max(...d) - Math.min(...d) >= 1;
+  const acu = e.match(/^Acumula (\d+)/);
+  if (acu) {
+    const n = +acu[1], base = Math.max(...d);
+    return { avg: base * (MESES - Math.floor(MESES / (n + 1))) / MESES, seguro: true,
+      st: `una pieza gratis cada ${n + 1} compras` };
+  }
+  if (!esc) return { avg: v.promedio_por_pluma, seguro: true, st: "mismo precio en cada compra" };
+  const avg = (d.reduce((a, b) => a + b, 0) + ult * (MESES - d.length)) / MESES;
+  if (o.pharmacy === "benavides" && /^Escalonado/.test(e))
+    return { avg, seguro: true, st: `confirmado: te quedas en ${MX(ult)} si compras cada 35 días o menos` };
+  return { avg, seguro: false, st: `supone que te quedas en ${MX(ult)} después de la ${d.length}.ª; la farmacia no lo publica` };
+}
+
+function bloqueAnual(offers) {
+  const filas = offers.map(o => ({ o, ...anual(o) })).sort((a, b) => a.avg - b.avg);
+  if (filas.length < 2) return "";
+  const top = filas[0], seg = filas.find(f => f.seguro);
+  let fin;
+  if (top.seguro) {
+    fin = `A largo plazo la mejor es <strong>${esc(top.o.pharmacy_name)}</strong>, a <span class="num">${MX(top.avg)}</span> por pluma en promedio.`;
+  } else if (seg) {
+    const dif = seg.avg - top.avg;
+    fin = `Lo más barato sería <strong>${esc(top.o.pharmacy_name)}</strong> (<span class="num">${MX(top.avg)}</span>), pero solo si
+      mantiene su último descuento, y eso no está publicado. Con una regla confirmada, la mejor es
+      <strong>${esc(seg.o.pharmacy_name)}</strong> (<span class="num">${MX(seg.avg)}</span>)${dif >= 1
+        ? `, apenas <span class="num">${MX(dif)}</span> más por pluma` : ""}.`;
+    if (top.o.pharmacy === "sanpablo") fin += ` Si confirmas con San Pablo que Enlace se queda en 35%, conviene San Pablo; si se reinicia, conviene ${esc(seg.o.pharmacy_name)}.`;
+  } else {
+    fin = `La más barata sería <strong>${esc(top.o.pharmacy_name)}</strong>, aunque ninguna farmacia publica qué pasa al terminar su escalonado.`;
+  }
+  return `<div class="year">
+    <div class="k">A un año · una pluma al mes</div>
+    <ol>${filas.map(f => `<li>
+      <span class="nm">${esc(f.o.pharmacy_name)}</span><span class="av num">${MX(f.avg)}</span>
+      <span class="st${f.seguro ? "" : " dudoso"}">${esc(f.st)}</span></li>`).join("")}</ol>
+    <p class="fin">${fin}</p>
+  </div>`;
+}
+
 // Qué pasa después del último nivel del escalonado, según lo que publica cada farmacia
 function despues(ph, des, n) {
   const ult = des[des.length - 1], k = des.length;
@@ -344,7 +399,7 @@ function render() {
           <div class="v">${esc(h.pharmacy_name)} · <span class="num">${MX(h.precio)}</span></div>
           <div class="s">precio de hoy${h.requiere_cuenta ? " · requiere cuenta" : ""}${porQueHoy}</div>
         </div></a>
-      </div>`}${pasos}
+      </div>`}${bloqueAnual(offers)}${pasos}
       <a class="go" href="${esc(t.url)}" target="_blank" rel="noopener">Ver en ${esc(t.pharmacy_name)}</a>`;
   }
 
