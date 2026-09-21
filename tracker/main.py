@@ -3,6 +3,7 @@ import asyncio
 import hashlib
 import json
 import os
+import random
 import re
 import time
 import traceback
@@ -62,18 +63,19 @@ class Runner:
         self.state = load_json(DATA / "state.json", {})
         self.ocr_cache: dict = self.state.setdefault("ocr_cache", {})
         self.errors: dict[str, str] = {}
-        self.ocr_sem = asyncio.Semaphore(int(os.environ.get("OCR_WORKERS", "4")))
+        self.ocr_sem = asyncio.Semaphore(int(os.environ.get("OCR_WORKERS", "3")))
+        self.visitadas: set[str] = set()  # farmacias cuyo home/buscador ya se visitó
 
-    async def ocr_url(self, br: Browser, url: str, quick: bool = False) -> dict | None:
+    async def ocr_url(self, br: Browser, url: str, quick: bool = False, referer: str | None = None) -> dict | None:
         key = _img_key(url) + ("#q" if quick else "")
         if key in self.ocr_cache:
             self.ocr_cache[key]["t"] = time.time()
             return self.ocr_cache[key]["r"]
-        data = await br.fetch_bytes(url)
-        if not data:
-            return None
         try:
-            async with self.ocr_sem:
+            async with self.ocr_sem:  # limita descargas simultáneas: nada de ráfagas
+                data = await br.fetch_bytes(url, referer)
+                if not data:
+                    return None
                 res = await asyncio.to_thread(ocr_bytes, data, quick)
         except Exception as e:
             log("  OCR falló", url[:80], e)
@@ -92,7 +94,9 @@ class Runner:
             "yza": lambda: sfcc.search(br, "yza"),
         }
         only = [x for x in os.environ.get("ONLY", "").split(",") if x]
-        for ph, fn in tasks.items():
+        orden = list(tasks.items())
+        random.shuffle(orden)  # no visitar siempre en el mismo orden
+        for ph, fn in orden:
             if only and ph not in only:
                 continue
             for attempt in (1, 2):
@@ -117,18 +121,40 @@ class Runner:
                         await asyncio.sleep(5)
         return products
 
+    async def entrar_al_sitio(self, br: Browser, pharmacy: str) -> str | None:
+        """Pasa por el home y el buscador antes de la ficha: así la visita tiene cookies
+        y referer, como la de una persona, y no la de un enlace directo."""
+        if pharmacy in self.visitadas:
+            return config.BUSCADORES.get(pharmacy)
+        self.visitadas.add(pharmacy)
+        buscador = config.BUSCADORES.get(pharmacy)
+        page = await br.page()
+        try:
+            _, bloqueado = await br.goto_ok(page, config.PHARMACIES[pharmacy]["home"], 4000)
+            if not bloqueado:
+                await br.read_like_human(page)
+            if buscador:
+                await br.goto_ok(page, buscador, 5000, referer=config.PHARMACIES[pharmacy]["home"])
+                await br.read_like_human(page)
+        except Exception as e:
+            log(f"  no se pudo entrar a {pharmacy} por el buscador: {type(e).__name__}")
+        finally:
+            await page.close()
+        return buscador
+
     async def enrich(self, br: Browser, p: Product) -> dict:
+        p.referer = await self.entrar_al_sitio(br, p.pharmacy)
         page = await br.page()
         pdp = {"promo": [], "receta": [], "images": [], "agotado": False, "addDisabled": None}
         bloqueado = False
         try:
-            _, bloqueado = await br.goto_ok(page, p.url, 6000)
+            # se llega a la ficha "desde el buscador" de la farmacia, como lo haría una persona
+            _, bloqueado = await br.goto_ok(page, p.url, 6000, referer=p.referer)
             if bloqueado:
                 log(f"  {p.pharmacy}: la página del producto vino bloqueada o con error")
                 self.errors[p.pharmacy] = "la página del producto respondió bloqueo o error; los datos pueden estar incompletos"
             else:
-                await page.mouse.wheel(0, 700)
-                await page.wait_for_timeout(1200)
+                await br.read_like_human(page)
                 pdp = await page.evaluate(PDP_JS, p.image_tokens or [p.sku])
         except Exception as e:
             log(f"  página de producto falló {p.url}: {e}")
@@ -149,7 +175,7 @@ class Runner:
                 uniq.append(u)
         image_results = []
         targets = uniq[:MAX_IMAGES_PER_PRODUCT]
-        for url, res in zip(targets, await asyncio.gather(*[self.ocr_url(br, u) for u in targets])):
+        for url, res in zip(targets, await asyncio.gather(*[self.ocr_url(br, u, referer=p.url) for u in targets])):
             if not res:
                 continue
             found = parse_image(res, p.online_price)
@@ -202,17 +228,18 @@ class Runner:
     async def banners(self, br: Browser) -> list[dict]:
         hits = []
         kw = re.compile(config.BANNER_KEYWORDS, re.I)
-        for ph, cfg in config.PHARMACIES.items():
+        farmacias = list(config.PHARMACIES.items())
+        random.shuffle(farmacias)
+        for ph, cfg in farmacias:
             for url in [cfg["home"], *cfg.get("promo_pages", [])]:
+                await asyncio.sleep(random.uniform(*config.PAUSA_ENTRE_PAGINAS))
                 page = await br.page()
                 try:
                     _, bloqueado = await br.goto_ok(page, url, 6000)
                     if bloqueado:
                         log(f"banners {ph}: página bloqueada o con error, se omite")
                         continue
-                    for _ in range(3):
-                        await page.mouse.wheel(0, 900)
-                        await page.wait_for_timeout(700)
+                    await br.read_like_human(page)
                     items = await page.evaluate(BANNERS_JS)
                 except Exception as e:
                     log(f"banners {ph} falló: {e}")
@@ -221,13 +248,12 @@ class Runner:
                     await page.close()
                 items = items[:16]
                 # pasada rápida: solo se analiza a fondo lo que menciona Mounjaro
-                quick = await asyncio.gather(*[self.ocr_url(br, b["src"], quick=True) for b in items])
-                await asyncio.sleep(config.PAUSA_ENTRE_PAGINAS)
+                quick = await asyncio.gather(*[self.ocr_url(br, b["src"], quick=True, referer=url) for b in items])
                 for b, q in zip(items, quick):
                     meta = f"{b['alt']} {b['href']} {b['src']}"
                     if not (kw.search(meta) or kw.search((q or {}).get("text", ""))):
                         continue
-                    res = await self.ocr_url(br, b["src"])
+                    res = await self.ocr_url(br, b["src"], referer=url)
                     text = (res or {}).get("text", "")
                     promos = dedupe((parse_image(res, None) if res else []) + parse_text([b["alt"]], "imagen"))
                     hits.append({
@@ -271,13 +297,14 @@ class Runner:
     async def run(self):
         started = datetime.now(TZ)
         async with Browser() as br:
+            # primero el home y sus promociones (como llega una persona), luego los productos
+            banners = await self.banners(br)
             products = await self.collect(br)
             offers = []
             for p in products:
                 log(f"leyendo {p.pharmacy} {p.dose}mg: {p.name}")
                 offers.append(await self.enrich(br, p))
-                await asyncio.sleep(config.PAUSA_ENTRE_PAGINAS)
-            banners = await self.banners(br)
+                await asyncio.sleep(random.uniform(*config.PAUSA_ENTRE_PAGINAS))
             await self.check_receta(br, offers)
             for o in offers:
                 # lo que pasa al cerrar la compra manda sobre el aviso de la ficha

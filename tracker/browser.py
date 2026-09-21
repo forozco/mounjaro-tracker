@@ -1,6 +1,8 @@
 """Navegador real (Chrome) con Playwright. San Pablo y Guadalajara bloquean navegadores
 "headless", así que se usa Chrome con ventana; en GitHub Actions corre dentro de xvfb."""
+import asyncio
 import os
+import random
 import re
 
 from playwright.async_api import BrowserContext, Page, async_playwright
@@ -30,9 +32,16 @@ class Browser:
             print(f"Chrome no disponible ({e}); se usa Chromium")
             self.browser = await self._pw.chromium.launch(headless=headless, args=args)
         self.ctx: BrowserContext = await self.browser.new_context(
-            locale="es-MX", timezone_id="America/Mexico_City", viewport={"width": 1366, "height": 900},
+            locale="es-MX", timezone_id="America/Mexico_City",
+            viewport=random.choice([{"width": 1366, "height": 900}, {"width": 1440, "height": 900},
+                                    {"width": 1512, "height": 945}, {"width": 1280, "height": 800}]),
             geolocation={"latitude": 19.3955, "longitude": -99.1560}, permissions=["geolocation"],
+            extra_http_headers={"Accept-Language": "es-MX,es;q=0.9,en;q=0.8"},
         )
+        # navigator.webdriver delata al navegador automatizado
+        await self.ctx.add_init_script(
+            "Object.defineProperty(navigator, 'webdriver', {get: () => undefined});")
+        self._last_host = None
         return self
 
     async def __aexit__(self, *exc):
@@ -42,18 +51,35 @@ class Browser:
     async def page(self) -> Page:
         return await self.ctx.new_page()
 
-    async def goto(self, page: Page, url: str, wait_ms: int = 6000):
-        resp = await page.goto(url, wait_until="domcontentloaded", timeout=90000)
-        await page.wait_for_timeout(wait_ms)
+    async def goto(self, page: Page, url: str, wait_ms: int = 6000, referer: str | None = None):
+        """Navega con tiempos variables, como una persona leyendo la página."""
+        host = url.split("/")[2] if "//" in url else url
+        if self._last_host == host:
+            await asyncio.sleep(random.uniform(2.0, 5.0))  # pausa entre páginas del mismo sitio
+        self._last_host = host
+        resp = await page.goto(url, wait_until="domcontentloaded", timeout=90000,
+                               **({"referer": referer} if referer else {}))
+        await page.wait_for_timeout(int(wait_ms * random.uniform(0.85, 1.4)))
         return resp
 
-    async def goto_ok(self, page: Page, url: str, wait_ms: int = 6000) -> tuple[object, bool]:
+    async def read_like_human(self, page: Page):
+        """Mueve el mouse y baja poco a poco, en lugar de saltar de golpe al final."""
+        try:
+            await page.mouse.move(random.randint(200, 900), random.randint(150, 600),
+                                  steps=random.randint(5, 15))
+            for _ in range(random.randint(2, 4)):
+                await page.mouse.wheel(0, random.randint(250, 600))
+                await page.wait_for_timeout(random.randint(500, 1400))
+        except Exception:
+            pass
+
+    async def goto_ok(self, page: Page, url: str, wait_ms: int = 6000, referer: str | None = None) -> tuple[object, bool]:
         """Navega y detecta páginas de error o bloqueo del anti-bot; reintenta una vez.
         Regresa (respuesta, bloqueado)."""
         resp = None
         for intento in (1, 2):
             try:
-                resp = await self.goto(page, url, wait_ms)
+                resp = await self.goto(page, url, wait_ms, referer)
                 marca = (await page.title() or "") + " " + (await page.inner_text("body"))[:600]
                 status = getattr(resp, "status", 200) or 200
             except Exception as e:  # navegación abortada, timeout, conexión caída
@@ -74,9 +100,13 @@ class Browser:
                 await page.wait_for_timeout(20000)
         return resp, True
 
-    async def fetch_bytes(self, url: str) -> bytes | None:
+    async def fetch_bytes(self, url: str, referer: str | None = None) -> bytes | None:
         try:
-            r = await self.ctx.request.get(url, timeout=45000, headers={"User-Agent": UA})
+            headers = {"User-Agent": UA, "Accept": "image/avif,image/webp,image/png,image/*,*/*;q=0.8",
+                       "Accept-Language": "es-MX,es;q=0.9"}
+            if referer:
+                headers["Referer"] = referer
+            r = await self.ctx.request.get(url, timeout=45000, headers=headers)
             if r.ok:
                 return await r.body()
         except Exception:

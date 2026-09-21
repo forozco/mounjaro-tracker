@@ -42,6 +42,11 @@ jobs:
           pip install -r requirements.txt
           python -m playwright install --with-deps chrome
 
+      - name: Esperar un rato al azar
+        # Para no llegar siempre en el minuto exacto, que es señal de robot
+        if: github.event_name == 'schedule'
+        run: sleep $((RANDOM % 900))
+
       - name: Probar la lógica de promos y valor
         run: python tests/test_logic.py
 

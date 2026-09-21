@@ -21,6 +21,7 @@ class Product:
     images: list[str] = field(default_factory=list)
     listing_text: list[str] = field(default_factory=list)  # texto de la tarjeta en el buscador
     image_tokens: list[str] = field(default_factory=list)  # para reconocer imágenes de la galería en la página
+    referer: str | None = None  # la búsqueda de la que salió, para llegar a la ficha como persona
     dose: str | None = None
 
 

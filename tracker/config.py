@@ -62,6 +62,16 @@ PHARMACIES = {
     },
 }
 
+# Buscador de cada farmacia. Se visita antes de abrir la ficha del producto, para
+# llegar como llega una persona (con cookies y referer) y no como enlace directo.
+BUSCADORES = {
+    "ahorro": "https://www.fahorro.com/catalogsearch/result/?q=mounjaro",
+    "benavides": "https://www.benavides.com.mx/catalogsearch/result/?q=mounjaro",
+    "sanpablo": "https://www.farmaciasanpablo.com.mx/search?text=mounjaro",
+    "guadalajara": "https://www.farmaciasguadalajara.com/buscar/?q=mounjaro",
+    "yza": "https://www.yza.mx/busqueda?q=mounjaro",
+}
+
 # Notas fijas que se muestran junto a cada farmacia en el dashboard
 NOTAS_FARMACIA = {
     "guadalajara": "Su sitio avisa que el precio en línea puede variar según la ubicación y que es distinto al de tienda física.",
@@ -72,8 +82,9 @@ NOTAS_FARMACIA = {
 # Palabras que marcan un banner/imagen como relevante
 BANNER_KEYWORDS = r"mounjaro|tirzepat|kwik\s*pen|lilly"
 
-# Pausa entre páginas para no disparar el anti-bot (Imperva en Ahorro, Akamai en San Pablo)
-PAUSA_ENTRE_PAGINAS = 3
+# Pausa (mínimo, máximo) en segundos entre páginas, con variación para no parecer robot.
+# El anti-bot (Imperva en Ahorro, Akamai en San Pablo) se fija en ritmos muy parejos.
+PAUSA_ENTRE_PAGINAS = (4, 11)
 
 # Cada cuántos días se prueba el flujo de carrito/checkout para ver si piden receta
 RECETA_CHECK_DAYS = 7
