@@ -1,5 +1,5 @@
 {
- "generado": "2026-09-20T19:14-06:00",
+ "generado": "2026-09-20T19:49-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -69,7 +69,7 @@
     "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460706_S_1280_F.jpg",
     "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460706_P_1280_E.jpg"
    ],
-   "receta": "No indicado en la página",
+   "receta": "No pidió receta hasta el carrito",
    "receta_texto": [],
    "pagina_bloqueada": false,
    "valor": {
@@ -97,6 +97,12 @@
     "ahorro_vs_linea_pct": 2.6,
     "limite": 2,
     "msi": null
+   },
+   "receta_checkout": {
+    "pharmacy": "guadalajara",
+    "resultado": "No pidió receta hasta el carrito",
+    "evidencia": [],
+    "url_revisada": "https://www.farmaciasguadalajara.com/carrito"
    }
   },
   {
@@ -166,7 +172,7 @@
     "https://www.benavides.com.mx/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/2/0/20260626_1050874.jpg",
     "https://www.benavides.com.mx/media/catalog/product/cache/e9b3cd68cf301023ca3840e5fcb628f3/2/0/20260626_1050874.jpg"
    ],
-   "receta": "No la pide la ficha",
+   "receta": "No pidió receta hasta el carrito",
    "receta_texto": [
     "Farmacia Receta No Obligatoria"
    ],
@@ -200,6 +206,12 @@
     "ahorro_vs_linea_pct": 40.0,
     "limite": null,
     "msi": 3
+   },
+   "receta_checkout": {
+    "pharmacy": "benavides",
+    "resultado": "No pidió receta hasta el carrito",
+    "evidencia": [],
+    "url_revisada": "https://www.benavides.com.mx/checkout/cart/"
    }
   },
   {
@@ -265,7 +277,7 @@
     "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
     "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width="
    ],
-   "receta": "No (según tu experiencia)",
+   "receta": "Menciona receta, pero sin pedir datos",
    "receta_texto": [],
    "pagina_bloqueada": false,
    "valor": {
@@ -297,6 +309,14 @@
     "ahorro_vs_linea_pct": 41.2,
     "limite": null,
     "msi": 3
+   },
+   "receta_checkout": {
+    "pharmacy": "ahorro",
+    "resultado": "Menciona receta, pero sin pedir datos",
+    "evidencia": [
+     "Requisitos de recetas"
+    ],
+    "url_revisada": "https://www.fahorro.com/checkout/cart/"
    }
   },
   {
@@ -347,6 +367,12 @@
     "ahorro_vs_linea_pct": 0.0,
     "limite": null,
     "msi": null
+   },
+   "receta_checkout": {
+    "pharmacy": "yza",
+    "resultado": "no se pudo abrir el carrito",
+    "evidencia": [],
+    "url_revisada": null
    }
   },
   {
@@ -402,7 +428,7 @@
     "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/hc3/h7d/82381290864670/Fsp800Wx800H_70009211_1k0t06fqj.jpg",
     "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h3f/hcc/82381291061278/Fsp100Wx100H_Fsp800Wx800H_70009211_1k0t06fqj.jpg"
    ],
-   "receta": "No (según tu experiencia)",
+   "receta": "No pidió receta hasta el carrito",
    "receta_texto": [],
    "pagina_bloqueada": false,
    "valor": {
@@ -432,6 +458,12 @@
     "ahorro_vs_linea_pct": 10.0,
     "limite": null,
     "msi": null
+   },
+   "receta_checkout": {
+    "pharmacy": "sanpablo",
+    "resultado": "No pidió receta hasta el carrito",
+    "evidencia": [],
+    "url_revisada": "https://www.farmaciasanpablo.com.mx/cart"
    }
   },
   {
@@ -520,7 +552,7 @@
     "https://www.benavides.com.mx/media/catalog/product/cache/2c7977919d0ee0a3de4c72b73c33ffee/1/0/1050873.jpg",
     "https://www.benavides.com.mx/media/catalog/product/cache/2c7977919d0ee0a3de4c72b73c33ffee/1/0/1050873_1.jpg"
    ],
-   "receta": "No la pide la ficha",
+   "receta": "No pidió receta hasta el carrito",
    "receta_texto": [
     "Farmacia Receta No Obligatoria"
    ],
@@ -556,6 +588,12 @@
     "ahorro_vs_linea_pct": 27.5,
     "limite": 2,
     "msi": 3
+   },
+   "receta_checkout": {
+    "pharmacy": "benavides",
+    "resultado": "No pidió receta hasta el carrito",
+    "evidencia": [],
+    "url_revisada": "https://www.benavides.com.mx/checkout/cart/"
    }
   },
   {
@@ -618,7 +656,7 @@
     "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_S_1280_F.jpg",
     "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_P_1280_E.jpg"
    ],
-   "receta": "No indicado en la página",
+   "receta": "No pidió receta hasta el carrito",
    "receta_texto": [],
    "pagina_bloqueada": false,
    "valor": {
@@ -646,6 +684,12 @@
     "ahorro_vs_linea_pct": 2.0,
     "limite": 2,
     "msi": null
+   },
+   "receta_checkout": {
+    "pharmacy": "guadalajara",
+    "resultado": "No pidió receta hasta el carrito",
+    "evidencia": [],
+    "url_revisada": "https://www.farmaciasguadalajara.com/carrito"
    }
   },
   {
@@ -696,6 +740,107 @@
     "ahorro_vs_linea_pct": 0.0,
     "limite": null,
     "msi": null
+   },
+   "receta_checkout": {
+    "pharmacy": "yza",
+    "resultado": "no se pudo abrir el carrito",
+    "evidencia": [],
+    "url_revisada": null
+   }
+  },
+  {
+   "id": "ahorro:7501082243727",
+   "pharmacy": "ahorro",
+   "pharmacy_name": "Farmacias del Ahorro",
+   "dose": "5",
+   "name": "Mounjaro Kwikpen 5Mg/0.6Ml 3 ml",
+   "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
+   "sku": "7501082243727",
+   "precio_lista": 6500,
+   "precio_linea": 6500,
+   "in_stock": true,
+   "promos": [
+    {
+     "kind": "msi",
+     "label": "3 meses sin intereses",
+     "source": "página",
+     "n": 3,
+     "raw": "$2,166.67 x 3 meses sin intereses"
+    },
+    {
+     "kind": "cupon",
+     "label": "Cupón MOUNJARO20",
+     "source": "imagen",
+     "condition": "Cupón MOUNJARO20",
+     "raw": "MOUNJARO20"
+    },
+    {
+     "kind": "image_price",
+     "label": "Precio en imagen desde $5,159 con cupón MOUNJARO20",
+     "source": "imagen",
+     "price": 5159.0,
+     "condition": "Cupón MOUNJARO20",
+     "raw": "$5,159"
+    }
+   ],
+   "imagenes_promo": [
+    {
+     "url": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_33_.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&format=jpeg",
+     "promos": [
+      "Cupón MOUNJARO20",
+      "Precio en imagen desde $5,159 con cupón MOUNJARO20"
+     ],
+     "texto": "HP3455\nmg\nmounjaro AE\nDAML\ntirzepatida\nSolución\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.5 mL contienen:\nTirzepatida\n5 mg\nVehículo cbp .\n0.8 mL\nLa pluma precargada KwikPen*\nmultidusia puede entregar 4 dosis\nde 0.6 mL\nCaja con 1 pluma precargada\nKwikPerr* multidesis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que el médico señale.\nVÍA DE ADMINISTRACIÓN:\nSubcutánez. Lease instructivo\nanexo.\nIngresa el c",
+     "thumb": "img/7d5e312dbaf1.jpg"
+    }
+   ],
+   "imagenes": [
+    "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_33_.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&format=jpeg",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_3.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width="
+   ],
+   "receta": "Menciona receta, pero sin pedir datos",
+   "receta_texto": [],
+   "pagina_bloqueada": false,
+   "valor": {
+    "precio_linea": 6500,
+    "precio_hoy": 5159.0,
+    "precio_hoy_pagas": 5159.0,
+    "escenario_hoy": "Precio en imagen desde $5,159 con cupón MOUNJARO20",
+    "condiciones_hoy": [
+     "Cupón MOUNJARO20"
+    ],
+    "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": true,
+    "promedio_por_pluma": 5159.0,
+    "total_tratamiento": 20636.0,
+    "escenario_tratamiento": "Precio en imagen desde $5,159 con cupón MOUNJARO20",
+    "condiciones_tratamiento": [
+     "Cupón MOUNJARO20"
+    ],
+    "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": true,
+    "notas_tratamiento": [],
+    "desglose_tratamiento": [
+     5159.0,
+     5159.0,
+     5159.0,
+     5159.0
+    ],
+    "regalo_valor": 0,
+    "ahorro_vs_linea_pct": 20.6,
+    "limite": null,
+    "msi": 3
+   },
+   "receta_checkout": {
+    "pharmacy": "ahorro",
+    "resultado": "Menciona receta, pero sin pedir datos",
+    "evidencia": [
+     "Requisitos de recetas"
+    ],
+    "url_revisada": "https://www.fahorro.com/checkout/cart/"
    }
   },
   {
@@ -751,7 +896,7 @@
     "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/h9a/h96/82381289947166/Fsp800Wx800H_70009209_1k0t06fqj.jpg",
     "https://hfprod.farmaciasanpablo.com.mx/sys-master-azureproductimages/ha6/h65/82381290143774/Fsp100Wx100H_Fsp800Wx800H_70009209_1k0t06fqj.jpg"
    ],
-   "receta": "No (según tu experiencia)",
+   "receta": "No pidió receta hasta el carrito",
    "receta_texto": [],
    "pagina_bloqueada": false,
    "valor": {
@@ -781,80 +926,12 @@
     "ahorro_vs_linea_pct": 8.7,
     "limite": null,
     "msi": null
-   }
-  },
-  {
-   "id": "ahorro:7501082243727",
-   "pharmacy": "ahorro",
-   "pharmacy_name": "Farmacias del Ahorro",
-   "dose": "5",
-   "name": "Mounjaro Kwikpen 5Mg/0.6Ml 3 ml",
-   "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
-   "sku": "7501082243727",
-   "precio_lista": 6500,
-   "precio_linea": 6500,
-   "in_stock": true,
-   "promos": [
-    {
-     "kind": "msi",
-     "label": "3 meses sin intereses",
-     "source": "página",
-     "n": 3,
-     "raw": "$2,166.67 x 3 meses sin intereses"
-    },
-    {
-     "kind": "cupon",
-     "label": "Cupón MOUNJARO20",
-     "source": "imagen",
-     "condition": "Cupón MOUNJARO20",
-     "raw": "MOUNJARO20"
-    }
-   ],
-   "imagenes_promo": [
-    {
-     "url": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_33_.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&format=jpeg",
-     "promos": [
-      "Cupón MOUNJARO20"
-     ],
-     "texto": "HP3455\nmg\nmounjaro AE\nDAML\ntirzepatida\nSolución\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.5 mL contienen:\nTirzepatida\n5 mg\nVehículo cbp .\n0.8 mL\nLa pluma precargada KwikPen*\nmultidusia puede entregar 4 dosis\nde 0.6 mL\nCaja con 1 pluma precargada\nKwikPerr* multidesis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que el médico señale.\nVÍA DE ADMINISTRACIÓN:\nSubcutánez. Lease instructivo\nanexo.\nIngresa el c",
-     "thumb": "img/7d5e312dbaf1.jpg"
-    }
-   ],
-   "imagenes": [
-    "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_33_.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&format=jpeg",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_3.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width="
-   ],
-   "receta": "No (según tu experiencia)",
-   "receta_texto": [],
-   "pagina_bloqueada": false,
-   "valor": {
-    "precio_linea": 6500,
-    "precio_hoy": 6500,
-    "precio_hoy_pagas": 6500,
-    "escenario_hoy": "Precio en línea",
-    "condiciones_hoy": [],
-    "canal_hoy": "En línea",
-    "requiere_cuenta_hoy": false,
-    "promedio_por_pluma": 6500.0,
-    "total_tratamiento": 26000,
-    "escenario_tratamiento": "Precio en línea",
-    "condiciones_tratamiento": [],
-    "canal_tratamiento": "En línea",
-    "requiere_cuenta_tratamiento": false,
-    "notas_tratamiento": [],
-    "desglose_tratamiento": [
-     6500,
-     6500,
-     6500,
-     6500
-    ],
-    "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 0.0,
-    "limite": null,
-    "msi": 3
+   },
+   "receta_checkout": {
+    "pharmacy": "sanpablo",
+    "resultado": "No pidió receta hasta el carrito",
+    "evidencia": [],
+    "url_revisada": "https://www.farmaciasanpablo.com.mx/cart"
    }
   }
  ],
@@ -871,7 +948,7 @@
     "condiciones": [],
     "canal": "En línea",
     "requiere_cuenta": false,
-    "receta": "No indicado en la página"
+    "receta": "No pidió receta hasta el carrito"
    },
    "tratamiento": {
     "id": "guadalajara:1460706",
@@ -884,7 +961,7 @@
     "condiciones": [],
     "canal": "En línea",
     "requiere_cuenta": false,
-    "receta": "No indicado en la página"
+    "receta": "No pidió receta hasta el carrito"
    },
    "ventaja_vs_segundo": 25.0,
    "ranking": [
@@ -907,7 +984,7 @@
     "condiciones": [],
     "canal": "En línea",
     "requiere_cuenta": false,
-    "receta": "No indicado en la página"
+    "receta": "No pidió receta hasta el carrito"
    },
    "tratamiento": {
     "id": "benavides:1050873",
@@ -922,15 +999,15 @@
     ],
     "canal": "En línea/app (por confirmar en la imagen)",
     "requiere_cuenta": true,
-    "receta": "No la pide la ficha"
+    "receta": "No pidió receta hasta el carrito"
    },
    "ventaja_vs_segundo": 348.85,
    "ranking": [
     "benavides:1050873",
     "guadalajara:1460714",
     "yza:MXYZ_7501082243727",
-    "sanpablo:000000000070009209",
-    "ahorro:7501082243727"
+    "ahorro:7501082243727",
+    "sanpablo:000000000070009209"
    ]
   }
  },
