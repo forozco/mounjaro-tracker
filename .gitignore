@@ -4,3 +4,5 @@ __pycache__/
 tessdata/
 data/last_email.html
 .DS_Store
+local/.env
+local/logs/

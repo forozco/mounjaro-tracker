@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.forozco.mounjaro-tracker</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/forozco/Downloads/INE/mounjaro-tracker/local/correr.sh</string>
+  </array>
+  <!-- Mañana, tarde y noche -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>10</integer></dict>
+    <dict><key>Hour</key><integer>14</integer><key>Minute</key><integer>20</integer></dict>
+    <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>5</integer></dict>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/forozco/Downloads/INE/mounjaro-tracker</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/forozco/Downloads/INE/mounjaro-tracker/local/logs/launchd.err</string>
+  <key>StandardOutPath</key>
+  <string>/Users/forozco/Downloads/INE/mounjaro-tracker/local/logs/launchd.out</string>
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>
