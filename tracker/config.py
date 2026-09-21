@@ -77,6 +77,7 @@ NOTAS_FARMACIA = {
     "guadalajara": "Su sitio avisa que el precio en línea puede variar según la ubicación y que es distinto al de tienda física.",
     "yza": "Cobertura en CDMX reciente: confirma que hagan envío a tu C.P. o si hay que recoger en sucursal.",
     "sanpablo": "Envío gratis a CDMX.",
+    "benavides": "Después de la 4.ª compra te quedas en el descuento máximo mientras cada compra caiga dentro de los 35 días de la anterior; si te pasas, vuelves al primer nivel.",
 }
 
 # Palabras que marcan un banner/imagen como relevante

@@ -165,8 +165,10 @@
       <li>El descuento va <strong>por tandas: sube con cada compra</strong>. 20% la 1.ª, 25% la 2.ª, 30% la 3.ª y 35% la 4.ª.
         Así lo publica San Pablo para Enlace.</li>
       <li>Benavides tiene la misma escala, pero con <strong>su tarjeta Benavides Recompensas</strong>, no con Enlace.
-        Para no perder el nivel, cada compra debe caer <strong>dentro de los 35 días</strong> de la anterior; si no,
-        vuelves al 20%.</li>
+        Después de la 4.ª <strong>te quedas en 35%</strong> (en la de 5 mg, $3,882 por pluma), siempre que cada compra
+        caiga <strong>dentro de los 35 días</strong> de la anterior; si no, vuelves al 20%.</li>
+      <li>En Enlace no está publicado qué pasa después de la 4.ª ni el plazo entre compras: pregúntalo en San Pablo
+        al 55-5354-9000.</li>
       <li>Las compras se acumulan <strong>en la misma cadena</strong>; si cambias de farmacia, empiezas de nuevo.</li>
       <li>Máximo <strong>2 piezas cada 30 días</strong>.</li>
       <li><strong>En línea solo la encontramos en San Pablo</strong>: en el carrito aparece como “Programa de
@@ -249,6 +251,19 @@ function hace(fecha) {
   return "actualizado el " + fecha.toLocaleDateString("es-MX", { day: "numeric", month: "long" });
 }
 
+// Qué pasa después del último nivel del escalonado, según lo que publica cada farmacia
+function despues(ph, des, n) {
+  const ult = des[des.length - 1], k = des.length;
+  const anio = Math.round((des.reduce((a, b) => a + b, 0) + ult * (12 - k)) / 12);
+  if (ph === "benavides") return `Después de la ${k}.ª te quedas en <strong class="num">${MX(ult)}</strong> por pluma
+    mientras cada compra caiga dentro de los 35 días de la anterior; si te pasas, vuelves a la 1.ª.
+    En un año, una al mes, el promedio baja a <strong class="num">${MX(anio)}</strong>.`;
+  if (ph === "sanpablo") return `Ni San Pablo ni Lilly publican qué pasa después de la ${k}.ª ni cuántos días puede haber
+    entre compras; confírmalo al 55-5354-9000. Si te quedas en <span class="num">${MX(ult)}</span>, en un año el
+    promedio sería <span class="num">${MX(anio)}</span>.`;
+  return `La promoción cubre ${k} compras; no dice qué precio sigue después de la ${k}.ª, así que confírmalo con la farmacia.`;
+}
+
 // Tendencia del costo por pluma en las últimas revisiones
 function tendencia(ph) {
   const pts = HIST.flatMap(r => (r.o || []).filter(o => o.p === ph && o.d === DOSE && o.a != null).map(o => o.a)).slice(-30);
@@ -298,8 +313,8 @@ function render() {
         <p>La primera te cuesta <strong class="num">${MX(des[0])}</strong> y el precio baja en cada compra hasta
           <strong class="num">${MX(des[des.length - 1])}</strong> en la ${des.length}.ª. En total pagas
           <strong class="num">${MX(bv.total_tratamiento)}</strong> por ${des.length} plumas, o sea
-          <strong class="num">${MX(t.precio)}</strong> cada una.${plazo ? " Cada compra tiene que caer dentro del plazo que marque la farmacia." : ""}
-          La promoción cubre ${des.length} compras; no dice qué precio sigue después de la ${des.length}.ª, así que confírmalo con la farmacia.</p>
+          <strong class="num">${MX(t.precio)}</strong> cada una.${plazo && !["benavides", "sanpablo"].includes(t.pharmacy) ? " Cada compra tiene que caer dentro del plazo que marque la farmacia." : ""}
+          ${despues(t.pharmacy, des, n)}</p>
       </div>`;
     const porQueHoy = !misma && escalonado && des[0] > h.precio
       ? ` · en ${esc(t.pharmacy_name)} la 1.ª sale en <span class="num">${MX(des[0])}</span>` : "";
