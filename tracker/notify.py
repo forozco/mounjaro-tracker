@@ -112,7 +112,8 @@ def render(latest: dict, reasons: list[str]) -> str:
                  f"<div class='m'>{t['escenario']} · cómo comprarla: {t['canal']}"
                  + (f" · {', '.join(t['condiciones'])}" if t["condiciones"] else "")
                  + f" · receta: {t['receta']}</div>"
-                 f"<div class='m'>Si solo compras una hoy: {hoy['pharmacy_name']} a {money(hoy['precio'])}</div>"
+                 + (f"<div class='m'>🔑 Necesitas tu cuenta o tarjeta de la farmacia para este precio</div>" if t.get("requiere_cuenta") else "")
+                 + f"<div class='m'>Si solo compras una hoy: {hoy['pharmacy_name']} a {money(hoy['precio'])}</div>"
                  f"<div><a href='{t['url']}'>Ver producto</a></div></div>")
         h.append("<table><tr><th>Farmacia</th><th>En línea</th><th>Hoy</th><th>Por pluma</th><th>Promos</th></tr>")
         for o in latest["ofertas"]:

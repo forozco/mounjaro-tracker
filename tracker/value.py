@@ -6,8 +6,17 @@ Para cada oferta arma escenarios de compra (precio normal, cada promo aplicable)
 restando el valor de regalos (agujas) y del monedero. Las promos normalmente no se
 acumulan entre sí, así que se toma el MEJOR escenario, no la suma.
 """
+import re
+
 from . import config
 from .promos import Promo
+
+# Condiciones que implican tener cuenta, tarjeta o app de la farmacia
+_NECESITA_CUENTA = re.compile(r"tarjeta|monedero|club|lealtad|recompensa|cu[ií]date|socio|app|cup[oó]n|c[oó]digo", re.I)
+
+
+def necesita_cuenta(condiciones, escenario="") -> bool:
+    return any(_NECESITA_CUENTA.search(c or "") for c in condiciones) or bool(_NECESITA_CUENTA.search(escenario))
 
 
 def _scenario(label, unit_prices, conditions, notes=None, canal=None):
@@ -65,11 +74,13 @@ def evaluate(price: float, promos: list[Promo]) -> dict:
         "escenario_hoy": best_now["label"],
         "condiciones_hoy": best_now["conditions"],
         "canal_hoy": best_now["canal"] or "En línea",
+        "requiere_cuenta_hoy": necesita_cuenta(best_now["conditions"], best_now["label"]),
         "promedio_por_pluma": best_avg["avg"],
         "total_tratamiento": best_avg["total"],
         "escenario_tratamiento": best_avg["label"],
         "condiciones_tratamiento": best_avg["conditions"],
         "canal_tratamiento": best_avg["canal"] or "En línea",
+        "requiere_cuenta_tratamiento": necesita_cuenta(best_avg["conditions"], best_avg["label"]),
         "notas_tratamiento": best_avg["notes"],
         "desglose_tratamiento": best_avg["unit"],
         "regalo_valor": gift,
@@ -112,5 +123,6 @@ def _pick(o, mode):
         "escenario": v[f"escenario_{mode}"],
         "condiciones": v[f"condiciones_{mode}"],
         "canal": v.get(f"canal_{mode}") or "En línea",
+        "requiere_cuenta": v.get(f"requiere_cuenta_{mode}", False),
         "receta": o.get("receta"),
     }

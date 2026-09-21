@@ -57,6 +57,8 @@
   .thumbs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
   .thumbs img { width: 92px; height: 92px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: #fff; }
   .warn { color: var(--warn-tx); }
+  .acct { margin-top: 8px; font-size: 12.5px; background: var(--warn-bg); color: var(--warn-tx);
+    border: 1px solid currentColor; border-radius: 8px; padding: 6px 9px; }
   .banner { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
   .banner img { width: 190px; border-radius: 10px; border: 1px solid var(--border); background: #fff; }
   .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--text-secondary); margin: 6px 0 2px; }
@@ -170,6 +172,7 @@ function recCard(title, pick, cls, extra) {
     <div class="hero">${MX(pick.precio)} <span class="muted" style="font-size:14px">por pluma</span></div>
     <div><b>${pick.pharmacy_name}</b></div>
     <div class="muted">${pick.escenario}</div>
+    ${pick.requiere_cuenta ? `<div class="acct">🔑 Este precio requiere tu cuenta o tarjeta de la farmacia: inicia sesión o preséntala al pagar</div>` : ""}
     <div style="margin-top:6px">
       <span class="pill">Cómo: ${pick.canal}</span>
       ${(pick.condiciones || []).map(x => `<span class="pill">${x}</span>`).join("")}
@@ -199,7 +202,7 @@ function tableFor(offers) {
       <td class="num">${MX(o.precio_linea)}</td>
       <td class="num">${MX(v.precio_hoy)}</td>
       <td class="num"><b>${MX(v.promedio_por_pluma)}</b>${v.ahorro_vs_linea_pct > 0 ? `<div class="muted">-${v.ahorro_vs_linea_pct}%</div>` : ""}</td>
-      <td class="hide-s">${v.canal_tratamiento || "En línea"}${v.limite ? `<div class="muted">límite ${v.limite} pzas</div>` : ""}</td>
+      <td class="hide-s">${v.canal_tratamiento || "En línea"}${v.requiere_cuenta_tratamiento ? '<div class="muted">🔑 requiere cuenta o tarjeta</div>' : ""}${v.limite ? `<div class="muted">límite ${v.limite} pzas</div>` : ""}</td>
       <td class="hide-s">${promos}</td>
       <td class="hide-s">${o.receta_checkout?.resultado ? o.receta_checkout.resultado : (o.receta || "—")}</td>`;
     tb.appendChild(tr);

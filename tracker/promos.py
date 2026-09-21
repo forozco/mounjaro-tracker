@@ -62,9 +62,12 @@ _GIFT = re.compile(r"agujas?[^.\n]{0,60}gratis|gratis[^.\n]{0,60}agujas?", re.I)
 _LIMIT = re.compile(r"(?:l[ií]mite|m[aá]ximo)[^.\n]{0,30}?(\d+)\s*piezas?", re.I)
 _MSI = re.compile(r"(\d{1,2})\s*(?:meses\s*sin\s*intereses|msi)", re.I)
 _COMPRA = re.compile(r"compra", re.I)
-_ORDINAL_COMPRA = re.compile(r"(\d)\s*(?:[aª°ºoer]{1,3}\s*)?compra", re.I)
+_ORDINAL_COMPRA = re.compile(r"(\d)\s*[a-zº°]{0,3}\s*compra", re.I)
 _VIGENCIA = re.compile(r"(?:v[aá]lid[ao]s?|vigencia|promoci[oó]n v[aá]lida)[^.\n]{0,15}?(del?\s*\d{1,2}[^.\n]{0,40}?(?:al|hasta)\s*(?:el\s*)?\d{1,2}[^.\n]{0,25})", re.I)
-_CUPON = re.compile(r"(?:cup[oó]n|c[oó]digo)\s*[:\-]?\s*([A-Z][A-Z0-9]{3,19})", re.I)
+# Un código de cupón trae letras Y dígitos (MOUNJARO40); así no se confunde con
+# palabras de la frase ("cupón correspondiente…").
+_CUPON = re.compile(r"\b([A-Z]{3,15}\d{1,3})\b")
+_CUPON_CTX = re.compile(r"cup[oó]n|c[oó]digo", re.I)
 
 
 def condition_of(text: str) -> str | None:
@@ -166,9 +169,12 @@ def parse_image(ocr: dict, ref_price: float | None) -> list[Promo]:
             promos.append(Promo("pct", f"{max(pcts)}% de descuento (imagen)", "imagen", pct=float(max(pcts)), condition=cond, canal=canal, raw=text[:200]))
 
     cupon = None
-    for m in _CUPON.finditer(text):
-        cupon = m.group(1).upper()
-        break
+    if _CUPON_CTX.search(text):
+        for m in _CUPON.finditer(text):
+            code = m.group(1)
+            if code not in ("HP", "MXN") and not code.startswith("HP"):
+                cupon = code
+                break
     if cupon:
         cond = f"Cupón {cupon}"
         for pr in promos:

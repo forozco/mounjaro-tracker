@@ -92,6 +92,16 @@ open data/last_email.html                  # así se vería el correo
 Variables útiles: `ONLY=benavides,yza` (solo ciertas farmacias), `SKIP_RECETA=1`,
 `CHECK_RECETA=1` (forzar la prueba del carrito), `HEADLESS=1`, `OCR_WORKERS=4`.
 
+## Lo que no cubre (por ahora)
+
+- **Precios que solo se ven con la sesión iniciada** en cada farmacia. Sí se capturan los
+  descuentos de socio que publican abiertamente (Benavides Recompensas, Monedero del Ahorro,
+  Club Salud, Cuídate Mucho), pero no el saldo de tu monedero ni precios exclusivos de tu cuenta.
+  Se puede agregar después guardando usuario y contraseña como secrets; implica el riesgo de
+  captcha, verificación en 2 pasos y de que la farmacia marque la cuenta.
+- **Promociones exclusivas de la app** que no aparecen en el sitio web.
+- **Precios de tienda física**, que suelen ser distintos a los de línea.
+
 ## Avisos
 
 Los datos salen de las páginas públicas de cada farmacia y las promos leídas de imágenes

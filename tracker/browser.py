@@ -11,8 +11,9 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 # Señales de que el sitio nos mandó una página de error o nos bloqueó el anti-bot
 # (Incapsula en Ahorro, Akamai en San Pablo, etc.) en lugar de la página real.
 BLOCK_RE = re.compile(
-    r"incapsula|request unsuccessful|access denied|acceso denegado|pardon the interruption|"
-    r"attention required|unusual traffic|tráfico inusual|forbidden|error 4\d\d|error 5\d\d|"
+    r"incapsula|imperva|request unsuccessful|blocked by our security|incident id|"
+    r"access denied|acceso denegado|pardon the interruption|attention required|"
+    r"unusual traffic|tráfico inusual|forbidden|error \d{1,3}\b|"
     r"servicio no disponible|página no (est[áa] )?disponible|intenta m[áa]s tarde|"
     r"temporarily unavailable|502 bad gateway|503 service", re.I)
 
@@ -49,18 +50,28 @@ class Browser:
     async def goto_ok(self, page: Page, url: str, wait_ms: int = 6000) -> tuple[object, bool]:
         """Navega y detecta páginas de error o bloqueo del anti-bot; reintenta una vez.
         Regresa (respuesta, bloqueado)."""
+        resp = None
         for intento in (1, 2):
-            resp = await self.goto(page, url, wait_ms)
             try:
+                resp = await self.goto(page, url, wait_ms)
                 marca = (await page.title() or "") + " " + (await page.inner_text("body"))[:600]
-            except Exception:
-                marca = ""
-            status = getattr(resp, "status", 200) or 200
+                status = getattr(resp, "status", 200) or 200
+            except Exception as e:  # navegación abortada, timeout, conexión caída
+                if intento == 2:
+                    raise
+                print(f"  {url[:70]} falló al cargar ({type(e).__name__}); reintentando")
+                await page.wait_for_timeout(10000)
+                continue
             if not (status >= 400 or BLOCK_RE.search(marca)):
                 return resp, False
             if intento == 1:
-                print(f"  {url[:70]} respondió bloqueo/error ({status}); reintentando en 15 s")
-                await page.wait_for_timeout(15000)
+                # Imperva/Akamai bloquean por sesión: sin cookies suele volver a pasar
+                print(f"  {url[:70]} respondió bloqueo/error ({status}); reintentando en 20 s sin cookies")
+                try:
+                    await self.ctx.clear_cookies()
+                except Exception:
+                    pass
+                await page.wait_for_timeout(20000)
         return resp, True
 
     async def fetch_bytes(self, url: str) -> bytes | None:
@@ -77,10 +88,14 @@ class Browser:
 # recomendados), avisos de receta, imágenes de la galería y existencia.
 PDP_JS = r"""
 async (tokens) => {
-  const NOISE = 'header,footer,nav,script,style,noscript,[class*=recommend],[class*=related],[class*=upsell],' +
-    '[class*=crosssell],[class*=cross-sell],[class*=frequent],[class*=swiper],[class*=slider],[class*=product-tile],' +
-    '[class*=product-item],[class*=similar],[class*=bought],cx-carousel,[class*=pdpBanner],[class*=modal],' +
-    '[role=dialog],[class*=cookie],[class*=newsletter],[class*=breadcrumb],[class*=minicart],[class*=menu]';
+  // Ojo: los selectores llevan "i" porque las clases traen mayúsculas (cardCarousel, pdpBanner).
+  const NOISE = 'header,footer,nav,script,style,noscript,[class*="recommend" i],[class*="related" i],' +
+    '[class*="upsell" i],[class*="crosssell" i],[class*="cross-sell" i],[class*="frequent" i],[class*="swiper" i],' +
+    '[class*="slider" i],[class*="product-tile" i],[class*="product-item" i],[class*="similar" i],[class*="bought" i],' +
+    '[class*="carousel" i],cx-carousel,app-item-carousel,[class*="item-wrapper" i],' +
+    'app-pleca-promotion,[class*="promo-alert" i],[class*="labelPromotions" i],' +
+    '[class*="pdpBanner" i],[class*="modal" i],[role=dialog],[class*="cookie" i],[class*="newsletter" i],' +
+    '[class*="breadcrumb" i],[class*="minicart" i],[class*="menu" i]';
   // abrir "Ver más" de bloques de promociones
   for (const el of document.querySelectorAll('button,[role=button],.action,span,div')) {
     if (el.children.length < 3 && /^\s*ver m[aá]s\s*$/i.test(el.textContent || '') && !el.closest('a[href]') && !el.closest(NOISE)) {

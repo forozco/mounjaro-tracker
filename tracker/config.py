@@ -72,5 +72,8 @@ NOTAS_FARMACIA = {
 # Palabras que marcan un banner/imagen como relevante
 BANNER_KEYWORDS = r"mounjaro|tirzepat|kwik\s*pen|lilly"
 
+# Pausa entre páginas para no disparar el anti-bot (Imperva en Ahorro, Akamai en San Pablo)
+PAUSA_ENTRE_PAGINAS = 3
+
 # Cada cuántos días se prueba el flujo de carrito/checkout para ver si piden receta
 RECETA_CHECK_DAYS = 7

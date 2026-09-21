@@ -157,6 +157,10 @@ class Runner:
             if found:
                 image_results.append({"url": url, "promos": [f.label for f in found], "texto": res["text"][:400]})
 
+        # Si una imagen ya dio el escalonado completo, los precios sueltos de otras
+        # imágenes son esos mismos precios: usarlos como "precio de hoy" sería falso.
+        if any(x.kind == "tiers" for x in promos):
+            promos = [x for x in promos if x.kind not in ("image_price", "tier_at")]
         promos = dedupe(promos)
         in_stock = p.in_stock
         if in_stock is None:
@@ -218,6 +222,7 @@ class Runner:
                 items = items[:16]
                 # pasada rápida: solo se analiza a fondo lo que menciona Mounjaro
                 quick = await asyncio.gather(*[self.ocr_url(br, b["src"], quick=True) for b in items])
+                await asyncio.sleep(config.PAUSA_ENTRE_PAGINAS)
                 for b, q in zip(items, quick):
                     meta = f"{b['alt']} {b['href']} {b['src']}"
                     if not (kw.search(meta) or kw.search((q or {}).get("text", ""))):
@@ -271,6 +276,7 @@ class Runner:
             for p in products:
                 log(f"leyendo {p.pharmacy} {p.dose}mg: {p.name}")
                 offers.append(await self.enrich(br, p))
+                await asyncio.sleep(config.PAUSA_ENTRE_PAGINAS)
             banners = await self.banners(br)
             await self.check_receta(br, offers)
             for o in offers:

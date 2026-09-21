@@ -63,6 +63,16 @@ ocr = {"text": "A SOLO $3,709.01\nCUPON MOUNJARO40", "boxes": [], "prices": [370
 p = parse_image(ocr, 6310.0)
 check("cupón detectado", any("MOUNJARO40" in (x.condition or "") for x in p))
 
+ocr = {"text": "A SOLO $3,709.01\nIngresa el cupón correspondiente en tu carrito de compra: MOUNJARO40",
+       "boxes": [], "prices": [3709.0], "percents": []}
+p = parse_image(ocr, 6310.0)
+check("el cupón es el código, no la palabra de la frase",
+      any((x.condition or "").endswith("MOUNJARO40") for x in p), [x.condition for x in p])
+
+ocr = {"text": "4TA COMPRA 35% $3,882", "boxes": [], "prices": [3882.0], "percents": [35]}
+p = parse_image(ocr, 5974.0)
+check("ordinal escrito como 4TA", any(x.kind == "tier_at" and x.n == 4 for x in p))
+
 ocr = {"text": "mounjaro tirzepatida 2.5 mg/0.6 mL", "boxes": [], "prices": [], "percents": []}
 check("una foto de la caja no inventa promos", parse_image(ocr, 6310.0) == [])
 
