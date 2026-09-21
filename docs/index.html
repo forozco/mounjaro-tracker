@@ -325,6 +325,10 @@ function hace(fecha) {
 
 // Costo promedio a un año (12 plumas, una al mes) y qué tan seguro es ese número
 const MESES = 12;
+// Escalonados que vuelven a empezar al terminar: San Pablo lo confirmó por teléfono
+// el 21 de septiembre de 2026, tanto para Enlace como para su precio de "4ª compra".
+const reinicia = (ph, v) => ph === "sanpablo"
+  || (v.condiciones_tratamiento || []).some(c => /Enlace/.test(c || ""));
 // Dónde publica cada farmacia la regla de su escalonado
 const REGLAS = { benavides: "https://www.benavides.com.mx/terminos-y-condiciones" };
 const verRegla = ph => REGLAS[ph]
@@ -340,8 +344,8 @@ function anual(o) {
       st: `una pieza gratis cada ${n + 1} compras` };
   }
   if (!esc) return { avg: v.promedio_por_pluma, seguro: true, st: "mismo precio en cada compra" };
-  // Enlace vuelve a empezar después del último nivel, así que el ciclo se repite todo el año
-  if ((v.condiciones_tratamiento || []).some(c => /Enlace/.test(c || ""))) {
+  // Si vuelve a empezar después del último nivel, el ciclo se repite todo el año
+  if (reinicia(o.pharmacy, v)) {
     const ciclo = Array.from({ length: MESES }, (_, i) => d[i % d.length]);
     return { avg: ciclo.reduce((a, b) => a + b, 0) / MESES, seguro: true,
       st: `confirmado por teléfono: después de la ${d.length}.ª vuelve a empezar, y el ciclo se repite` };
@@ -383,7 +387,7 @@ function despues(ph, des, v) {
   const ult = des[des.length - 1], k = des.length;
   const suma = des.reduce((a, b) => a + b, 0);
   const anio = Math.round((suma + ult * (12 - k)) / 12);
-  if ((v.condiciones_tratamiento || []).some(c => /Enlace/.test(c || "")))
+  if (reinicia(ph, v))
     return `Después de la ${k}.ª <strong>el descuento vuelve a empezar</strong>: la siguiente compra cuesta otra vez
       <strong class="num">${MX(des[0])}</strong> y el ciclo se repite, así que el promedio se queda en
       <strong class="num">${MX(Math.round(suma / k))}</strong> por pluma todo el año, no baja más.
