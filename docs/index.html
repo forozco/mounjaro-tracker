@@ -74,7 +74,18 @@
   .pair .s { color: var(--muted); font-size: 14px; }
   .pair a { text-decoration: none; }
   .pair.one { grid-template-columns: 1fr; }
-  @media (max-width: 420px) { .pair { grid-template-columns: 1fr; } }
+  .steps { margin: 20px 0 0; }
+  .steps .k { color: var(--muted); font-size: 13px; }
+  .steps ol { list-style: none; margin: 8px 0 0; padding: 0; display: grid;
+    grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .steps li { border-left: 2px solid var(--rule); padding-left: 10px; }
+  .steps li:last-child { border-left-color: var(--accent); }
+  .steps .n { color: var(--muted); font-size: 13px; }
+  .steps .p { font-size: 17px; font-weight: 500; }
+  .steps .d { color: var(--muted); font-size: 13px; }
+  .steps p { margin: 10px 0 0; color: var(--muted); font-size: 14px; text-wrap: pretty; }
+  .steps p strong { color: var(--ink); font-weight: 500; }
+  @media (max-width: 420px) { .pair { grid-template-columns: 1fr; } .steps ol { grid-template-columns: 1fr 1fr; } }
   .pair a:hover .v { text-decoration: underline; text-decoration-color: var(--faint); }
 
   /* La lista */
@@ -183,11 +194,11 @@ function detalle(v) {
   return null;
 }
 
-function condiciones(o, conReceta) {
+function condiciones(o, conReceta, sinDetalle) {
   const v = o.valor || {};
   const partes = [canal(v.canal_tratamiento)];
   (v.condiciones_tratamiento || []).map(condicion).filter(Boolean).forEach(x => partes.push(x));
-  const det = detalle(v); if (det) partes.push(det);
+  const det = sinDetalle ? null : detalle(v); if (det) partes.push(det);
   if (v.regalo_valor > 0) partes.push("incluye agujas");
   if (v.limite) partes.push(`máximo ${v.limite} al mes`);
   if (conReceta && /^No/.test(o.receta || "")) partes.push("no piden receta");
@@ -240,10 +251,28 @@ function render() {
     const ventaja = rec.ventaja_vs_segundo >= 1
       ? `<p class="aside"><span class="num">${MX(rec.ventaja_vs_segundo)}</span> menos por pluma que la siguiente opción.</p>` : "";
     const misma = h.id === t.id;
+    const bv = best.valor, des = bv.desglose_tratamiento || [];
+    const escalonado = des.length > 1 && Math.max(...des) - Math.min(...des) >= 1;
+    const pcts = ((bv.escenario_tratamiento || "").match(/\d+(?=\s*%)/g) || []);
+    const plazo = (bv.notas_tratamiento || []).some(x => /plazo/.test(x));
+    const pasos = !escalonado ? "" : `
+      <div class="steps">
+        <div class="k">Cómo sale el promedio en ${esc(t.pharmacy_name)}</div>
+        <ol>${des.map((x, i) => `<li>
+          <div class="n">${i + 1}.ª compra</div>
+          <div class="p num">${MX(x)}</div>
+          ${pcts.length === des.length ? `<div class="d">−${pcts[i]}%</div>` : ""}</li>`).join("")}</ol>
+        <p>La primera te cuesta <strong class="num">${MX(des[0])}</strong> y el precio baja en cada compra hasta
+          <strong class="num">${MX(des[des.length - 1])}</strong> en la ${des.length}.ª. En total pagas
+          <strong class="num">${MX(bv.total_tratamiento)}</strong> por ${des.length} plumas, o sea
+          <strong class="num">${MX(t.precio)}</strong> cada una.${plazo ? " Cada compra tiene que caer dentro del plazo que marque la farmacia." : ""}</p>
+      </div>`;
+    const porQueHoy = !misma && escalonado && des[0] > h.precio
+      ? ` · en ${esc(t.pharmacy_name)} la 1.ª sale en <span class="num">${MX(des[0])}</span>` : "";
     $("answer").innerHTML = `
       <p class="answer">La de ${DOSE} mg conviene en <strong>${esc(t.pharmacy_name)}</strong>,
         a <span class="num">${MX(t.precio)}</span> por pluma.</p>
-      <p class="terms">${esc(frase(condiciones(best, true)))}</p>
+      <p class="terms">${esc(frase(condiciones(best, true, escalonado)))}</p>
       ${ventaja}
       ${misma ? `
       <div class="pair one"><div>
@@ -264,9 +293,9 @@ function render() {
         <a href="${esc(h.url)}" target="_blank" rel="noopener"><div>
           <div class="k">Si solo compras una</div>
           <div class="v">${esc(h.pharmacy_name)} · <span class="num">${MX(h.precio)}</span></div>
-          <div class="s">precio de hoy${h.requiere_cuenta ? " · requiere cuenta" : ""}</div>
+          <div class="s">precio de hoy${h.requiere_cuenta ? " · requiere cuenta" : ""}${porQueHoy}</div>
         </div></a>
-      </div>`}
+      </div>`}${pasos}
       <a class="go" href="${esc(t.url)}" target="_blank" rel="noopener">Ver en ${esc(t.pharmacy_name)}</a>`;
   }
 
