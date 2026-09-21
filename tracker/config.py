@@ -76,7 +76,7 @@ BUSCADORES = {
 NOTAS_FARMACIA = {
     "guadalajara": "Su sitio avisa que el precio en línea puede variar según la ubicación y que es distinto al de tienda física.",
     "yza": "Cobertura en CDMX reciente: confirma que hagan envío a tu C.P. o si hay que recoger en sucursal.",
-    "sanpablo": "Envío gratis a CDMX.",
+    "sanpablo": "Envío gratis a CDMX. Con Enlace Lilly, después de la 4.ª compra el descuento vuelve a empezar en 20%: el ciclo de cuatro compras se repite (confirmado por teléfono el 21 de septiembre de 2026).",
     "benavides": "Después de la 4.ª compra te quedas en el descuento máximo mientras cada compra caiga dentro de los 35 días de la anterior; si te pasas, vuelves al primer nivel.",
 }
 
