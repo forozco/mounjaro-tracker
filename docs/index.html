@@ -265,7 +265,8 @@ function render() {
         <p>La primera te cuesta <strong class="num">${MX(des[0])}</strong> y el precio baja en cada compra hasta
           <strong class="num">${MX(des[des.length - 1])}</strong> en la ${des.length}.ª. En total pagas
           <strong class="num">${MX(bv.total_tratamiento)}</strong> por ${des.length} plumas, o sea
-          <strong class="num">${MX(t.precio)}</strong> cada una.${plazo ? " Cada compra tiene que caer dentro del plazo que marque la farmacia." : ""}</p>
+          <strong class="num">${MX(t.precio)}</strong> cada una.${plazo ? " Cada compra tiene que caer dentro del plazo que marque la farmacia." : ""}
+          La promoción cubre ${des.length} compras; no dice qué precio sigue después de la ${des.length}.ª, así que confírmalo con la farmacia.</p>
       </div>`;
     const porQueHoy = !misma && escalonado && des[0] > h.precio
       ? ` · en ${esc(t.pharmacy_name)} la 1.ª sale en <span class="num">${MX(des[0])}</span>` : "";
@@ -281,7 +282,7 @@ function render() {
           ? `Es la misma opción: ${esc(t.pharmacy_name)} · <span class="num">${MX(t.precio)}</span>`
           : `${esc(t.pharmacy_name)} en los dos casos`}</div>
         <div class="s">${Math.abs(t.precio - h.precio) < 1
-          ? `Te conviene igual si compras una sola pluma o las ${n} del tratamiento.`
+          ? `Cuesta lo mismo en cada compra, así que conviene igual si compras una sola pluma o sigues comprando cada mes.`
           : `Una sola hoy: <span class="num">${MX(h.precio)}</span> · promedio con ${n} plumas: <span class="num">${MX(t.precio)}</span>.`}${h.requiere_cuenta ? " Requiere cuenta." : ""}</div>
       </div></div>` : `
       <div class="pair">
