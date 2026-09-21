@@ -19,6 +19,7 @@
     --bar: #cfd2cb;
     --accent: #0e6a52;
     --warn: #9a4a12;
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
     --sans: "Atkinson Hyperlegible Next", -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   @media (prefers-color-scheme: dark) {
@@ -26,12 +27,14 @@
       color-scheme: dark;
       --ground: #111413; --ink: #eceeec; --muted: #9ba29e; --faint: #6c736f;
       --rule: #262a28; --bar: #3a403c; --accent: #5cc8a4; --warn: #e8a066;
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
     }
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
     --ground: #111413; --ink: #eceeec; --muted: #9ba29e; --faint: #6c736f;
     --rule: #262a28; --bar: #3a403c; --accent: #5cc8a4; --warn: #e8a066;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
   }
 
   * { box-sizing: border-box; }
@@ -127,6 +130,44 @@
   .shots img { width: 108px; height: 108px; object-fit: contain; background: #fff;
     border: 1px solid var(--rule); border-radius: 3px; }
 
+  /* Historial: una línea por farmacia, un punto por revisión */
+  .hist { margin: 40px 0 0; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .hist .k { color: var(--muted); font-size: 13px; }
+  .ctl { display: flex; flex-wrap: wrap; gap: 2px 20px; margin-top: 10px; }
+  .ctl .grupo { display: flex; gap: 14px; }
+  .ctl button { font: inherit; font-size: 14px; color: var(--muted); background: none; border: 0;
+    padding: 4px 0; cursor: pointer; border-bottom: 1.5px solid transparent; }
+  .ctl button:hover { color: var(--ink); }
+  .ctl button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+  .chartwrap { position: relative; margin-top: 14px; }
+  .chart { display: block; width: 100%; height: auto; touch-action: pan-y; }
+  .chart .grid { stroke: var(--rule); stroke-width: 1; }
+  .chart .tick { fill: var(--faint); font-size: 11px; font-variant-numeric: tabular-nums lining-nums; }
+  .chart .serie { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .chart .punta { stroke: var(--ground); stroke-width: 2; }
+  .chart .cruz { stroke: var(--bar); stroke-width: 1; }
+  .cuando { margin: 12px 0 0; color: var(--muted); font-size: 13px; }
+  .leg { display: grid; grid-template-columns: 14px 1fr auto; align-items: center;
+    gap: 7px 10px; margin-top: 7px; font-size: 14px; max-width: 34ch; }
+  .leg .it { display: contents; }
+  .leg i { display: block; height: 2px; border-radius: 1px; background: currentColor; }
+  .leg .nm { color: var(--muted); }
+  .leg .v { text-align: right; font-weight: 500; color: var(--ink); }
+  .hist .fin { margin: 14px 0 0; font-size: 15px; text-wrap: pretty; }
+  .hist .aviso { margin: 14px 0 0; color: var(--muted); font-size: 15px; }
+  .tabla { margin-top: 12px; }
+  .tabla > summary { color: var(--muted); font-size: 14px; padding: 4px 0; }
+  .tabla > summary:hover { color: var(--ink); }
+  .tabla > summary::after { content: " +"; }
+  .tabla[open] > summary::after { content: " –"; }
+  .scroll { overflow-x: auto; margin-top: 10px; }
+  .tabla table { border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+  .tabla th, .tabla td { padding: 5px 14px 5px 0; text-align: left; font-weight: 400; }
+  .tabla thead th { color: var(--muted); border-bottom: 1px solid var(--rule); }
+  .tabla tbody th { color: var(--muted); }
+  .tabla td { font-variant-numeric: tabular-nums lining-nums; }
+  .tabla caption { caption-side: bottom; text-align: left; color: var(--faint); font-size: 12px; padding-top: 8px; }
+
   /* Promociones vistas y pie */
   .extra { margin-top: 44px; }
   .extra > summary { color: var(--muted); font-size: 15px; padding: 4px 0; }
@@ -162,6 +203,20 @@
 
   <section id="answer" aria-live="polite"></section>
   <ol class="list" id="list" aria-label="Farmacias, de la más barata a la más cara"></ol>
+
+  <section class="hist" id="hist" hidden aria-labelledby="hist-t">
+    <div class="k" id="hist-t">Cómo se ha movido el precio · una revisión cada 8 horas</div>
+    <div class="ctl" id="hist-ctl" role="group" aria-label="Qué precio ver y de cuánto tiempo"></div>
+    <p class="aviso" id="hist-aviso" hidden></p>
+    <div class="chartwrap" id="chartwrap"></div>
+    <p class="cuando" id="hist-cuando"></p>
+    <div class="leg" id="hist-leg"></div>
+    <p class="fin" id="hist-fin"></p>
+    <details class="tabla" id="hist-tabla">
+      <summary>Ver los números</summary>
+      <div class="scroll" id="hist-tabla-c"></div>
+    </details>
+  </section>
 
   <details class="extra" id="extra" hidden>
     <summary id="extra-title">Promociones vistas en las páginas</summary>
@@ -344,6 +399,250 @@ function tendencia(ph) {
     <circle cx="${ex}" cy="${ey}" r="2" fill="var(--muted)"/></svg>`;
 }
 
+// ── Historial: una línea por farmacia, un punto por cada revisión ────────────
+// El color lo lleva la farmacia, no su lugar en la lista: aunque cambie de
+// posición o se filtre el rango, sigue siendo el mismo color.
+const SERIE = {};
+const METRICAS = { a: "Promedio por pluma", h: "Precio de hoy" };
+const RANGOS = [[7, "7 días"], [30, "30 días"], [0, "Todo"]];
+let METRICA = "a", DIAS = 0, CRUZ = null;
+
+const dia = t => new Date(t).toLocaleDateString("es-MX", { day: "numeric", month: "long" });
+const hhmm = t => new Date(t).toLocaleTimeString("es-MX", { hour: "2-digit", minute: "2-digit", hour12: false });
+const diaCorto = t => new Date(t).toLocaleDateString("es-MX", { day: "numeric", month: "short" }).replace(".", "");
+
+// Revisiones y series listas para dibujar, ya filtradas por dosis y por rango
+function datosHist() {
+  const nombres = DATA.farmacias || {};
+  const todas = HIST.map(r => ({ t: +new Date(r.t), o: r.o || [] }))
+    .filter(r => r.t && r.o.some(o => o.d === DOSE && o[METRICA] != null))
+    .sort((a, b) => a.t - b.t);
+  const corte = DIAS ? Date.now() - DIAS * 864e5 : -Infinity;
+  const vis = todas.filter(r => r.t >= corte);
+  const conDato = new Set(vis.flatMap(r => r.o.filter(o => o.d === DOSE && o[METRICA] != null).map(o => o.p)));
+  const orden = [...Object.keys(nombres).filter(p => conDato.has(p)),
+                 ...[...conDato].filter(p => !nombres[p])];
+  // La más barata primero, como en el resto de la página; el orden se fija con la
+  // última revisión para que los renglones no bailen al recorrer la gráfica.
+  const ultimo = ph => {
+    for (let i = vis.length - 1; i >= 0; i--) {
+      const o = vis[i].o.find(x => x.p === ph && x.d === DOSE);
+      if (o && o[METRICA] != null) return o[METRICA];
+    }
+    return Infinity;
+  };
+  const series = orden.sort((a, b) => ultimo(a) - ultimo(b)).map(ph => ({
+    ph, nombre: nombres[ph] || ph, color: SERIE[ph] || "var(--faint)",
+    pts: vis.map(r => {
+      const o = r.o.find(x => x.p === ph && x.d === DOSE);
+      return o && o[METRICA] != null ? { t: r.t, v: o[METRICA] } : null;   // hueco si esa vez no se pudo leer
+    }),
+  }));
+  const span = todas.length ? (todas[todas.length - 1].t - todas[0].t) / 864e5 : 0;
+  return { vis, series, span };
+}
+
+// Escala vertical con números redondos; nunca empieza en cero: se compara el cambio, no el total
+function escalaY(lo, hi) {
+  const span = (hi - lo) || Math.max(Math.abs(hi) * .02, 1);
+  const pot = Math.pow(10, Math.floor(Math.log10(span / 2)));
+  const paso = [1, 2, 2.5, 5, 10].map(m => m * pot).find(s => span / s <= 3) || 10 * pot;
+  const y0 = Math.floor(lo / paso) * paso;
+  let y1 = Math.ceil(hi / paso) * paso;
+  if (y1 <= y0) y1 = y0 + paso;
+  return { y0, y1, paso };
+}
+
+function grafica(vis, series, W) {
+  const H = 210, L = 48, R = 14, T = 12, B = 26;
+  const t0 = vis[0].t, t1 = vis[vis.length - 1].t;
+  const px = t => t1 === t0 ? (L + W - R) / 2 : L + (t - t0) / (t1 - t0) * (W - L - R);
+  const vals = series.flatMap(s => s.pts.filter(Boolean).map(p => p.v));
+  const { y0, y1, paso } = escalaY(Math.min(...vals), Math.max(...vals));
+  const py = v => T + (1 - (v - y0) / (y1 - y0)) * (H - T - B);
+
+  let ejeY = "";
+  for (let v = y0; v <= y1 + .001; v += paso) {
+    ejeY += `<line class="grid" x1="${L}" y1="${py(v).toFixed(1)}" x2="${W - R}" y2="${py(v).toFixed(1)}"/>
+      <text class="tick" x="${L - 8}" y="${py(v).toFixed(1)}" text-anchor="end" dominant-baseline="middle">${MX(v)}</text>`;
+  }
+
+  // Tres o cuatro fechas, las que quepan sin encimarse
+  const conHora = (t1 - t0) < 2 * 864e5;
+  const cuantas = Math.max(2, Math.min(4, Math.floor((W - L - R) / 76) + 1));
+  const marcas = vis.length === 1 ? [0]
+    : [...new Set(Array.from({ length: cuantas }, (_, i) => Math.round(i * (vis.length - 1) / (cuantas - 1))))];
+  const ejeX = marcas.map(i => {
+    const x = px(vis[i].t), t = conHora ? hhmm(vis[i].t) : diaCorto(vis[i].t);
+    const anchor = i === 0 ? "start" : i === vis.length - 1 ? "end" : "middle";
+    return `<text class="tick" x="${x.toFixed(1)}" y="${H - 6}" text-anchor="${anchor}">${t}</text>`;
+  }).join("");
+
+  const lineas = series.map(s => {
+    let d = "", unida = false;
+    s.pts.forEach(p => {
+      if (!p) { unida = false; return; }
+      d += `${unida ? "L" : "M"}${px(p.t).toFixed(1)},${py(p.v).toFixed(1)}`;
+      unida = true;
+    });
+    const fin = [...s.pts].reverse().find(Boolean);
+    return `<path class="serie" d="${d}" stroke="${s.color}"/>` + (fin
+      ? `<circle class="punta" cx="${px(fin.t).toFixed(1)}" cy="${py(fin.v).toFixed(1)}" r="4" fill="${s.color}"/>` : "");
+  }).join("");
+
+  const etiqueta = `${METRICAS[METRICA]} de la de ${DOSE} mg en ${series.length} farmacia${series.length > 1 ? "s" : ""},
+    ${vis.length} revisiones desde el ${dia(t0)}. Los números están en la tabla de abajo.`;
+
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img"
+      tabindex="0" aria-label="${esc(etiqueta)}" data-w="${W}" data-l="${L}" data-r="${R}" data-t="${T}"
+      data-b="${B}" data-h="${H}">
+    <title>${esc(etiqueta)}</title>
+    ${ejeY}${ejeX}
+    <line class="cruz" id="cruz" y1="${T}" y2="${H - B}" x1="0" x2="0" style="display:none"/>
+    <g id="cruz-pts"></g>
+    ${lineas}
+    <rect id="caza" x="${L}" y="0" width="${Math.max(1, W - L - R)}" height="${H - B}" fill="transparent"/>
+  </svg>`;
+}
+
+// La lectura va debajo de la gráfica, no encima: en un teléfono un globo taparía
+// justo lo que se quiere ver. Al recorrerla con el dedo, el teclado o el ratón,
+// la raya vertical marca la revisión y estos números son los de esa revisión.
+function leer(i, vis, series) {
+  const svg = $("chartwrap").querySelector(".chart");
+  if (!svg) return;
+  const hay = i != null && !!vis[i];
+  CRUZ = hay ? i : null;
+  const cruz = svg.querySelector("#cruz"), pts = svg.querySelector("#cruz-pts");
+
+  if (hay) {
+    const W = +svg.dataset.w, L = +svg.dataset.l, R = +svg.dataset.r;
+    const T = +svg.dataset.t, B = +svg.dataset.b, H = +svg.dataset.h;
+    const t0 = vis[0].t, t1 = vis[vis.length - 1].t;
+    const x = t1 === t0 ? (L + W - R) / 2 : L + (vis[i].t - t0) / (t1 - t0) * (W - L - R);
+    const vals = series.flatMap(s => s.pts.filter(Boolean).map(p => p.v));
+    const { y0, y1 } = escalaY(Math.min(...vals), Math.max(...vals));
+    const py = v => T + (1 - (v - y0) / (y1 - y0)) * (H - T - B);
+    cruz.setAttribute("x1", x); cruz.setAttribute("x2", x); cruz.style.display = "";
+    pts.innerHTML = series.map(s => s.pts[i]
+      ? `<circle class="punta" cx="${x.toFixed(1)}" cy="${py(s.pts[i].v).toFixed(1)}" r="4" fill="${s.color}"/>` : "").join("");
+  } else {
+    cruz.style.display = "none";
+    pts.innerHTML = "";
+  }
+
+  const cuando = hay ? vis[i].t : vis[vis.length - 1].t;
+  $("hist-cuando").textContent = `${hay ? "Revisión del" : "Última revisión ·"} ${dia(cuando)} · ${hhmm(cuando)}`;
+  $("hist-leg").innerHTML = series.map(s => {
+    const p = hay ? s.pts[i] : [...s.pts].reverse().find(Boolean);
+    return `<span class="it" style="color:${s.color}"><i></i><span class="nm">${esc(s.nombre)}</span>
+      <span class="v num">${p ? MX(p.v) : "—"}</span></span>`;
+  }).join("");
+}
+
+// Qué pasó con el precio desde la primera revisión que se ve
+function resumenHist(vis, series) {
+  if (vis.length < 2) return "";
+  const movs = series.map(s => {
+    const p = s.pts.filter(Boolean);
+    return p.length > 1 ? { nombre: s.nombre, dif: p[p.length - 1].v - p[0].v } : null;
+  }).filter(Boolean);
+  const cambios = movs.filter(m => Math.abs(m.dif) >= 1).sort((a, b) => Math.abs(b.dif) - Math.abs(a.dif));
+  const cuando = `en ${vis.length} revisiones desde el ${dia(vis[0].t)}`;
+  if (!cambios.length) return `El precio no se ha movido en ninguna farmacia ${cuando}.`;
+  const frase = m => `<strong>${esc(m.nombre)}</strong> ${m.dif < 0 ? "bajó" : "subió"}
+    <span class="num">${MX(Math.abs(m.dif))}</span>`;
+  const dichas = cambios.slice(0, 3).map(frase);
+  const lista = dichas.length > 1 ? dichas.slice(0, -1).join(", ") + " y " + dichas[dichas.length - 1] : dichas[0];
+  const resto = cambios.length - dichas.length;
+  const quietas = movs.length - cambios.length;
+  return `${lista} ${cuando}${resto ? `, y otras ${resto} también se movieron` : ""}${
+    quietas ? `. Las demás ${quietas === 1 ? "siguió" : "siguieron"} igual` : ""}.`;
+}
+
+// La misma información sin depender del color ni del ratón
+function tablaHist(vis, series) {
+  const TOPE = 60, filas = vis.slice(-TOPE).reverse();
+  const cuerpo = filas.map((r, n) => {
+    const i = vis.length - 1 - n;
+    return `<tr><th scope="row">${esc(diaCorto(r.t))} ${esc(hhmm(r.t))}</th>${
+      series.map(s => `<td>${s.pts[i] ? MX(s.pts[i].v) : "—"}</td>`).join("")}</tr>`;
+  }).join("");
+  return `<table>
+    <caption>${METRICAS[METRICA]} de la de ${DOSE} mg. Un renglón por revisión, de la más nueva a la más vieja${
+      vis.length > TOPE ? `; se muestran las últimas ${TOPE} de ${vis.length}` : ""}.</caption>
+    <thead><tr><th scope="col">Revisión</th>${
+      series.map(s => `<th scope="col">${esc(s.nombre)}</th>`).join("")}</tr></thead>
+    <tbody>${cuerpo}</tbody></table>`;
+}
+
+function pintarHistorial() {
+  const { vis, series, span } = datosHist();
+  $("hist").hidden = !series.length;
+  if (!series.length) return;
+
+  $("hist-ctl").innerHTML = [
+    Object.entries(METRICAS).map(([k, v]) =>
+      `<button type="button" data-m="${k}" aria-pressed="${k === METRICA}">${v}</button>`).join(""),
+    RANGOS.filter(([d]) => !d || span > d).length > 1
+      ? RANGOS.filter(([d]) => !d || span > d).map(([d, v]) =>
+          `<button type="button" data-d="${d}" aria-pressed="${d === DIAS}">${v}</button>`).join("") : "",
+  ].filter(Boolean).map(g => `<div class="grupo">${g}</div>`).join("");
+
+  const pocas = vis.length < 2;
+  $("hist-aviso").hidden = !pocas;
+  $("hist-aviso").textContent = pocas
+    ? "Todavía no hay dos revisiones que comparar en este rango; la gráfica aparece en cuanto las haya."
+    : "";
+  $("chartwrap").hidden = pocas;
+  $("hist-tabla").hidden = pocas;
+  $("hist-fin").hidden = pocas;
+  $("hist-cuando").hidden = pocas;
+  $("hist-leg").hidden = pocas;
+  if (pocas) { $("chartwrap").innerHTML = ""; $("hist-leg").innerHTML = ""; return; }
+
+  const W = Math.max(260, Math.round($("chartwrap").clientWidth || 600));
+  $("chartwrap").innerHTML = grafica(vis, series, W);
+  leer(null, vis, series);
+  $("hist-fin").innerHTML = resumenHist(vis, series);
+  $("hist-tabla-c").innerHTML = tablaHist(vis, series);
+
+  const svg = $("chartwrap").querySelector(".chart");
+  const cerca = ev => {
+    const caja = svg.getBoundingClientRect();
+    const x = (ev.clientX - caja.left) / caja.width * W;
+    const t0 = vis[0].t, t1 = vis[vis.length - 1].t, L = +svg.dataset.l, R = +svg.dataset.r;
+    const t = t1 === t0 ? t0 : t0 + (x - L) / Math.max(1, W - L - R) * (t1 - t0);
+    let mejor = 0;
+    vis.forEach((r, i) => { if (Math.abs(r.t - t) < Math.abs(vis[mejor].t - t)) mejor = i; });
+    return mejor;
+  };
+  const suelta = () => leer(null, vis, series);
+  svg.addEventListener("pointermove", ev => leer(cerca(ev), vis, series));
+  svg.addEventListener("pointerdown", ev => leer(cerca(ev), vis, series));
+  svg.addEventListener("pointerleave", suelta);
+  svg.addEventListener("blur", suelta);
+  svg.addEventListener("keydown", ev => {
+    const paso = { ArrowLeft: -1, ArrowRight: 1 }[ev.key];
+    if (paso) {
+      ev.preventDefault();
+      leer(Math.max(0, Math.min(vis.length - 1, (CRUZ == null ? vis.length - 1 : CRUZ) + paso)), vis, series);
+    } else if (ev.key === "Escape") suelta();
+  });
+}
+
+$("hist-ctl").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.m) METRICA = b.dataset.m; else DIAS = +b.dataset.d;
+  pintarHistorial();
+});
+
+let redibuja;
+addEventListener("resize", () => {
+  clearTimeout(redibuja);
+  redibuja = setTimeout(() => { if (DATA && !$("hist").hidden) pintarHistorial(); }, 150);
+});
+
 function render() {
   $("meta").textContent = `KwikPen · C.P. ${DATA.cp} · ${hace(new Date(DATA.generado))}`;
   $("doses").innerHTML = DATA.dosis.map(d =>
@@ -482,6 +781,8 @@ function render() {
            sin cambios desde el ${f(reg.desde)}${cap}.`;
   }
 
+  pintarHistorial();
+
   const errs = Object.keys(DATA.errores || {});
   $("problems").hidden = !errs.length;
   $("problems").textContent = errs.length
@@ -503,6 +804,9 @@ $("doses").addEventListener("click", e => {
     let guardada = null;
     try { guardada = localStorage.getItem("dosis"); } catch (_) {}
     DOSE = DATA.dosis.includes(guardada) ? guardada : DATA.dosis[0];
+    Object.keys(DATA.farmacias || {}).forEach((ph, i) => { if (i < 5) SERIE[ph] = `var(--s${i + 1})`; });
+    const ts = HIST.map(r => +new Date(r.t)).filter(t => t);
+    if (ts.length && (Math.max(...ts) - Math.min(...ts)) / 864e5 > 45) DIAS = 30;
     render();
   } catch (e) {
     $("meta").textContent = "No se pudieron cargar los precios. Intenta de nuevo en unos minutos.";
