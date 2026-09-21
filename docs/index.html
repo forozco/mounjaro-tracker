@@ -3,227 +3,339 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mounjaro KwikPen · comparador de precios</title>
+<title>Mounjaro KwikPen · dónde conviene comprar</title>
+<meta name="description" content="Comparador de precios de Mounjaro KwikPen en farmacias de México, con las promociones que solo aparecen dentro de imágenes.">
 <style>
   :root {
     color-scheme: light;
-    --bg: #f5f5f4; --surface-1: #fcfcfb; --surface-2: #f0efed; --border: #e0dfdb;
-    --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #85837c;
-    --accent: #2a78d6; --good-bg: #ecfdf5; --good-br: #a7f3d0; --good-tx: #065f46;
-    --warn-tx: #9a3412; --warn-bg: #fff7ed;
+    --bg: #f6f6f4; --surface: #ffffff; --surface-2: #f1f0ed; --border: #e3e2de;
+    --ink: #17171a; --ink-2: #56555f; --ink-3: #85848d;
+    --accent: #2a78d6;
+    --win-bg: #edfaf3; --win-br: #8fdcb6; --win-ink: #0a6c43;
+    --warn-bg: #fff6ed; --warn-ink: #92400e; --warn-br: #fcd9b0;
     --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
+    --shadow: 0 1px 2px rgba(20,20,30,.05), 0 8px 24px rgba(20,20,30,.05);
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --bg: #121211; --surface-1: #1a1a19; --surface-2: #232321; --border: #35352f;
-      --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #96958c;
-      --accent: #3987e5; --good-bg: #052e22; --good-br: #126b4b; --good-tx: #6ee7b7;
-      --warn-tx: #fdba74; --warn-bg: #2a1a0d;
-      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
-    }
-  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #101013; --surface: #1a1a1f; --surface-2: #24242b; --border: #33333c;
+    --ink: #f7f7f8; --ink-2: #b9b8c2; --ink-3: #8b8a95;
+    --accent: #5c9ded;
+    --win-bg: #06291d; --win-br: #17694a; --win-ink: #7ce3b4;
+    --warn-bg: #2c1a0b; --warn-ink: #fcc281; --warn-br: #6b4318;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  } }
   :root[data-theme="dark"] {
     color-scheme: dark;
-    --bg: #121211; --surface-1: #1a1a19; --surface-2: #232321; --border: #35352f;
-    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #96958c;
-    --accent: #3987e5; --good-bg: #052e22; --good-br: #126b4b; --good-tx: #6ee7b7;
-    --warn-tx: #fdba74; --warn-bg: #2a1a0d;
+    --bg: #101013; --surface: #1a1a1f; --surface-2: #24242b; --border: #33333c;
+    --ink: #f7f7f8; --ink-2: #b9b8c2; --ink-3: #8b8a95;
+    --accent: #5c9ded;
+    --win-bg: #06291d; --win-br: #17694a; --win-ink: #7ce3b4;
+    --warn-bg: #2c1a0b; --warn-ink: #fcc281; --warn-br: #6b4318;
     --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--text-primary);
-    font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 24px 16px 64px; }
-  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between; }
-  h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; }
-  h2 { font-size: 17px; margin: 32px 0 12px; }
-  h3 { font-size: 13px; margin: 0 0 6px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .06em; }
-  .muted { color: var(--text-muted); font-size: 13px; }
-  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
-  .hero { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin: 2px 0; }
-  .best { background: var(--good-bg); border-color: var(--good-br); }
-  .best h3 { color: var(--good-tx); }
-  .pill { display: inline-block; font-size: 12px; padding: 2px 9px; border-radius: 999px;
-    background: var(--surface-2); border: 1px solid var(--border); color: var(--text-secondary); margin: 2px 4px 2px 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 22px 16px 72px; }
+
+  header.top { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+  h1 { font-size: 21px; line-height: 1.25; margin: 0 0 3px; letter-spacing: -.02em; }
+  .sub { color: var(--ink-3); font-size: 12.5px; }
+  .ghost { background: var(--surface); border: 1px solid var(--border); color: var(--ink-2);
+    border-radius: 9px; padding: 6px 11px; font-size: 12.5px; cursor: pointer; white-space: nowrap; }
+  .ghost:hover { color: var(--ink); }
+
+  .tabs { display: flex; gap: 6px; background: var(--surface-2); padding: 4px; border-radius: 12px;
+    margin: 0 0 18px; width: fit-content; }
+  .tab { border: 0; background: none; color: var(--ink-2); font: inherit; font-size: 14px; font-weight: 500;
+    padding: 7px 18px; border-radius: 9px; cursor: pointer; }
+  .tab[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+
+  .grid2 { display: grid; grid-template-columns: 1.25fr 1fr; gap: 14px; align-items: start; }
+  .win { background: var(--win-bg); border: 1px solid var(--win-br); border-radius: 16px; padding: 18px; }
+  .side { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+  .eyebrow { font-size: 11.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); }
+  .win .eyebrow { color: var(--win-ink); }
+  .price { font-size: 38px; font-weight: 700; letter-spacing: -.03em; line-height: 1.05; margin: 8px 0 2px; }
+  .side .price { font-size: 27px; }
+  .price small { font-size: 14px; font-weight: 500; color: var(--ink-2); letter-spacing: 0; }
+  .who { font-size: 17px; font-weight: 600; }
+  .why { color: var(--ink-2); font-size: 13.5px; }
+
+  .cta { display: inline-block; margin-top: 12px; background: var(--accent); color: #fff; font-weight: 600;
+    font-size: 13.5px; padding: 9px 15px; border-radius: 10px; text-decoration: none; }
+  .cta:hover { filter: brightness(1.07); text-decoration: none; }
+  .tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 12px; padding: 3px 9px; border-radius: 99px; background: var(--surface-2);
+    border: 1px solid var(--border); color: var(--ink-2); }
+  .tag.key { background: var(--warn-bg); border-color: var(--warn-br); color: var(--warn-ink); }
+  .note { margin-top: 10px; font-size: 12.5px; color: var(--warn-ink); background: var(--warn-bg);
+    border: 1px solid var(--warn-br); border-radius: 10px; padding: 8px 11px; }
+
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3);
+    margin: 30px 0 10px; font-weight: 700; }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: var(--shadow); overflow: hidden; }
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
-  th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); font-weight: 600; }
-  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
-  .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3);
+    font-weight: 600; text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border); }
+  td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tr.row { cursor: pointer; }
+  tr.row:hover td { background: var(--surface-2); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .big { font-weight: 700; font-size: 15px; }
+  .down { color: var(--win-ink); font-size: 11.5px; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 3px; margin-right: 8px; vertical-align: 1px; }
+  .ph { font-weight: 600; }
+  .mini { color: var(--ink-3); font-size: 11.5px; }
+  .chev { color: var(--accent); font-size: 11.5px; }
+  .detail td { background: var(--surface-2); padding: 0; }
+  .detail-in { padding: 14px 16px; display: grid; gap: 12px; }
+  .shots { display: flex; gap: 10px; flex-wrap: wrap; }
+  .shots a { display: block; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #fff; }
+  .shots img { display: block; width: 116px; height: 116px; object-fit: contain; background: #fff; }
+
+  .banners { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .bn { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+    box-shadow: var(--shadow); text-decoration: none; color: inherit; display: block; }
+  .bn img { display: block; width: 100%; height: 165px; object-fit: contain; background: #fff;
+    border-bottom: 1px solid var(--border); padding: 6px; }
+  .bn .bd { padding: 10px 12px 12px; }
+  .bn:hover { border-color: var(--accent); text-decoration: none; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 13px; font-size: 12px; color: var(--ink-2); margin: 0 0 8px; }
+  .chartbox { position: relative; padding: 14px 16px 6px; }
+  .tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 8px 10px; font-size: 12px; box-shadow: var(--shadow); opacity: 0; transition: opacity .12s; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .thumbs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-  .thumbs img { width: 92px; height: 92px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: #fff; }
-  .warn { color: var(--warn-tx); }
-  .acct { margin-top: 8px; font-size: 12.5px; background: var(--warn-bg); color: var(--warn-tx);
-    border: 1px solid currentColor; border-radius: 8px; padding: 6px 9px; }
-  .banner { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
-  .banner img { width: 190px; border-radius: 10px; border: 1px solid var(--border); background: #fff; }
-  .legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: var(--text-secondary); margin: 6px 0 2px; }
-  .chartbox { position: relative; }
-  .tip { position: absolute; pointer-events: none; background: var(--surface-1); border: 1px solid var(--border);
-    border-radius: 8px; padding: 7px 9px; font-size: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.14); opacity: 0; transition: opacity .1s; }
-  button.theme { background: var(--surface-1); border: 1px solid var(--border); color: var(--text-secondary);
-    border-radius: 8px; padding: 5px 10px; font-size: 12px; cursor: pointer; }
-  @media (max-width: 640px) {
-    .banner img { width: 120px; }
-    th, td { padding: 8px 5px; font-size: 13px; }
+  .foot { margin-top: 34px; color: var(--ink-3); font-size: 12.5px; line-height: 1.6; }
+  .empty { padding: 18px; color: var(--ink-3); }
+
+  @media (max-width: 720px) {
+    .grid2 { grid-template-columns: 1fr; }
     .hide-s { display: none; }
+    td, th { padding: 10px 9px; }
+    .price { font-size: 32px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <header class="top">
     <div>
       <h1>Mounjaro KwikPen · dónde conviene comprar</h1>
-      <div class="muted" id="meta">Cargando…</div>
+      <div class="sub" id="meta">Cargando…</div>
     </div>
-    <button class="theme" id="theme">Cambiar tema</button>
+    <button class="ghost" id="theme">Tema</button>
   </header>
+
+  <div class="tabs" id="tabs" role="tablist"></div>
   <main id="app"></main>
-  <p class="muted" style="margin-top:36px">
-    Datos tomados de las páginas públicas de cada farmacia, incluidas las promociones que
-    solo aparecen dentro de imágenes (leídas con OCR, por lo que pueden tener errores).
-    Muchas promociones piden tarjeta de lealtad, tienen vigencia o límite de piezas.
-    Verifica siempre en la farmacia antes de comprar. Mounjaro es un medicamento que requiere
-    supervisión médica.
+
+  <p class="foot">
+    Los precios y promociones se toman de las páginas públicas de cada farmacia, incluidas las que
+    solo aparecen dentro de imágenes (se leen con OCR, así que puede haber errores). Muchas piden
+    tarjeta de lealtad, tienen vigencia o límite de piezas.
+    <b>Verifica en la farmacia antes de comprar.</b> Mounjaro requiere supervisión médica.
   </p>
 </div>
+
 <script>
 const MX = n => n == null ? "—" : "$" + Math.round(n).toLocaleString("es-MX");
-const SERIES = ["--s1","--s2","--s3","--s4","--s5"];
-const el = (t, c, h) => { const e = document.createElement(t); if (c) e.className = c; if (h != null) e.innerHTML = h; return e; };
+const SERIES = ["--s1", "--s2", "--s3", "--s4", "--s5"];
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const img = o => o.thumb || o.src || o.url;
+let DATA = null, HIST = [], DOSE = null;
 
+try { const t = localStorage.getItem("tema"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
 document.getElementById("theme").onclick = () => {
   const cur = document.documentElement.getAttribute("data-theme");
   const dark = cur ? cur === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  document.documentElement.setAttribute("data-theme", dark ? "light" : "dark");
-  render();
+  const nuevo = dark ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", nuevo);
+  try { localStorage.setItem("tema", nuevo); } catch (e) {}
 };
 
-let DATA = null, HIST = [];
+function colorOf(k) {
+  const keys = Object.keys(DATA.farmacias);
+  return `var(${SERIES[keys.indexOf(k) % SERIES.length]})`;
+}
 
 async function load() {
   const bust = "?v=" + Date.now();
   DATA = await (await fetch("data/latest.json" + bust)).json();
   try { HIST = await (await fetch("data/history.json" + bust)).json(); } catch (e) { HIST = []; }
+  DOSE = DATA.dosis[0];
+  const tabs = document.getElementById("tabs");
+  tabs.innerHTML = DATA.dosis.map(d =>
+    `<button class="tab" role="tab" data-d="${d}" aria-selected="${d === DOSE}">${d} mg</button>`).join("");
+  tabs.onclick = e => {
+    const b = e.target.closest(".tab"); if (!b) return;
+    DOSE = b.dataset.d;
+    [...tabs.children].forEach(t => t.setAttribute("aria-selected", t.dataset.d === DOSE));
+    render();
+  };
   render();
 }
 
-function colorOf(pharmacyKey) {
-  const keys = Object.keys(DATA.farmacias);
-  return `var(${SERIES[keys.indexOf(pharmacyKey) % SERIES.length]})`;
-}
-
 function render() {
-  const app = document.getElementById("app");
-  app.innerHTML = "";
   const gen = new Date(DATA.generado);
   document.getElementById("meta").textContent =
-    `Actualizado ${gen.toLocaleString("es-MX", { dateStyle: "medium", timeStyle: "short" })} · ${DATA.zona} (C.P. ${DATA.cp}) · se revisa 3 veces al día`;
+    `${gen.toLocaleString("es-MX", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })}` +
+    ` · ${DATA.zona} · se revisa 3 veces al día`;
 
-  for (const dose of DATA.dosis) {
-    const rec = (DATA.recomendacion || {})[dose];
-    const offers = DATA.ofertas.filter(o => o.dose === dose);
-    app.appendChild(el("h2", null, `KwikPen ${dose} mg`));
-    if (!offers.length) { app.appendChild(el("p", "warn", "Sin resultados en esta revisión.")); continue; }
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+  const rec = (DATA.recomendacion || {})[DOSE];
+  const offers = DATA.ofertas.filter(o => o.dose === DOSE)
+    .sort((a, b) => (a.valor?.promedio_por_pluma ?? 1e9) - (b.valor?.promedio_por_pluma ?? 1e9));
 
-    if (rec) {
-      const cards = el("div", "cards");
-      cards.appendChild(recCard("Mejor para comprar hoy (1 pluma)", rec.hoy, ""));
-      cards.appendChild(recCard(`Mejor valor para tu tratamiento (${DATA.horizonte_plumas} plumas)`, rec.tratamiento, "best",
-        rec.ventaja_vs_segundo ? `${MX(rec.ventaja_vs_segundo)} por pluma abajo de la segunda opción` : ""));
-      app.appendChild(cards);
-    }
-    app.appendChild(tableFor(offers));
-    app.appendChild(chartFor(dose));
+  if (!offers.length) {
+    app.innerHTML = `<div class="panel"><div class="empty">Sin resultados para ${DOSE} mg en esta revisión.</div></div>`;
+    return;
   }
+  if (rec) app.appendChild(hero(rec));
+  app.insertAdjacentHTML("beforeend", "<h2>Todas las farmacias</h2>");
+  app.appendChild(tabla(offers));
+  app.insertAdjacentHTML("beforeend", "<h2>Costo por pluma en el tiempo</h2>");
+  app.appendChild(grafica(DOSE));
 
-  if (DATA.banners?.length) {
-    app.appendChild(el("h2", null, "Promos encontradas en banners e imágenes"));
-    const box = el("div", "card");
-    DATA.banners.forEach(b => {
-      const d = el("div", "banner");
-      // el OCR deja mucho ruido: solo se muestra el texto que trae precio, % o la marca
-      const util = (b.texto || "").split("\n")
-        .filter(l => /(\$\s?\d|\d\s?%|mounjaro|cup[oó]n|gratis|compra)/i.test(l) && l.length < 120).slice(0, 3).join(" · ");
-      d.innerHTML = `<a href="${b.link || b.pagina}" target="_blank" rel="noopener"><img src="${b.src}" alt="${b.alt || ""}" loading="lazy"></a>
-        <div><b>${b.pharmacy_name}</b><div class="muted">${(b.promos || []).join(" · ") || b.alt || "imagen con Mounjaro"}</div>
-        ${b.canal ? `<span class="pill">${b.canal}</span>` : ""}${b.condicion ? `<span class="pill">${b.condicion}</span>` : ""}
-        ${util ? `<div class="muted" style="margin-top:4px">${util}</div>` : ""}</div>`;
-      box.appendChild(d);
-    });
-    app.appendChild(box);
+  // Los banners suelen ser por dosis (2.5, 5, 7.5…): se muestran los de la dosis
+  // elegida y los que aplican a todas; el resto queda escondido.
+  const dosisDe = b => {
+    const m = `${b.alt || ""} ${(b.promos || []).join(" ")} ${(b.texto || "").slice(0, 120)}`.match(/(\d{1,2}(?:[.,]\d)?)\s*mg/i);
+    return m ? String(parseFloat(m[1].replace(",", "."))) : null;
+  };
+  const esFrasco = b => {
+    const t = `${b.alt || ""} ${(b.texto || "").slice(0, 200)}`;
+    return /0[.,]5\s*m|frasco|[áa]mpula/i.test(t) && !/kwik|pluma|0[.,]6\s*m|2[.,]4\s*m/i.test(t);
+  };
+  const todos = DATA.banners || [];
+  const bn = todos.filter(b => { const d = dosisDe(b); return (!d || d === DOSE) && !esFrasco(b); });
+  const otros = todos.length - bn.length;
+  if (bn.length) {
+    app.insertAdjacentHTML("beforeend", `<h2>Promos encontradas en banners e imágenes</h2>`);
+    const g = document.createElement("div");
+    g.className = "banners";
+    g.innerHTML = bn.map(b => `
+      <a class="bn" href="${esc(b.link || b.pagina)}" target="_blank" rel="noopener">
+        <img src="${esc(img(b))}" alt="" loading="lazy" onerror="this.remove()">
+        <div class="bd">
+          <div class="ph" style="font-size:13.5px">${esc(b.pharmacy_name)}</div>
+          <div class="mini">${esc((b.promos || []).join(" · ") || b.alt || "imagen con Mounjaro")}</div>
+          ${b.condicion ? `<div class="tags"><span class="tag">${esc(b.condicion)}</span></div>` : ""}
+        </div>
+      </a>`).join("");
+    app.appendChild(g);
+    if (otros) app.insertAdjacentHTML("beforeend",
+      `<div class="mini" style="margin-top:10px">Se ocultaron ${otros} imágenes de otras dosis de Mounjaro.</div>`);
   }
 
   const errs = Object.entries(DATA.errores || {});
   if (errs.length) {
-    app.appendChild(el("h2", null, "Farmacias que fallaron"));
-    app.appendChild(el("div", "card warn", errs.map(([k, v]) => `<div>${DATA.farmacias[k] || k}: ${v}</div>`).join("")));
+    app.insertAdjacentHTML("beforeend", `<h2>Farmacias que fallaron</h2>
+      <div class="panel"><div class="empty">${errs.map(([k, v]) =>
+        `<div>${esc(DATA.farmacias[k] || k)}: ${esc(v)}</div>`).join("")}</div></div>`);
   }
 }
 
-function recCard(title, pick, cls, extra) {
-  const c = el("div", "card " + cls);
-  c.innerHTML = `<h3>${title}</h3>
-    <div class="hero">${MX(pick.precio)} <span class="muted" style="font-size:14px">por pluma</span></div>
-    <div><b>${pick.pharmacy_name}</b></div>
-    <div class="muted">${pick.escenario}</div>
-    ${pick.requiere_cuenta ? `<div class="acct">🔑 Este precio requiere tu cuenta o tarjeta de la farmacia: inicia sesión o preséntala al pagar</div>` : ""}
-    <div style="margin-top:6px">
-      <span class="pill">Cómo: ${pick.canal}</span>
-      ${(pick.condiciones || []).map(x => `<span class="pill">${x}</span>`).join("")}
-      <span class="pill">Receta: ${pick.receta}</span>
+function hero(rec) {
+  const t = rec.tratamiento, hoy = rec.hoy;
+  const box = document.createElement("div");
+  box.className = "grid2";
+  box.innerHTML = `
+    <div class="win">
+      <div class="eyebrow">Mejor valor para tu tratamiento · ${DATA.horizonte_plumas} plumas</div>
+      <div class="price">${MX(t.precio)} <small>por pluma</small></div>
+      <div class="who">${esc(t.pharmacy_name)}</div>
+      <div class="why">${esc(t.escenario)}</div>
+      ${t.requiere_cuenta ? `<div class="note">🔑 Este precio requiere tu cuenta o tarjeta de la farmacia: inicia sesión o preséntala al pagar.</div>` : ""}
+      <div class="tags">
+        <span class="tag">Cómo: ${esc(t.canal)}</span>
+        ${(t.condiciones || []).map(c => `<span class="tag key">${esc(c)}</span>`).join("")}
+        <span class="tag">Receta: ${esc(t.receta)}</span>
+      </div>
+      ${rec.ventaja_vs_segundo ? `<div class="mini" style="margin-top:8px">${MX(rec.ventaja_vs_segundo)} por pluma abajo de la segunda opción</div>` : ""}
+      <a class="cta" href="${esc(t.url)}" target="_blank" rel="noopener">Ver en ${esc(t.pharmacy_name)} →</a>
     </div>
-    ${extra ? `<div class="muted" style="margin-top:6px">${extra}</div>` : ""}
-    <div style="margin-top:8px"><a href="${pick.url}" target="_blank" rel="noopener">Ver producto →</a></div>`;
-  return c;
-}
-
-function tableFor(offers) {
-  const box = el("div", "card");
-  const t = el("table");
-  t.innerHTML = `<thead><tr><th>Farmacia</th><th class="num">En línea</th><th class="num">Hoy</th>
-    <th class="num">Por pluma</th><th class="hide-s">Cómo comprar</th><th class="hide-s">Promos detectadas</th><th class="hide-s">Receta</th></tr></thead>`;
-  const tb = el("tbody");
-  offers.slice().sort((a, b) => (a.valor?.promedio_por_pluma ?? 1e9) - (b.valor?.promedio_por_pluma ?? 1e9)).forEach(o => {
-    const v = o.valor || {};
-    const promos = (o.promos || []).filter(p => p.kind !== "msi").map(p =>
-      `<span class="pill" title="${(p.raw || "").replace(/"/g, "'")}">${p.label}${p.source === "imagen" ? " 📷" : ""}</span>`).join("") || "—";
-    const tr = el("tr");
-    tr.innerHTML = `<td><span class="swatch" style="background:${colorOf(o.pharmacy)}"></span>
-        <a href="${o.url}" target="_blank" rel="noopener">${o.pharmacy_name}</a>
-        ${o.in_stock === false ? '<div class="warn">agotado</div>' : ""}
-        ${o.pagina_bloqueada ? '<div class="warn" style="font-size:12px">su página respondió bloqueo: puede faltar alguna promo</div>' : ""}
-        ${(DATA.notas_farmacia || {})[o.pharmacy] ? `<div class="muted" style="font-size:12px">${DATA.notas_farmacia[o.pharmacy]}</div>` : ""}</td>
-      <td class="num">${MX(o.precio_linea)}</td>
-      <td class="num">${MX(v.precio_hoy)}</td>
-      <td class="num"><b>${MX(v.promedio_por_pluma)}</b>${v.ahorro_vs_linea_pct > 0 ? `<div class="muted">-${v.ahorro_vs_linea_pct}%</div>` : ""}</td>
-      <td class="hide-s">${v.canal_tratamiento || "En línea"}${v.requiere_cuenta_tratamiento ? '<div class="muted">🔑 requiere cuenta o tarjeta</div>' : ""}${v.limite ? `<div class="muted">límite ${v.limite} pzas</div>` : ""}</td>
-      <td class="hide-s">${promos}</td>
-      <td class="hide-s">${o.receta_checkout?.resultado ? o.receta_checkout.resultado : (o.receta || "—")}</td>`;
-    tb.appendChild(tr);
-    if (o.imagenes_promo?.length) {
-      const tr2 = el("tr");
-      const td = el("td");
-      td.colSpan = 7;
-      td.innerHTML = `<div class="thumbs">` + o.imagenes_promo.map(i =>
-        `<a href="${i.url}" target="_blank" rel="noopener" title="${(i.promos || []).join(', ')}"><img src="${i.url}" loading="lazy" alt=""></a>`).join("") + `</div>`;
-      tr2.appendChild(td);
-      tb.appendChild(tr2);
-    }
-  });
-  t.appendChild(tb);
-  box.appendChild(t);
+    <div class="side">
+      <div class="eyebrow">Si solo compras una hoy</div>
+      <div class="price">${MX(hoy.precio)} <small>hoy</small></div>
+      <div class="who">${esc(hoy.pharmacy_name)}</div>
+      <div class="why">${esc(hoy.escenario)}</div>
+      ${t.id === hoy.id ? `<div class="mini" style="margin-top:8px">Es la misma que conviene a largo plazo.</div>` : ""}
+      <div class="tags">
+        <span class="tag">Cómo: ${esc(hoy.canal)}</span>
+        ${hoy.requiere_cuenta ? `<span class="tag key">🔑 requiere cuenta</span>` : ""}
+      </div>
+      <a class="cta" href="${esc(hoy.url)}" target="_blank" rel="noopener">Ver producto →</a>
+    </div>`;
   return box;
 }
 
-function chartFor(dose) {
-  const box = el("div", "card");
-  box.appendChild(el("h3", null, "Costo por pluma en el tiempo"));
+function tabla(offers) {
+  const panel = document.createElement("div");
+  panel.className = "panel";
+  const filas = offers.map((o, i) => {
+    const v = o.valor || {};
+    const promos = (o.promos || []).filter(p => !["msi"].includes(p.kind));
+    const shots = o.imagenes_promo || [];
+    return `
+      <tr class="row" data-i="${i}">
+        <td>
+          <span class="dot" style="background:${colorOf(o.pharmacy)}"></span><span class="ph">${esc(o.pharmacy_name)}</span>
+          ${o.in_stock === false ? `<div class="mini" style="color:var(--warn-ink)">agotado</div>` : ""}
+          ${o.pagina_bloqueada ? `<div class="mini" style="color:var(--warn-ink)">su página bloqueó la lectura</div>` : ""}
+          ${(promos.length || shots.length) ? `<div class="chev">${promos.length} promo${promos.length === 1 ? "" : "s"} · ver detalle</div>` : ""}
+        </td>
+        <td class="num hide-s">${MX(o.precio_linea)}</td>
+        <td class="num">${MX(v.precio_hoy)}</td>
+        <td class="num"><span class="big">${MX(v.promedio_por_pluma)}</span>
+          ${v.ahorro_vs_linea_pct > 0 ? `<div class="down">−${v.ahorro_vs_linea_pct}%</div>` : ""}</td>
+        <td class="hide-s">${esc(v.canal_tratamiento || "En línea")}
+          ${v.requiere_cuenta_tratamiento ? `<div class="mini">🔑 requiere cuenta</div>` : ""}
+          ${v.limite ? `<div class="mini">límite ${v.limite} pzas</div>` : ""}</td>
+        <td class="hide-s mini">${esc(o.receta || "—")}</td>
+      </tr>
+      <tr class="detail" data-for="${i}" hidden><td colspan="6"><div class="detail-in">
+        <div class="tags">${promos.map(p =>
+          `<span class="tag" title="${esc(p.raw || "")}">${esc(p.label)}${p.source === "imagen" ? " 📷" : ""}${p.condition ? " · " + esc(p.condition) : ""}</span>`).join("")
+          || `<span class="mini">Sin promociones detectadas.</span>`}</div>
+        ${shots.length ? `<div>
+          <div class="mini" style="margin-bottom:6px">Imágenes donde encontró la promo</div>
+          <div class="shots">${shots.map(im =>
+            `<a href="${esc(im.url)}" target="_blank" rel="noopener" title="${esc((im.promos || []).join(", "))}">
+               <img src="${esc(img(im))}" loading="lazy" alt="" onerror="this.closest('a').remove()"></a>`).join("")}</div>
+        </div>` : ""}
+        ${(DATA.notas_farmacia || {})[o.pharmacy] ? `<div class="mini">${esc(DATA.notas_farmacia[o.pharmacy])}</div>` : ""}
+        <div><a href="${esc(o.url)}" target="_blank" rel="noopener">Abrir en ${esc(o.pharmacy_name)} →</a></div>
+      </div></td></tr>`;
+  }).join("");
+
+  panel.innerHTML = `<table>
+    <thead><tr>
+      <th>Farmacia</th><th class="num hide-s">En línea</th><th class="num">Hoy</th>
+      <th class="num">Por pluma</th><th class="hide-s">Cómo comprar</th><th class="hide-s">Receta</th>
+    </tr></thead><tbody>${filas}</tbody></table>`;
+
+  panel.addEventListener("click", e => {
+    const tr = e.target.closest("tr.row");
+    if (!tr || e.target.closest("a")) return;
+    const d = panel.querySelector(`tr.detail[data-for="${tr.dataset.i}"]`);
+    if (d) d.hidden = !d.hidden;
+  });
+  return panel;
+}
+
+function grafica(dose) {
+  const panel = document.createElement("div");
+  panel.className = "panel";
   const points = {};
   HIST.forEach(run => (run.o || []).forEach(o => {
     if (o.d !== dose || o.a == null) return;
@@ -231,69 +343,64 @@ function chartFor(dose) {
   }));
   const keys = Object.keys(points);
   if (!keys.length || HIST.length < 2) {
-    box.appendChild(el("p", "muted", "El historial se dibuja cuando haya al menos dos revisiones."));
-    return box;
+    panel.innerHTML = `<div class="empty">La gráfica aparece cuando haya al menos dos revisiones guardadas.</div>`;
+    return panel;
   }
-  const W = 900, H = 260, P = { t: 14, r: 16, b: 26, l: 54 };
+  const W = 900, H = 250, P = { t: 16, r: 18, b: 28, l: 58 };
   const all = keys.flatMap(k => points[k]);
   const xs = all.map(p => p.t), ys = all.map(p => p.v);
   const x0 = Math.min(...xs), x1 = Math.max(...xs) || x0 + 1;
   let y0 = Math.min(...ys), y1 = Math.max(...ys);
-  const pad = (y1 - y0) * 0.15 || 100; y0 -= pad; y1 += pad;
-  const sx = t => P.l + (W - P.l - P.r) * (x1 === x0 ? 0.5 : (t - x0) / (x1 - x0));
+  const pad = (y1 - y0) * .18 || 120; y0 -= pad; y1 += pad;
+  const sx = t => P.l + (W - P.l - P.r) * (x1 === x0 ? .5 : (t - x0) / (x1 - x0));
   const sy = v => P.t + (H - P.t - P.b) * (1 - (v - y0) / (y1 - y0));
-
-  const ticks = 4, gridlines = [], labels = [];
-  for (let i = 0; i <= ticks; i++) {
-    const v = y0 + (y1 - y0) * i / ticks, y = sy(v);
-    gridlines.push(`<line x1="${P.l}" x2="${W - P.r}" y1="${y}" y2="${y}" stroke="var(--border)" stroke-width="1"/>`);
-    labels.push(`<text x="${P.l - 8}" y="${y + 4}" text-anchor="end" font-size="11" fill="var(--text-muted)">${MX(v)}</text>`);
+  let grid = "", labels = "";
+  for (let i = 0; i <= 4; i++) {
+    const v = y0 + (y1 - y0) * i / 4, y = sy(v);
+    grid += `<line x1="${P.l}" x2="${W - P.r}" y1="${y}" y2="${y}" stroke="var(--border)"/>`;
+    labels += `<text x="${P.l - 9}" y="${y + 4}" text-anchor="end" font-size="11" fill="var(--ink-3)">${MX(v)}</text>`;
   }
   const paths = keys.map(k => {
     const pts = points[k].sort((a, b) => a.t - b.t);
     const d = pts.map((p, i) => `${i ? "L" : "M"}${sx(p.t).toFixed(1)},${sy(p.v).toFixed(1)}`).join(" ");
     const dots = pts.length < 40 ? pts.map(p =>
-      `<circle cx="${sx(p.t).toFixed(1)}" cy="${sy(p.v).toFixed(1)}" r="4" fill="${colorOf(k)}" stroke="var(--surface-1)" stroke-width="2"/>`).join("") : "";
+      `<circle cx="${sx(p.t).toFixed(1)}" cy="${sy(p.v).toFixed(1)}" r="4" fill="${colorOf(k)}" stroke="var(--surface)" stroke-width="2"/>`).join("") : "";
     return `<path d="${d}" fill="none" stroke="${colorOf(k)}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>${dots}`;
   }).join("");
   const fmt = t => new Date(t).toLocaleDateString("es-MX", { day: "numeric", month: "short" });
 
-  const legend = el("div", "legend", keys.map(k =>
-    `<span><span class="swatch" style="background:${colorOf(k)}"></span>${DATA.farmacias[k] || k}</span>`).join(""));
-  box.appendChild(legend);
-  const holder = el("div", "chartbox");
-  holder.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img"
-      aria-label="Costo por pluma de ${dose} mg por farmacia a lo largo del tiempo">
-    ${gridlines.join("")}${labels.join("")}
-    <text x="${P.l}" y="${H - 8}" font-size="11" fill="var(--text-muted)">${fmt(x0)}</text>
-    <text x="${W - P.r}" y="${H - 8}" font-size="11" text-anchor="end" fill="var(--text-muted)">${fmt(x1)}</text>
-    ${paths}
-    <line id="cross-${dose}" y1="${P.t}" y2="${H - P.b}" stroke="var(--text-muted)" stroke-width="1" opacity="0"/>
-    <rect x="${P.l}" y="${P.t}" width="${W - P.l - P.r}" height="${H - P.t - P.b}" fill="transparent" id="hit-${dose}"/>
-  </svg><div class="tip" id="tip-${dose}"></div>`;
-  box.appendChild(holder);
+  panel.innerHTML = `<div class="chartbox">
+    <div class="legend">${keys.map(k =>
+      `<span><span class="dot" style="background:${colorOf(k)}"></span>${esc(DATA.farmacias[k] || k)}</span>`).join("")}</div>
+    <svg viewBox="0 0 ${W} ${H}" width="100%" role="img"
+        aria-label="Costo por pluma de ${dose} mg por farmacia a lo largo del tiempo">
+      ${grid}${labels}
+      <text x="${P.l}" y="${H - 8}" font-size="11" fill="var(--ink-3)">${fmt(x0)}</text>
+      <text x="${W - P.r}" y="${H - 8}" font-size="11" text-anchor="end" fill="var(--ink-3)">${fmt(x1)}</text>
+      ${paths}
+      <line class="cross" y1="${P.t}" y2="${H - P.b}" stroke="var(--ink-3)" opacity="0"/>
+      <rect class="hit" x="${P.l}" y="${P.t}" width="${W - P.l - P.r}" height="${H - P.t - P.b}" fill="transparent"/>
+    </svg><div class="tip"></div></div>`;
 
-  const svg = holder.querySelector("svg"), tip = holder.querySelector(".tip"), cross = holder.querySelector(`#cross-${dose}`);
-  holder.querySelector(`#hit-${dose}`).addEventListener("mousemove", ev => {
+  const svg = panel.querySelector("svg"), tip = panel.querySelector(".tip"), cross = panel.querySelector(".cross");
+  panel.querySelector(".hit").addEventListener("mousemove", ev => {
     const r = svg.getBoundingClientRect(), vx = (ev.clientX - r.left) / r.width * W;
     const t = x0 + (x1 - x0) * Math.min(1, Math.max(0, (vx - P.l) / (W - P.l - P.r)));
-    const rows = keys.map(k => {
-      const p = points[k].reduce((a, b) => Math.abs(b.t - t) < Math.abs(a.t - t) ? b : a);
-      return { k, p };
-    }).sort((a, b) => a.p.v - b.p.v);
-    cross.setAttribute("x1", sx(rows[0].p.t)); cross.setAttribute("x2", sx(rows[0].p.t)); cross.setAttribute("opacity", "1");
+    const rows = keys.map(k => ({ k, p: points[k].reduce((a, b) => Math.abs(b.t - t) < Math.abs(a.t - t) ? b : a) }))
+      .sort((a, b) => a.p.v - b.p.v);
+    cross.setAttribute("x1", sx(rows[0].p.t)); cross.setAttribute("x2", sx(rows[0].p.t)); cross.setAttribute("opacity", ".5");
     tip.innerHTML = `<b>${new Date(rows[0].p.t).toLocaleString("es-MX", { dateStyle: "medium", timeStyle: "short" })}</b>` +
-      rows.map(r => `<div><span class="swatch" style="background:${colorOf(r.k)}"></span>${DATA.farmacias[r.k] || r.k}: ${MX(r.p.v)}</div>`).join("");
+      rows.map(r => `<div><span class="dot" style="background:${colorOf(r.k)}"></span>${esc(DATA.farmacias[r.k] || r.k)}: ${MX(r.p.v)}</div>`).join("");
     tip.style.opacity = 1;
-    tip.style.left = Math.min(r.width - 190, Math.max(0, ev.clientX - r.left + 12)) + "px";
-    tip.style.top = (ev.clientY - r.top - 10) + "px";
+    tip.style.left = Math.min(r.width - 200, Math.max(8, ev.clientX - r.left + 14)) + "px";
+    tip.style.top = Math.max(8, ev.clientY - r.top - 12) + "px";
   });
-  holder.addEventListener("mouseleave", () => { tip.style.opacity = 0; cross.setAttribute("opacity", "0"); });
-  return box;
+  panel.addEventListener("mouseleave", () => { tip.style.opacity = 0; cross.setAttribute("opacity", "0"); });
+  return panel;
 }
 
 load().catch(e => document.getElementById("app").innerHTML =
-  `<div class="card warn">No se pudo cargar la información: ${e}. Si el robot aún no ha corrido, espera la primera revisión.</div>`);
+  `<div class="panel"><div class="empty">No se pudo cargar la información (${esc(e)}). Si el robot aún no corre, espera la primera revisión.</div></div>`);
 </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 """Corrida completa: buscar → leer páginas e imágenes → evaluar valor → guardar → avisar."""
 import asyncio
 import hashlib
+import io
 import json
 import os
 import random
@@ -13,6 +14,8 @@ from zoneinfo import ZoneInfo
 
 from . import config, notify, receta
 from .browser import BANNERS_JS, PDP_JS, Browser
+from PIL import Image
+
 from .ocr import ocr_bytes
 from .products import Product, classify
 from .promos import Promo, canal_of, condition_of, dedupe, parse_image, parse_text
@@ -22,11 +25,19 @@ from .value import evaluate, recommend
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 DOCS_DATA = ROOT / "docs" / "data"
+DOCS_IMG = ROOT / "docs" / "img"
 TZ = ZoneInfo("America/Mexico_City")
 MAX_IMAGES_PER_PRODUCT = 8
 OCR_CACHE_MAX = 600
-_RECETA_REQ = re.compile(r"(requiere|necesari|obligatori|sub(e|ir)|adjunt|present(a|ar)|carga|v[aá]lida|indispensable)[^.]{0,40}receta|receta[^.]{0,30}(requerid|obligatori|necesari|indispensable|v[aá]lida)", re.I)
-_RECETA_NO = re.compile(r"(no|sin)\s+(requiere|necesita)[^.]{0,15}receta|sin\s+receta", re.I)
+# "Condición de Venta: Farmacia Receta No Obligatoria" es el dato bueno de la ficha;
+# se revisa antes que cualquier otra mención de receta.
+_RECETA_NO = re.compile(
+    r"receta\s+no\s+obligatoria|no\s+requiere[^.]{0,20}receta|sin\s+receta|"
+    r"venta\s+libre|no\s+necesitas[^.]{0,20}receta", re.I)
+_RECETA_REQ = re.compile(
+    r"receta\s+(m[eé]dica\s+)?(obligatoria|requerida|retenida|indispensable)|"
+    r"(requiere|necesita|obligatoria|indispensable|sube|subir|adjunta|carga|presenta)[^.]{0,30}receta|"
+    r"con\s+receta\s+m[eé]dica", re.I)
 
 
 def log(*a):
@@ -65,6 +76,8 @@ class Runner:
         self.errors: dict[str, str] = {}
         self.ocr_sem = asyncio.Semaphore(int(os.environ.get("OCR_WORKERS", "3")))
         self.visitadas: set[str] = set()  # farmacias cuyo home/buscador ya se visitó
+        self.img_bytes: dict[str, bytes] = {}  # imágenes ya descargadas en esta corrida
+        self.thumbs_usados: set[str] = set()
 
     async def ocr_url(self, br: Browser, url: str, quick: bool = False, referer: str | None = None) -> dict | None:
         key = _img_key(url) + ("#q" if quick else "")
@@ -76,12 +89,47 @@ class Runner:
                 data = await br.fetch_bytes(url, referer)
                 if not data:
                     return None
+                if len(data) < 4_000_000:
+                    self.img_bytes[_img_key(url)] = data
                 res = await asyncio.to_thread(ocr_bytes, data, quick)
         except Exception as e:
             log("  OCR falló", url[:80], e)
             return None
         self.ocr_cache[key] = {"t": time.time(), "r": res}
         return res
+
+    async def guardar_miniatura(self, br: Browser, url: str, referer: str | None = None) -> str | None:
+        """Guarda la imagen en docs/img para que el dashboard no dependa de la farmacia:
+        Guadalajara y San Pablo bloquean que sus imágenes se muestren desde otro sitio."""
+        key = hashlib.sha1(_img_key(url).encode()).hexdigest()[:12]
+        destino = DOCS_IMG / f"{key}.jpg"
+        self.thumbs_usados.add(destino.name)
+        rel = f"img/{key}.jpg"
+        if destino.exists():
+            return rel
+        data = self.img_bytes.get(_img_key(url)) or await br.fetch_bytes(url, referer)
+        if not data:
+            return None
+        try:
+            def _guardar():
+                im = Image.open(io.BytesIO(data))
+                im = im.convert("RGB")
+                im.thumbnail((640, 640))
+                DOCS_IMG.mkdir(parents=True, exist_ok=True)
+                im.save(destino, "JPEG", quality=78, optimize=True)
+            await asyncio.to_thread(_guardar)
+            return rel
+        except Exception as e:
+            log(f"  no se pudo guardar miniatura: {type(e).__name__}")
+            return None
+
+    def limpiar_miniaturas(self):
+        """Borra las miniaturas que ya nadie usa."""
+        if not DOCS_IMG.exists():
+            return
+        for f in DOCS_IMG.glob("*.jpg"):
+            if f.name not in self.thumbs_usados:
+                f.unlink(missing_ok=True)
 
     # ---------- productos ----------
     async def collect(self, br: Browser) -> list[Product]:
@@ -181,7 +229,9 @@ class Runner:
             found = parse_image(res, p.online_price)
             promos += found
             if found:
-                image_results.append({"url": url, "promos": [f.label for f in found], "texto": res["text"][:400]})
+                image_results.append({"url": url, "promos": [f.label for f in found],
+                                      "texto": res["text"][:400],
+                                      "thumb": await self.guardar_miniatura(br, url, p.url)})
 
         # Si una imagen ya dio el escalonado completo, los precios sueltos de otras
         # imágenes son esos mismos precios: usarlos como "precio de hoy" sería falso.
@@ -204,10 +254,10 @@ class Runner:
         known = config.RECETA_KNOWN.get(p.pharmacy)
         if known:
             receta = {"si": "Sí", "no": "No"}[known] + " (según tu experiencia)"
+        elif any(_RECETA_NO.search(l) for l in receta_lines):
+            receta = "No la pide la ficha"
         elif any(_RECETA_REQ.search(l) for l in receta_lines):
             receta = "Sí (lo indica la página)"
-        elif any(_RECETA_NO.search(l) for l in receta_lines):
-            receta = "No (lo indica la página)"
         else:
             receta = "No indicado en la página"
 
@@ -271,6 +321,7 @@ class Runner:
                         "condicion": condition_of(text + " " + b["alt"]),
                         "canal": canal_of(text + " " + b["alt"]),
                         "hash": hashlib.sha1(_img_key(b["src"]).encode()).hexdigest()[:12],
+                        "thumb": await self.guardar_miniatura(br, b["src"], url),
                     })
         log(f"banners con Mounjaro: {len(hits)}")
         return hits
@@ -340,6 +391,7 @@ class Runner:
             "farmacias": {k: v["name"] for k, v in config.PHARMACIES.items()},
             "notas_farmacia": config.NOTAS_FARMACIA,
         }
+        self.limpiar_miniaturas()
         self.persist(latest)
         notify.maybe_send(latest, self.state, started)
         self.trim_cache()
