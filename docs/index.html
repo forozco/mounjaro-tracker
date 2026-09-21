@@ -145,6 +145,8 @@
   .enlace ul { margin: 12px 0 0; padding: 0 0 0 18px; color: var(--muted); font-size: 15px; display: grid; gap: 5px; max-width: 60ch; }
   .enlace li strong { color: var(--ink); font-weight: 500; }
   .enlace .hoy { color: var(--ink); }
+  .enlace .regla { display: block; margin-top: 4px; font-size: 13px; }
+  .enlace .regla.cambio { color: var(--warn); }
   .note { margin-top: 44px; color: var(--faint); font-size: 13px; line-height: 1.55; max-width: 60ch; }
   .note p { margin: 0 0 8px; }
 
@@ -178,7 +180,8 @@
         Después de la 4.ª <strong>te quedas en 35%</strong> (en la de 5 mg, $3,882 por pluma), siempre que cada compra
         caiga <strong>dentro de los 35 días</strong> de la anterior; si no, vuelves al 20%.
         <a href="https://www.benavides.com.mx/terminos-y-condiciones" target="_blank" rel="noopener">Ver los términos de Benavides</a>
-        (sección “Descuento Escalonado Mounjaro”).</li>
+        (sección “Descuento Escalonado Mounjaro”).
+        <span id="regla-ben" class="regla" hidden></span></li>
       <li>En Enlace no está publicado qué pasa después de la 4.ª ni el plazo entre compras: pregúntalo en San Pablo
         al 55-5354-9000.</li>
       <li>Las compras se acumulan <strong>en la misma cadena</strong>; si cambias de farmacia, empiezas de nuevo.</li>
@@ -461,6 +464,23 @@ function render() {
   $("enlace-hoy").innerHTML = conEnlace.length
     ? `En esta revisión, la de ${DOSE} mg trae Enlace en ${conEnlace.map(o =>
         `${esc(o.pharmacy_name)} (<span class="num">${MX(o.valor.promedio_por_pluma)}</span> promedio)`).join(", ")}.` : "";
+
+  // Vigilancia de la regla publicada por Benavides
+  const reg = (DATA.terminos || []).find(t => t.id === "benavides-escalonado");
+  const rb = $("regla-ben");
+  rb.hidden = !reg;
+  if (reg) {
+    const f = x => new Date(x).toLocaleDateString("es-MX", { day: "numeric", month: "long", year: "numeric" });
+    const cap = reg.captura ? ` · <a href="${esc(reg.captura)}" target="_blank" rel="noopener">ver captura</a>` : "";
+    rb.className = "regla" + (reg.cambio ? " cambio" : "");
+    rb.innerHTML = reg.cambio
+      ? `La regla cambió en la última revisión. Revisa el texto nuevo${cap}${reg.captura_antes
+          ? ` · <a href="${esc(reg.captura_antes)}" target="_blank" rel="noopener">captura anterior</a>` : ""}.`
+      : reg.error
+        ? `En la última revisión no se pudo leer la regla (${esc(reg.error)})${cap ? "; última captura guardada" + cap : ""}.`
+        : `Se revisa en cada actualización: ${hace(new Date(reg.verificado)).replace("actualizado", "revisada")},
+           sin cambios desde el ${f(reg.desde)}${cap}.`;
+  }
 
   const errs = Object.keys(DATA.errores || {});
   $("problems").hidden = !errs.length;

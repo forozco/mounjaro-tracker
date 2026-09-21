@@ -155,6 +155,12 @@ v = evaluate(5964, p)
 check("promedio con Enlace en San Pablo", abs(v["promedio_por_pluma"] - 4323.9) < 1, v["promedio_por_pluma"])
 check("primera compra con Enlace", abs(v["desglose_tratamiento"][0] - 4771.2) < 1, v["desglose_tratamiento"])
 
+# --- cambios en las reglas publicadas ---
+from tracker.terminos import diferencias
+quito, puso = diferencias("El máximo se otorga con la 4ª compra. Compra dentro de los 35 días; si no, se reinicia.",
+                          "El máximo se otorga con la 4ª compra. Compra dentro de los 30 días; si no, se reinicia.")
+check("detecta la frase que cambió en las reglas", quito == ["Compra dentro de los 35 días;"] and puso == ["Compra dentro de los 30 días;"], (quito, puso))
+
 if fallos:
     print(f"{len(fallos)} prueba(s) fallaron: {', '.join(fallos)}")
     sys.exit(1)

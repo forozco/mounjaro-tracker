@@ -1,7 +1,8 @@
 """Avisos por correo (Gmail SMTP con contraseña de aplicación).
 
 Solo manda correo cuando pasa algo: baja el mejor precio, aparece una promo o banner
-nuevo, cambia la recomendación, o una farmacia lleva 2 corridas fallando.
+nuevo, cambia la recomendación, cambian las reglas publicadas de un programa de descuento,
+o una farmacia lleva 2 corridas fallando.
 También manda un resumen diario en la corrida de la mañana.
 """
 import hashlib
@@ -13,7 +14,7 @@ import ssl
 from email.message import EmailMessage
 from pathlib import Path
 
-from . import config
+from . import config, terminos
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -68,6 +69,16 @@ def decide(latest: dict, state: dict, started) -> tuple[list[str], bool]:
             reasons.append(f"Banner nuevo con Mounjaro en {b['pharmacy_name']}" + (f": {b['promos'][0]}" if b["promos"] else ""))
             urgent = True
     state["banner_hashes"] = list(seen_banners)[-400:]
+
+    for t in latest.get("terminos") or []:
+        if t.get("cambio"):
+            reasons.append(f"Cambiaron las reglas publicadas: {t['nombre']}")
+            urgent = True
+    tfails = state.setdefault("terminos_fails", {})
+    for t in latest.get("terminos") or []:
+        tfails[t["id"]] = tfails.get(t["id"], 0) + 1 if t.get("error") else 0
+        if tfails[t["id"]] == 3:
+            reasons.append(f"No se han podido revisar las reglas de {t['nombre']} en 3 revisiones: {t['error']}")
 
     fails = state.setdefault("fails", {})
     for ph in config.PHARMACIES:
@@ -151,6 +162,10 @@ def render_text(latest: dict, reasons: list[str]) -> str:
     cambios = _cambios(reasons)
     if cambios:
         L += ["Qué cambió:"] + [f"- {c}" for c in cambios] + [""]
+    for t in latest.get("terminos") or []:
+        if t.get("cambio"):
+            quito, puso = terminos.diferencias(t.get("antes", ""), t.get("texto", ""))
+            L += [t["nombre"]] + [f"  Quitaron: {x}" for x in quito] + [f"  Agregaron: {x}" for x in puso] + [f"  {t['url']}", ""]
     for dose, t, mejor, resto, rec in _resumen(latest):
         if not t:
             L += [f"{dose} mg: no se encontró en esta revisión.", ""]
@@ -183,6 +198,17 @@ def render(latest: dict, reasons: list[str]) -> str:
     if cambios:
         items = "".join(f"<div style='{p}font-size:15px;line-height:1.5;color:{INK};'>{c}</div>" for c in cambios)
         h.append(f"<tr><td style='padding:0 0 28px;'>{items}</td></tr>")
+    for t in latest.get("terminos") or []:
+        if not t.get("cambio"):
+            continue
+        quito, puso = terminos.diferencias(t.get("antes", ""), t.get("texto", ""))
+        filas = "".join(f"<div style='{p}font-size:14px;line-height:1.5;color:#9a4a12;padding-top:6px;'>Quitaron: {x}</div>" for x in quito)
+        filas += "".join(f"<div style='{p}font-size:14px;line-height:1.5;color:{ACC};padding-top:6px;'>Agregaron: {x}</div>" for x in puso)
+        h.append(f"<tr><td style='padding:0 0 28px;'><div style='{p}font-size:13px;color:{MUTED};'>{t['nombre']}</div>{filas}"
+                 f"<div style='{p}font-size:14px;padding-top:8px;'><a href='{t['url']}' style='color:{INK};'>Ver la página</a> · "
+                 f"<a href='{DASHBOARD}{t.get('captura') or ''}' style='color:{INK};'>captura nueva</a>"
+                 + (f" · <a href='{DASHBOARD}{t['captura_antes']}' style='color:{INK};'>captura anterior</a>" if t.get("captura_antes") else "")
+                 + "</div></td></tr>")
 
     for dose, t, mejor, resto, rec in _resumen(latest):
         h.append(f"<tr><td style='padding:0 0 6px;'><div style='{p}font-size:13px;color:{MUTED};'>{dose} mg</div></td></tr>")

@@ -1223,5 +1223,18 @@
   "yza": "Cobertura en CDMX reciente: confirma que hagan envío a tu C.P. o si hay que recoger en sucursal.",
   "sanpablo": "Envío gratis a CDMX.",
   "benavides": "Después de la 4.ª compra te quedas en el descuento máximo mientras cada compra caiga dentro de los 35 días de la anterior; si te pasas, vuelves al primer nivel."
- }
+ },
+ "terminos": [
+  {
+   "id": "benavides-escalonado",
+   "nombre": "Benavides · Descuento Escalonado Mounjaro",
+   "url": "https://www.benavides.com.mx/terminos-y-condiciones",
+   "verificado": "2026-09-20T22:09-06:00",
+   "cambio": false,
+   "error": null,
+   "texto": "Descuento aplica presentando la tarjeta Benavides Recompensas, limitado a 2 piezas de cualquier presentación al mes (30 días) por cliente. El descuento es intransferible y está ligado a la tarjeta Benavides Recompensas, que recibe la comunicación. Promoción válida con un máximo de 2 piezas por cliente, sin importar la presentación. El límite es total por marca, no por presentación. El descuento se aplicará a las 2 piezas de menor precio. Promoción sujeta a la compra de productos participantes. El descuento se asigna de forma progresiva conforme a la frecuencia de compra dentro del periodo establecido. El descuento máximo se otorga con la 4ª compra. Para conservar o incrementar el nivel de descuento, las compras deberán realizarse dentro de los 35 días posteriores a la compra anterior; en caso contrario, el beneficio se reiniciará al nivel inicial (primera compra). Los descuentos, vigencias y beneficios pueden variar según el historial de compra del cliente. No acumulable con otras promociones. La contabilización de compras acumuladas comienza a partir del lanzamiento de este programa de adherencia; no incluye compras retroactivas. No aplica en devoluciones. Consulta a tu médico. Evita automedicarte.",
+   "captura": "img/terminos/benavides-escalonado-20260920-2209.png",
+   "desde": "2026-09-20T22:09-06:00"
+  }
+ ]
 }

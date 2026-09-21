@@ -19,6 +19,7 @@ from PIL import Image
 from .ocr import ocr_bytes
 from .products import Product, classify
 from .promos import Promo, canal_of, condition_of, dedupe, parse_image, parse_text
+from . import terminos
 from .sources import magento, sanpablo, sfcc
 from .value import evaluate, recommend
 
@@ -365,6 +366,7 @@ class Runner:
                 offers.append(await self.enrich(br, p))
                 await asyncio.sleep(random.uniform(*config.PAUSA_ENTRE_PAGINAS))
             await self.check_receta(br, offers)
+            reglas = await terminos.revisar(br, self.state, DOCS_IMG / "terminos", started, log)
             for o in offers:
                 # lo que pasa al cerrar la compra manda sobre el aviso de la ficha
                 chk = (o.get("receta_checkout") or {}).get("resultado", "")
@@ -390,6 +392,7 @@ class Runner:
             "errores": self.errors,
             "farmacias": {k: v["name"] for k, v in config.PHARMACIES.items()},
             "notas_farmacia": config.NOTAS_FARMACIA,
+            "terminos": reglas,
         }
         self.limpiar_miniaturas()
         self.persist(latest)
