@@ -79,6 +79,15 @@ check("un código de producto no es cupón", buscar_cupon("HP3455 mounjaro tirze
 check("cupón en el texto de la página",
       any(x.kind == "cupon" for x in parse_text(["Ingresa el cupón MOUNJARO40 en tu carrito"], "página")))
 
+# El OCR pega el "$" como dígito: "$5,159.24" se lee 35159 y saldría más caro que la lista
+ocr = {"text": "A SÓLO\n$35,159\nMOUNJARO20\nIngresa el cupón correspondiente en tu carrito",
+       "boxes": [], "prices": [35159.0], "percents": []}
+p = parse_image(ocr, 6500.0)
+check("precio con el signo de pesos mal leído se repara",
+      any(x.kind == "image_price" and x.price == 5159 for x in p), [(x.kind, x.price) for x in p])
+check("un precio imposible sin reparación posible se ignora",
+      parse_image({"text": "$99,999 promo", "boxes": [], "prices": [99999.0], "percents": []}, 6500.0) == [])
+
 ocr = {"text": "mounjaro tirzepatida 2.5 mg/0.6 mL", "boxes": [], "prices": [], "percents": []}
 check("una foto de la caja no inventa promos", parse_image(ocr, 6310.0) == [])
 

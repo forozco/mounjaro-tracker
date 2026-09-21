@@ -133,16 +133,27 @@ def parse_text(lines: list[str], source: str) -> list[Promo]:
 
 
 def _plausible_prices(prices: list[float], ref_price: float | None) -> list[float]:
-    """Precios de la imagen que pueden ser el precio promocional del producto."""
+    """Precios de la imagen que pueden ser el precio promocional del producto.
+
+    El OCR suele pegar el signo "$" como un dígito ("$5,159" → 35159 o 55159) o
+    juntar los centavos. Si el número sale imposible (más caro que el precio de
+    lista), se intenta reparar quitando el primer dígito o los centavos.
+    """
     if not ref_price:
         return []
-    lo = ref_price * (1 - config.MAX_SANE_DISCOUNT)
+    lo, hi = ref_price * (1 - config.MAX_SANE_DISCOUNT), ref_price * 0.995
     out = []
     for p in prices:
-        if lo <= p < ref_price * 0.995:
+        if lo <= p < hi:
             out.append(p)
-        elif p >= 10000 and str(int(p)).startswith("5") and lo <= float(str(int(p))[1:]) < ref_price:
-            out.append(float(str(int(p))[1:]))  # el "$" leído como "5"
+            continue
+        if p < ref_price:
+            continue
+        s = str(int(p))
+        for reparado in ([float(s[1:])] if len(s) >= 5 else []) + ([float(s[:-2])] if len(s) >= 6 else []):
+            if lo <= reparado < hi:
+                out.append(reparado)
+                break
     return out
 
 
