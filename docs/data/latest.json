@@ -1,5 +1,5 @@
 {
- "generado": "2026-09-20T21:17-06:00",
+ "generado": "2026-09-20T22:11-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -1033,6 +1033,57 @@
  },
  "banners": [
   {
+   "pharmacy": "benavides",
+   "pharmacy_name": "Farmacias Benavides",
+   "pagina": "https://www.benavides.com.mx/",
+   "src": "https://www.benavides.com.mx/media/wysiwyg/FABE-BannerHome2026__SeptHome2026-Syptime_01-Desktop.png.png",
+   "link": "https://www.benavides.com.mx/promociones-eli-mounjaro?utm_source=ecommerce&utm_medium=banner-home-septiembre&utm_campaign=mounjaro&utm_content=comercializado",
+   "alt": "",
+   "texto": "il\nloo\nde\nhen\nsl\nñ\nDocti\n5]\nlb creación\nJen\nmoujaro\nnp\nmosaro CEE\nIl smoime\nSola\nzepatida\nSms\ne instructivo anexo.\nCaja con 30 tabletas.\nInyectable\n15mo/06 me\nrra\nhi\nFoundayz”\n0.8 mg\nY\nFoundayz:\nll\nE\nE\ntraen\nTableta\nOrforglipron\n(orforglipron)\nÍJ\nmounjaro-\nmd AE\nil reparó\n123 mejo cm\nmg\n1 slo\n' 1omgosme\nVía de administración: Oral.\ne instructivo anexo.\nCaja con 30 tabletas.\nFsagnsm\nim\nFoundayz”\nFoundayz\nMounjaro\n0.8 mg y 2.5 mg\nUltra-Fine\"\n2.5, 5,7.5, 10, 12.5 y 15 mg/O.6 ml.\n=\nTableta\nOrforglip",
+   "promos": [
+    "Vigencia: del 1al 30 de septiembre del 2026 S",
+    "40% de descuento (imagen)"
+   ],
+   "condicion": "Tarjeta Benavides Recompensas",
+   "canal": null,
+   "hash": "95d1efc0c33d",
+   "thumb": "img/95d1efc0c33d.jpg"
+  },
+  {
+   "pharmacy": "benavides",
+   "pharmacy_name": "Farmacias Benavides",
+   "pagina": "https://www.benavides.com.mx/",
+   "src": "https://www.benavides.com.mx/media/wysiwyg/FABE-BannerHome2026_1__SeptHome2026-Syptime_02-Mobile.png",
+   "link": "https://www.benavides.com.mx/promociones-eli-mounjaro?utm_source=ecommerce&utm_medium=banner-home-septiembre&utm_campaign=mounjaro&utm_content=comercializado",
+   "alt": "",
+   "texto": "<Í\nye\nAHORA\nS\nBLE -\nDIS\nPONI\nNS\nCaja con 30 tabletas\ne instructivo anexo.\nFoundayz:\nFoundayz”\n0.8 mg\nTA4178\n(orforglipron)\nOrforglipron\nTableta\nCaja con 30 tabletas\ne instructivo anexo.\nVía de administración: Oral.\nFoundayz”\nFoundayz\nOrforglipron\n0.8 mg y 2.5 mg\nTableta\nVía de administración: Oral.\nc/30 tabs.\n1052379 - 1052385\nbenavides\nrecompensas\nembecto:\nUltra\nne\nAgujas pe\nlas\nGRATIS\n%o\nEn la compra de\n*Presentando tu tarjeta\n32G\n10\nMounjaro Pluma\ne\nBenavides Recompensas\nmm\n1027946\nf-.\nla\nHP9",
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre del 2026",
+    "Límite 2 piezas",
+    "Escalonado por compra: 35% → 38% → 40%"
+   ],
+   "condicion": "Tarjeta Benavides Recompensas",
+   "canal": null,
+   "hash": "5b892b3ba188",
+   "thumb": "img/5b892b3ba188.jpg"
+  },
+  {
+   "pharmacy": "yza",
+   "pharmacy_name": "Farmacias YZA",
+   "pagina": "https://www.yza.mx/",
+   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dw8de8394a/images/homepage/hero-carousel/CH15_P09_2026_WEB.png",
+   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
+   "alt": "Aprovecha",
+   "texto": "-\nmoofiro CEE\nmos EEN\npei\nmame\nEmp\nra\nEl\n=\nMETE\n3,771,\n4,920\n6,428\nprecios en\na C Mounjaro Tirzepatida 2.5 Mg/0.6 MI Sal )\neN q Mounijaro Tirzepatida 5 Mg/0.6 MI sal )\nA 1 Mounjaro Tirzepatida 7.5 Mg/0.6 MI Sal)\nMounjaro.\nES\nz\nmou\nE\nmouffiro\" GER\nmr\n>\nnos\nE\nE\n5\n\"6,403\n\"7,999\n7,999\nLo,\n(- Mounjaro Kwikpen 10 Mg/O.6 MI Sol >)\nEcol C Mounjaro Kwikpen 12.5 Mg/0.6 MI Sol J\nE C Mounjaro Kwikpen 15 Mg/O0.6 MI Sol )\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consu",
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre 2026"
+   ],
+   "condicion": null,
+   "canal": null,
+   "hash": "3ab25a96e1fb",
+   "thumb": "img/3ab25a96e1fb.jpg"
+  },
+  {
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
    "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
@@ -1114,22 +1165,6 @@
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
    "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
-   "src": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_35_.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
-   "link": "https://www.fahorro.com/mounjaro-kwikpen-10mg-0-6ml-3-ml.html",
-   "alt": "Mounjaro Kwikpen 10Mg/0.6Ml 3 ml",
-   "texto": "HP3453\nmounjaro”\n10\n0\ntirzepatida\nSolución\n10 mg/0.6 mL\nInyectable\nFormula:\nCada 0.5 ml, contienent\nTirzepatida ...\n10 mg\nVehiculo chp\ny\n0.0 mL\nLa pluma precargada KvilkPanO\nmultidosis puede entreger 4 dosis\nde 0.8 mL.\nCaia con 1 pluma precargada\nKwlaPan* multidosis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que el médico señale.\nVIA DE ADMINISTRACIÓN:\nSubcutánes. Luase instructive\nanexo.\nPas\nIngresa el cupón correspondiente\nen tu carrito de compra.\nMOUNJAROS5\nA SÓLO\n56,/32.\"\nHP3453\nmg\nmounjaro\" ",
-   "promos": [
-    "Cupón MOUNJAROS5"
-   ],
-   "condicion": "Cupón / código",
-   "canal": null,
-   "hash": "0633da96032c",
-   "thumb": "img/0633da96032c.jpg"
-  },
-  {
-   "pharmacy": "ahorro",
-   "pharmacy_name": "Farmacias del Ahorro",
-   "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
    "src": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_34_.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
    "link": "https://www.fahorro.com/mounjaro-kwikpen-7-5mg-0-6ml-3-ml.html",
    "alt": "Mounjaro Kwikpen 7.5Mg/0.6Ml 3 ml",
@@ -1146,6 +1181,22 @@
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
    "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
+   "src": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_35_.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+   "link": "https://www.fahorro.com/mounjaro-kwikpen-10mg-0-6ml-3-ml.html",
+   "alt": "Mounjaro Kwikpen 10Mg/0.6Ml 3 ml",
+   "texto": "HP3453\nmounjaro”\n10\n0\ntirzepatida\nSolución\n10 mg/0.6 mL\nInyectable\nFormula:\nCada 0.5 ml, contienent\nTirzepatida ...\n10 mg\nVehiculo chp\ny\n0.0 mL\nLa pluma precargada KvilkPanO\nmultidosis puede entreger 4 dosis\nde 0.8 mL.\nCaia con 1 pluma precargada\nKwlaPan* multidosis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que el médico señale.\nVIA DE ADMINISTRACIÓN:\nSubcutánes. Luase instructive\nanexo.\nPas\nIngresa el cupón correspondiente\nen tu carrito de compra.\nMOUNJAROS5\nA SÓLO\n56,/32.\"\nHP3453\nmg\nmounjaro\" ",
+   "promos": [
+    "Cupón MOUNJAROS5"
+   ],
+   "condicion": "Cupón / código",
+   "canal": null,
+   "hash": "0633da96032c",
+   "thumb": "img/0633da96032c.jpg"
+  },
+  {
+   "pharmacy": "ahorro",
+   "pharmacy_name": "Farmacias del Ahorro",
+   "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
    "src": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_36_.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
    "link": "https://www.fahorro.com/mounjaro-kwikpen-12-5mg-0-6ml-3-ml.html",
    "alt": "Mounjaro Kwikpen 12.5Mg/0.6Ml 3 ml",
@@ -1157,57 +1208,6 @@
    "canal": null,
    "hash": "781e32890d3b",
    "thumb": "img/781e32890d3b.jpg"
-  },
-  {
-   "pharmacy": "yza",
-   "pharmacy_name": "Farmacias YZA",
-   "pagina": "https://www.yza.mx/",
-   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dw8de8394a/images/homepage/hero-carousel/CH15_P09_2026_WEB.png",
-   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
-   "alt": "Aprovecha",
-   "texto": "-\nmoofiro CEE\nmos EEN\npei\nmame\nEmp\nra\nEl\n=\nMETE\n3,771,\n4,920\n6,428\nprecios en\na C Mounjaro Tirzepatida 2.5 Mg/0.6 MI Sal )\neN q Mounijaro Tirzepatida 5 Mg/0.6 MI sal )\nA 1 Mounjaro Tirzepatida 7.5 Mg/0.6 MI Sal)\nMounjaro.\nES\nz\nmou\nE\nmouffiro\" GER\nmr\n>\nnos\nE\nE\n5\n\"6,403\n\"7,999\n7,999\nLo,\n(- Mounjaro Kwikpen 10 Mg/O.6 MI Sol >)\nEcol C Mounjaro Kwikpen 12.5 Mg/0.6 MI Sol J\nE C Mounjaro Kwikpen 15 Mg/O0.6 MI Sol )\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consu",
-   "promos": [
-    "Vigencia: del 1 al 30 de septiembre 2026"
-   ],
-   "condicion": null,
-   "canal": null,
-   "hash": "3ab25a96e1fb",
-   "thumb": "img/3ab25a96e1fb.jpg"
-  },
-  {
-   "pharmacy": "benavides",
-   "pharmacy_name": "Farmacias Benavides",
-   "pagina": "https://www.benavides.com.mx/",
-   "src": "https://www.benavides.com.mx/media/wysiwyg/FABE-BannerHome2026__SeptHome2026-Syptime_01-Desktop.png.png",
-   "link": "https://www.benavides.com.mx/promociones-eli-mounjaro?utm_source=ecommerce&utm_medium=banner-home-septiembre&utm_campaign=mounjaro&utm_content=comercializado",
-   "alt": "",
-   "texto": "il\nloo\nde\nhen\nsl\nñ\nDocti\n5]\nlb creación\nJen\nmoujaro\nnp\nmosaro CEE\nIl smoime\nSola\nzepatida\nSms\ne instructivo anexo.\nCaja con 30 tabletas.\nInyectable\n15mo/06 me\nrra\nhi\nFoundayz”\n0.8 mg\nY\nFoundayz:\nll\nE\nE\ntraen\nTableta\nOrforglipron\n(orforglipron)\nÍJ\nmounjaro-\nmd AE\nil reparó\n123 mejo cm\nmg\n1 slo\n' 1omgosme\nVía de administración: Oral.\ne instructivo anexo.\nCaja con 30 tabletas.\nFsagnsm\nim\nFoundayz”\nFoundayz\nMounjaro\n0.8 mg y 2.5 mg\nUltra-Fine\"\n2.5, 5,7.5, 10, 12.5 y 15 mg/O.6 ml.\n=\nTableta\nOrforglip",
-   "promos": [
-    "Vigencia: del 1al 30 de septiembre del 2026 S",
-    "40% de descuento (imagen)"
-   ],
-   "condicion": "Tarjeta Benavides Recompensas",
-   "canal": null,
-   "hash": "95d1efc0c33d",
-   "thumb": "img/95d1efc0c33d.jpg"
-  },
-  {
-   "pharmacy": "benavides",
-   "pharmacy_name": "Farmacias Benavides",
-   "pagina": "https://www.benavides.com.mx/",
-   "src": "https://www.benavides.com.mx/media/wysiwyg/FABE-BannerHome2026_1__SeptHome2026-Syptime_02-Mobile.png",
-   "link": "https://www.benavides.com.mx/promociones-eli-mounjaro?utm_source=ecommerce&utm_medium=banner-home-septiembre&utm_campaign=mounjaro&utm_content=comercializado",
-   "alt": "",
-   "texto": "<Í\nye\nAHORA\nS\nBLE -\nDIS\nPONI\nNS\nCaja con 30 tabletas\ne instructivo anexo.\nFoundayz:\nFoundayz”\n0.8 mg\nTA4178\n(orforglipron)\nOrforglipron\nTableta\nCaja con 30 tabletas\ne instructivo anexo.\nVía de administración: Oral.\nFoundayz”\nFoundayz\nOrforglipron\n0.8 mg y 2.5 mg\nTableta\nVía de administración: Oral.\nc/30 tabs.\n1052379 - 1052385\nbenavides\nrecompensas\nembecto:\nUltra\nne\nAgujas pe\nlas\nGRATIS\n%o\nEn la compra de\n*Presentando tu tarjeta\n32G\n10\nMounjaro Pluma\ne\nBenavides Recompensas\nmm\n1027946\nf-.\nla\nHP9",
-   "promos": [
-    "Vigencia: del 1 al 30 de septiembre del 2026",
-    "Límite 2 piezas",
-    "Escalonado por compra: 35% → 38% → 40%"
-   ],
-   "condicion": "Tarjeta Benavides Recompensas",
-   "canal": null,
-   "hash": "5b892b3ba188",
-   "thumb": "img/5b892b3ba188.jpg"
   }
  ],
  "errores": {},
@@ -1229,7 +1229,7 @@
    "id": "benavides-escalonado",
    "nombre": "Benavides · Descuento Escalonado Mounjaro",
    "url": "https://www.benavides.com.mx/terminos-y-condiciones",
-   "verificado": "2026-09-20T22:09-06:00",
+   "verificado": "2026-09-20T22:11-06:00",
    "cambio": false,
    "error": null,
    "texto": "Descuento aplica presentando la tarjeta Benavides Recompensas, limitado a 2 piezas de cualquier presentación al mes (30 días) por cliente. El descuento es intransferible y está ligado a la tarjeta Benavides Recompensas, que recibe la comunicación. Promoción válida con un máximo de 2 piezas por cliente, sin importar la presentación. El límite es total por marca, no por presentación. El descuento se aplicará a las 2 piezas de menor precio. Promoción sujeta a la compra de productos participantes. El descuento se asigna de forma progresiva conforme a la frecuencia de compra dentro del periodo establecido. El descuento máximo se otorga con la 4ª compra. Para conservar o incrementar el nivel de descuento, las compras deberán realizarse dentro de los 35 días posteriores a la compra anterior; en caso contrario, el beneficio se reiniciará al nivel inicial (primera compra). Los descuentos, vigencias y beneficios pueden variar según el historial de compra del cliente. No acumulable con otras promociones. La contabilización de compras acumuladas comienza a partir del lanzamiento de este programa de adherencia; no incluye compras retroactivas. No aplica en devoluciones. Consulta a tu médico. Evita automedicarte.",
