@@ -187,6 +187,14 @@ class Runner:
         # imágenes son esos mismos precios: usarlos como "precio de hoy" sería falso.
         if any(x.kind == "tiers" for x in promos):
             promos = [x for x in promos if x.kind not in ("image_price", "tier_at")]
+        # El cupón leído del texto de la página manda sobre el leído de una imagen,
+        # porque el OCR se equivoca con las letras.
+        cupon_texto = next((x.raw for x in promos if x.kind == "cupon" and x.source == "página"), None)
+        if cupon_texto:
+            for x in promos:
+                if (x.condition or "").startswith("Cupón") and x.condition != f"Cupón {cupon_texto}":
+                    x.condition = f"Cupón {cupon_texto}"
+                    x.label = re.sub(r"con cupón \S+", f"con cupón {cupon_texto}", x.label)
         promos = dedupe(promos)
         in_stock = p.in_stock
         if in_stock is None:

@@ -73,6 +73,12 @@ ocr = {"text": "4TA COMPRA 35% $3,882", "boxes": [], "prices": [3882.0], "percen
 p = parse_image(ocr, 5974.0)
 check("ordinal escrito como 4TA", any(x.kind == "tier_at" and x.n == 4 for x in p))
 
+from tracker.promos import buscar_cupon  # noqa: E402
+check("cupón con la M comida por el OCR", buscar_cupon("CUPON OUNJARO40") == "MOUNJARO40")
+check("un código de producto no es cupón", buscar_cupon("HP3455 mounjaro tirzepatida") is None)
+check("cupón en el texto de la página",
+      any(x.kind == "cupon" for x in parse_text(["Ingresa el cupón MOUNJARO40 en tu carrito"], "página")))
+
 ocr = {"text": "mounjaro tirzepatida 2.5 mg/0.6 mL", "boxes": [], "prices": [], "percents": []}
 check("una foto de la caja no inventa promos", parse_image(ocr, 6310.0) == [])
 

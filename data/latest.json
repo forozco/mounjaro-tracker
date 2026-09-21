@@ -1,5 +1,5 @@
 {
- "generado": "2026-09-20T18:38-06:00",
+ "generado": "2026-09-20T18:55-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -32,9 +32,36 @@
      "source": "página",
      "n": 2,
      "raw": "Límite de compra: 2 piezas de Mounjaro por cliente al mes."
+    },
+    {
+     "kind": "gift",
+     "label": "Agujas de regalo",
+     "source": "imagen",
+     "condition": "Cupón / código",
+     "raw": "Agujas Ultra-Fine gratis"
     }
    ],
-   "imagenes_promo": [],
+   "imagenes_promo": [
+    {
+     "url": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460706_A_1280_AL.jpg",
+     "promos": [
+      "Agujas de regalo",
+      "Agujas de regalo",
+      "Agujas de regalo",
+      "Agujas de regalo"
+     ],
+     "texto": "Agujas Ultra-Fine gratis\n¿Cómo obtener\nlas agujas gratis?\nmounjaro”.\ntirzepatida\nAgrega el código\nSolución\n2.5 mg/0.6 mL\nMounjaro que\nInyectable\ndeseas\nFórmula:\nTirzepatida\nCada 0.6 mL contienen:\nVehículo cbp\n0.6 ml\n2.5 mg\nLa pluma precargad:\nAgrega agujas\n==\n4 dosis de 0.6 mL.\nmultidosis puede en!\nembacta\nY=\n==\n/\nUltra-Fine 4mm\nKwikPen* multidosis\nCaja con 1 pluma brecal\nUltra-Fine”\n32G a tu carr"
+    },
+    {
+     "url": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460706_P_1280_E.jpg",
+     "promos": [
+      "Agujas de regalo",
+      "Agujas de regalo",
+      "Agujas de regalo"
+     ],
+     "texto": "Agujas Ultra-Fine gratis\nmounjaro”.\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida ..\n2.5 mg\nVehículo cb]\n0.6 mL\n—\n==\nLa pluma precargada KwikPen*\n==\nmultidosis puede entregar\nembecta”\n4 dosis de 0.6 mL.\n—\n==\n==\n==\n==\nCaja con 1 pluma precargada\nKwikPen? multidosis con 2.4 mL e\nUltra-Fine”\ninstructivo anexo.\nAgujas para pluma\nAgulhas para caneta\nDOSIS: La"
+    }
+   ],
    "imagenes": [
     "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460706_A_1280_AL.jpg",
     "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460706_S_1280_F.jpg",
@@ -42,6 +69,7 @@
    ],
    "receta": "No indicado en la página",
    "receta_texto": [],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 3590,
     "precio_hoy": 3495,
@@ -49,11 +77,13 @@
     "escenario_hoy": "Precio en línea",
     "condiciones_hoy": [],
     "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": false,
     "promedio_por_pluma": 3495.0,
     "total_tratamiento": 13980,
     "escenario_tratamiento": "Precio en línea",
     "condiciones_tratamiento": [],
     "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": false,
     "notas_tratamiento": [],
     "desglose_tratamiento": [
      3590,
@@ -100,7 +130,7 @@
      "source": "imagen",
      "price": 3520.0,
      "condition": "Tarjeta Benavides Recompensas",
-     "canal": "En línea y app",
+     "canal": "En línea/app (por confirmar en la imagen)",
      "raw": "$3,520"
     },
     {
@@ -118,14 +148,14 @@
      "promos": [
       "Precio en imagen desde $3,520"
      ],
-     "texto": "Con Benavides Recompensas\n53,520\n¡NUEVO!\nES\nrecompensas\nObtén hasta S50 en cupones\nHP3466\nmounjaro AN\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida ............ 2.5 mg\nVehículo CDp ......... 0.6 mL\nLa pluma precargada KwikPenO\nmultidosis puede entregar\n4 dosis de 0.6 mL.\nCaja con 1 pluma precargada\nKwikPen* multidosis con 2.4 mL e\ninstructivo anexo.\nDOSI"
+     "texto": "Con Benavides Recompensas\n53,520\n¡NUEVO!\nES\nrecompensas\nObtén hasta S50 en cupones\nHP3466\nmounjaro PAJAS\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida ............ 2.5 mg\nVehículo cbp ......... 0.6 mL\nLa pluma precargada KwikPenO\nmultidosis puede entregar\n4 dosis de 0.6 mL.\nCaja con 1 pluma precargada\nKwikPen* multidosis con 2.4 mL e\ninstructivo anexo.\nD"
     },
     {
      "url": "https://www.benavides.com.mx/media/catalog/product/cache/e9b3cd68cf301023ca3840e5fcb628f3/2/0/20260626_1050874.jpg",
      "promos": [
       "Precio en imagen desde $3,520"
      ],
-     "texto": "Con Benavides\nmper\n$53,520\nEE Obtén hasta SHO en cupones\npes\nmounjaro\"\nrzepatida\nSolución\n25m9/0:6m.\nInyectable\nE\nE\na\nPo\na\nES\n[escitas\nq\nA\ne\nAI\nda\n==»\nJunen varo]\n00\na\nLas\nCon Benavides Recompensas\n$3,520\nEE Obtén hasta SO en cupones\nes\nmoni\nrzepacida\nEE\nSolución\n25m9/Sm.\nInyectable\nA\nTa\nTas\nre\nPel\nqa\n[ecc\nom\na\nAU\nEd\nona tte\nid\nE\nCon Benavides Recompensas o 9 y"
+     "texto": "Con Benavides R\nmpel\n$3,520\nE Obtén hasta SHO en cupones\npo\nmounjaro\"\nrzepatida\nSolución\n25m9/6m.\nInyectable\nE\ne\nCa\nTa\nE\no\npel\npr\nri\nOI\nRs\no\nEdo\npaa nte\n==»\nJunea va]\ne\nES\nCon Benavides Recompensas\n$3,520\nE Obtén hasta SHO en cupones\nos\nUrzepatida\nmoro EA\nSolución\n25m9/. Sm.\nInyectable\nA\nTa\npel\nri\nir\nOEA\na\nEts\nEdi\nepi a atte\n==\nLÍNEA Y\na\nE\nCon Benavides Recompensas o 9 y"
     }
    ],
    "imagenes": [
@@ -136,6 +166,7 @@
    "receta_texto": [
     "Farmacia Receta No Obligatoria"
    ],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 5867,
     "precio_hoy": 3520.0,
@@ -144,14 +175,16 @@
     "condiciones_hoy": [
      "Tarjeta Benavides Recompensas"
     ],
-    "canal_hoy": "En línea y app",
+    "canal_hoy": "En línea/app (por confirmar en la imagen)",
+    "requiere_cuenta_hoy": true,
     "promedio_por_pluma": 3520.0,
     "total_tratamiento": 14080.0,
     "escenario_tratamiento": "Precio en imagen desde $3,520",
     "condiciones_tratamiento": [
      "Tarjeta Benavides Recompensas"
     ],
-    "canal_tratamiento": "En línea y app",
+    "canal_tratamiento": "En línea/app (por confirmar en la imagen)",
+    "requiere_cuenta_tratamiento": true,
     "notas_tratamiento": [],
     "desglose_tratamiento": [
      3520.0,
@@ -178,11 +211,18 @@
    "in_stock": true,
    "promos": [
     {
+     "kind": "msi",
+     "label": "3 meses sin intereses",
+     "source": "página",
+     "n": 3,
+     "raw": "$2,103.33 x 3 meses sin intereses"
+    },
+    {
      "kind": "image_price",
-     "label": "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE",
+     "label": "Precio en imagen desde $3,709 con cupón OUNJARO40",
      "source": "imagen",
      "price": 3709.0,
-     "condition": "Cupón CORRESPONDIENTE",
+     "condition": "Cupón OUNJARO40",
      "raw": "$3,709"
     }
    ],
@@ -190,14 +230,14 @@
     {
      "url": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_32__1.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&format=jpeg",
      "promos": [
-      "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE"
+      "Precio en imagen desde $3,709 con cupón OUNJARO40"
      ],
      "texto": "814-885\nmounjaro' (CERES\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nNus\nInyectable\nnos\nNO\n27\nFdemult:\nSO\n93\ny\nCirus 0.8 mL contanant:\n934\npa\nTimepatida...\n2.5 mg\nwo\nVeniture dup.\n0.6 mL\nLa prima precargada KaloPen9\nmultibovet puede entregar\n4 dosis de 0.6 mL.\ni\nDías con 1 pienta precargada\nKelnPure\nMulticales von 2.4 mL e\nInstructive areha,\nDOREB: Le\nque el médica emusa,\nVÍA DE AD|\nIMINISTRACIÓN:\nS. Laise"
     },
     {
      "url": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_32_.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&format=jpeg",
      "promos": [
-      "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE"
+      "Precio en imagen desde $3,709 con cupón OUNJARO40"
      ],
      "texto": "814-885\nmounjaro' (CERES\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nNus\nInyectable\nnos\nNO\n27\nFdemult:\nSO\n93\ny\nCirus 0.8 mL contanant:\n934\npa\nTimepatida...\n2.5 mg\nwo\nVeniture dup.\n0.6 mL\nLa prima precargada KaloPen9\nmultibovet puede entregar\n4 dosis de 0.6 mL.\ni\nDías con 1 pienta precargada\nKelnPure\nMulticales von 2.4 mL e\nInstructive areha,\nDOREB: Le\nque el médica emusa,\nVÍA DE AD|\nIMINISTRACIÓN:\nS. Laise"
     }
@@ -212,22 +252,25 @@
    ],
    "receta": "No (según tu experiencia)",
    "receta_texto": [],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 6310,
     "precio_hoy": 3709.0,
     "precio_hoy_pagas": 3709.0,
-    "escenario_hoy": "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE",
+    "escenario_hoy": "Precio en imagen desde $3,709 con cupón OUNJARO40",
     "condiciones_hoy": [
-     "Cupón CORRESPONDIENTE"
+     "Cupón OUNJARO40"
     ],
     "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": true,
     "promedio_por_pluma": 3709.0,
     "total_tratamiento": 14836.0,
-    "escenario_tratamiento": "Precio en imagen desde $3,709 con cupón CORRESPONDIENTE",
+    "escenario_tratamiento": "Precio en imagen desde $3,709 con cupón OUNJARO40",
     "condiciones_tratamiento": [
-     "Cupón CORRESPONDIENTE"
+     "Cupón OUNJARO40"
     ],
     "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": true,
     "notas_tratamiento": [],
     "desglose_tratamiento": [
      3709.0,
@@ -238,7 +281,7 @@
     "regalo_valor": 0,
     "ahorro_vs_linea_pct": 41.2,
     "limite": null,
-    "msi": null
+    "msi": 3
    }
   },
   {
@@ -263,6 +306,7 @@
    ],
    "receta": "No indicado en la página",
    "receta_texto": [],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 3771,
     "precio_hoy": 3771,
@@ -270,11 +314,13 @@
     "escenario_hoy": "Precio en línea",
     "condiciones_hoy": [],
     "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": false,
     "promedio_por_pluma": 3771.0,
     "total_tratamiento": 15084,
     "escenario_tratamiento": "Precio en línea",
     "condiciones_tratamiento": [],
     "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": false,
     "notas_tratamiento": [],
     "desglose_tratamiento": [
      3771,
@@ -300,14 +346,6 @@
    "precio_linea": 5862,
    "in_stock": true,
    "promos": [
-    {
-     "kind": "buy_n_get_1",
-     "label": "Acumula 6 y el siguiente gratis",
-     "source": "página",
-     "n": 6,
-     "condition": "Club Salud San Pablo",
-     "raw": "Programa Club Salud: Acumula 6 y el 7º es GRATIS."
-    },
     {
      "kind": "tier_at",
      "label": "4ª compra: $3,520",
@@ -348,6 +386,7 @@
    ],
    "receta": "No (según tu experiencia)",
    "receta_texto": [],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 5862,
     "precio_hoy": 5862,
@@ -355,11 +394,13 @@
     "escenario_hoy": "Precio en línea",
     "condiciones_hoy": [],
     "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": false,
     "promedio_por_pluma": 5276.5,
     "total_tratamiento": 21106.0,
     "escenario_tratamiento": "4ª compra: $3,520",
     "condiciones_tratamiento": [],
     "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": false,
     "notas_tratamiento": [
      "Ese precio aplica hasta tu compra número 4"
     ],
@@ -422,28 +463,7 @@
      ],
      "condition": "Tarjeta Benavides Recompensas",
      "canal": "En línea/app (por confirmar en la imagen)",
-     "raw": "Exclusivo | TECUIMIMLIIDao | a | Precio final 20% 54,778 | Precio final 25% $4,480 Y | Precio final D 30% $4,181 | us s3882 Mo"
-    },
-    {
-     "kind": "image_price",
-     "label": "Precio en imagen desde $3,882",
-     "source": "imagen",
-     "price": 3882.0,
-     "condition": "Tarjeta Benavides Recompensas",
-     "canal": "En línea/app (por confirmar en la imagen)",
-     "raw": "$3,882"
-    },
-    {
-     "kind": "tiers",
-     "label": "Escalonado por compra: 20% → 25% → 30%",
-     "source": "imagen",
-     "tiers": [
-      20.0,
-      25.0,
-      30.0
-     ],
-     "condition": "Compra en línea / app",
-     "raw": "“5% $4/480 | 30% $4,181 | Precio final ATA COMPRA ( 2 >] LÍNEA Y APP"
+     "raw": "Exclusivo | TECUITIPLIia | a | Precio final 20% 54,778 | Precio final 25% $4,480 Y | Precio final > 3% $4,181 | us s3882 MN"
     }
    ],
    "imagenes_promo": [
@@ -454,21 +474,21 @@
       "Límite 2 piezas",
       "Escalonado por compra: 20% → 25% → 30% → 35%"
      ],
-     "texto": "Exclusivo\nbenavides\nrecompensas\nHP3455\ncon\nmy\npo\n0.6 mL\nmounjaro”\ntirzepatida\nSolución\n5 mg/0.6 mL\nTERA COMPRA\nInyectable\n20%\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida\nesosanconons\n5 mg\neomcconos\n0.6 mL\nVehículo cbp\nLa pluma precargada KwikPen9\nmultidosis puede entregar 4 dosis\nde 0.6 mL.\n2DA COMPRA\n25%\nCaja con 1 pluma precargada\nKwikPen9 multidosis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que"
+     "texto": "Exclusivo\nbenavides\nrecompensas\nHP3455\ncon\nmy\nnm\n0.6 mL\nmounjaro”\ntirzepatida\nSolución\n5 mg/0.6 mL\nTERA COMPRA\nInyectable\n20%\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida\nennnasannoss\n5 mg\neooccnnos\n0.6 mL\nVehículo cbp\nLa pluma precargada KwikPen9\nmultidosis puede entregar 4 dosis\nde 0.6 mL.\n2DA COMPRA\n25%\nCaja con 1 pluma precargada\nKwikPen9 multidosis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que"
     },
     {
      "url": "https://www.benavides.com.mx/media/catalog/product/cache/e9b3cd68cf301023ca3840e5fcb628f3/1/0/1050873.jpg",
      "promos": [
       "Precio en imagen desde $3,882"
      ],
-     "texto": "Con Benavid\nompensa\n-:$3,882\nEE Obtén hasta SHO en cupones\nsonas\nmounjaro\ntrepe\nSean\ninyecta\nma/o6 mi\npar\nña\nEra tc\na\nE\nE\niia\na\nMe,\nEr\nies ans\na\nOz\nCon Benavides Recompensas\nCOMPRA\n2A\n$3,882\nE Obtén hasta $5 O en cupones\nmounjaro\nreacia\nSan\ninyecta\nme\nña\npalos\nSs\nE\nEra tc\niia\nE\npa\na\nna\nEra\nie acc\nE\nE\nEXCLUSIVO EN\nLe,\nCon Benavides Recompensas COMPRA Y ) y"
+     "texto": "Con Benavides Recomper\ncomp\n$3,882\nE Obtén hasta $5 O en cupones\nsonas\nmou\nrepatid\nSolón\ninyecta\nma/o6 mi\no\nE a\nEra\niio\nA\nña\nE\nNAS\nEr\nma\nes\na\nOz\nCon Benavides Recompensas\nA\n(PRA\n$3,882\nE e» $50 encupones\nmounjaro\nSolón\nrepatid\nSma/o6 mi\ninyecta\nE\nEs\nEra\na\nEA\na e\nA\npS\nE\nASE\na\non es\nEra\ne\nas\nCon Benavides Recompensas COMPRA Y ) y"
     },
     {
      "url": "https://www.benavides.com.mx/media/catalog/product/cache/e9b3cd68cf301023ca3840e5fcb628f3/1/0/1050873_1.jpg",
      "promos": [
-      "Escalonado por compra: 20% → 25% → 30%"
+      "Precio en imagen desde $4,181"
      ],
-     "texto": "Exclusivo\ncon\nE\nmouñjaro\" (ERE\nrzepacida\nmo/06 me\ninyectable\na es\nnaa\na\nE\nda\npe\nE\nE\nA\nena arte\ndi\nJSVO EN\nln\nai\npao\n$4,778\n54,480\n$4,181\nO\n“5% $4/480\n30% $4,181\nPrecio final ATA COMPRA ( 2 >] LÍNEA Y APP"
+     "texto": "Exclusivo\ncon\nE\nmoujaro\" (ERE\nHraepatida\n1\nPRA\nmom\ncable\n20%\nis\ne\nEn\na\n25%\npe\nE\nE\npc\no\nEn\nnt\nLa\nEXlusto\n[excuusivo En ]\n82\n¿LÍNEA Yap]\n“5% $4/480\n30% $4,181"
     }
    ],
    "imagenes": [
@@ -483,31 +503,36 @@
    "receta_texto": [
     "Farmacia Receta No Obligatoria"
    ],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 5974,
-    "precio_hoy": 3882.0,
-    "precio_hoy_pagas": 3882.0,
-    "escenario_hoy": "Precio en imagen desde $3,882",
+    "precio_hoy": 4779.2,
+    "precio_hoy_pagas": 4779.2,
+    "escenario_hoy": "20% de descuento",
     "condiciones_hoy": [
-     "Tarjeta Benavides Recompensas"
+     "Tarjeta de lealtad de la farmacia"
     ],
-    "canal_hoy": "En línea/app (por confirmar en la imagen)",
-    "promedio_por_pluma": 3882.0,
-    "total_tratamiento": 15528.0,
-    "escenario_tratamiento": "Precio en imagen desde $3,882",
+    "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": true,
+    "promedio_por_pluma": 4331.15,
+    "total_tratamiento": 17324.6,
+    "escenario_tratamiento": "Escalonado por compra: 20% → 25% → 30% → 35%",
     "condiciones_tratamiento": [
      "Tarjeta Benavides Recompensas"
     ],
     "canal_tratamiento": "En línea/app (por confirmar en la imagen)",
-    "notas_tratamiento": [],
+    "requiere_cuenta_tratamiento": true,
+    "notas_tratamiento": [
+     "Cada compra debe hacerse dentro del plazo que marque la farmacia"
+    ],
     "desglose_tratamiento": [
-     3882.0,
-     3882.0,
-     3882.0,
-     3882.0
+     4779.2,
+     4480.5,
+     4181.8,
+     3883.1
     ],
     "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 35.0,
+    "ahorro_vs_linea_pct": 27.5,
     "limite": 2,
     "msi": 3
    }
@@ -536,9 +561,35 @@
      "source": "página",
      "n": 2,
      "raw": "Límite de compra: 2 piezas de Mounjaro por cliente al mes."
+    },
+    {
+     "kind": "gift",
+     "label": "Agujas de regalo",
+     "source": "imagen",
+     "condition": "Cupón / código",
+     "raw": "Agujas Ultra-Fine gratis"
     }
    ],
-   "imagenes_promo": [],
+   "imagenes_promo": [
+    {
+     "url": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_A_1280_AL.jpg",
+     "promos": [
+      "Agujas de regalo",
+      "Agujas de regalo",
+      "Agujas de regalo",
+      "Agujas de regalo"
+     ],
+     "texto": "Agujas Ultra-Fine gratis\n¿Cómo obtener\nlas agujas gratis?\nmounjaro (EF\ntirzepatida\nSolución\n5 mg/0.6 mL\n119 Agrega el código\nInyectable\nMounjaro que\nFórmula:\ndeseas\nCada 0.6 mL contienen:\n3\nTirzepatida\nVehículo cbp ..\nq 0.6 mL.\n5 mg\nLa pluma precargad\n==\n==\nde 0.6 mL.\nmultidosis puede en\nembecto”\nAgrega agujas\nn=]\n==\n==\n==\n==\n==\nUltra-Fine 4mm\nKwikPen* multidosi\nCaja con 1 pluma pi\nUltra-Fine”\nins"
+    },
+    {
+     "url": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_P_1280_E.jpg",
+     "promos": [
+      "Agujas de regalo",
+      "Agujas de regalo"
+     ],
+     "texto": "Agujas Ultra-Fine gratis\nmounjaro”\ntirzepatida\nSolución\ne\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida\ndi\n-5 mg\n==\nVehículo cbp\n0.6 mL\no =>\nLa pluma precargada KwikPen\".\nMN\nmultidosis puede entregar 4 dosis\nembecta”\nN==\nde 0.6 mL.\nn=\nCaja con 1 pluma precargada\nUltra-Fine”\nKwikPen% multidosis con 2.4 mL €\ninstructivo anexo.\nAgujas para pluma\nAgulhas para caneta\nDOSIS: La que "
+    }
+   ],
    "imagenes": [
     "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_A_1280_AL.jpg",
     "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_S_1280_F.jpg",
@@ -546,6 +597,7 @@
    ],
    "receta": "No indicado en la página",
    "receta_texto": [],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 4775,
     "precio_hoy": 4680,
@@ -553,11 +605,13 @@
     "escenario_hoy": "Precio en línea",
     "condiciones_hoy": [],
     "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": false,
     "promedio_por_pluma": 4680.0,
     "total_tratamiento": 18720,
     "escenario_tratamiento": "Precio en línea",
     "condiciones_tratamiento": [],
     "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": false,
     "notas_tratamiento": [],
     "desglose_tratamiento": [
      4775,
@@ -593,6 +647,7 @@
    ],
    "receta": "No indicado en la página",
    "receta_texto": [],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 4919.2,
     "precio_hoy": 4919.2,
@@ -600,11 +655,13 @@
     "escenario_hoy": "Precio en línea",
     "condiciones_hoy": [],
     "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": false,
     "promedio_por_pluma": 4919.2,
     "total_tratamiento": 19676.8,
     "escenario_tratamiento": "Precio en línea",
     "condiciones_tratamiento": [],
     "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": false,
     "notas_tratamiento": [],
     "desglose_tratamiento": [
      4919.2,
@@ -630,22 +687,6 @@
    "precio_linea": 5964,
    "in_stock": true,
    "promos": [
-    {
-     "kind": "pct",
-     "label": "10% de descuento",
-     "source": "página",
-     "pct": 10.0,
-     "condition": "Club Salud San Pablo",
-     "raw": "10% de Descuento"
-    },
-    {
-     "kind": "buy_n_get_1",
-     "label": "Acumula 6 y el siguiente gratis",
-     "source": "página",
-     "n": 6,
-     "condition": "Club Salud San Pablo",
-     "raw": "Programa Club Salud: Acumula 6 y el 7º es GRATIS."
-    },
     {
      "kind": "tier_at",
      "label": "4ª compra: $3,879",
@@ -686,31 +727,32 @@
    ],
    "receta": "No (según tu experiencia)",
    "receta_texto": [],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 5964,
-    "precio_hoy": 5367.6,
-    "precio_hoy_pagas": 5367.6,
-    "escenario_hoy": "10% de descuento",
-    "condiciones_hoy": [
-     "Club Salud San Pablo"
-    ],
+    "precio_hoy": 5964,
+    "precio_hoy_pagas": 5964,
+    "escenario_hoy": "Precio en línea",
+    "condiciones_hoy": [],
     "canal_hoy": "En línea",
-    "promedio_por_pluma": 5367.6,
-    "total_tratamiento": 21470.4,
-    "escenario_tratamiento": "10% de descuento",
-    "condiciones_tratamiento": [
-     "Club Salud San Pablo"
-    ],
+    "requiere_cuenta_hoy": false,
+    "promedio_por_pluma": 5442.75,
+    "total_tratamiento": 21771.0,
+    "escenario_tratamiento": "4ª compra: $3,879",
+    "condiciones_tratamiento": [],
     "canal_tratamiento": "En línea",
-    "notas_tratamiento": [],
+    "requiere_cuenta_tratamiento": false,
+    "notas_tratamiento": [
+     "Ese precio aplica hasta tu compra número 4"
+    ],
     "desglose_tratamiento": [
-     5367.6,
-     5367.6,
-     5367.6,
-     5367.6
+     5964,
+     5964,
+     5964,
+     3879.0
     ],
     "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 10.0,
+    "ahorro_vs_linea_pct": 8.7,
     "limite": null,
     "msi": null
    }
@@ -744,9 +786,8 @@
     "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width="
    ],
    "receta": "No (según tu experiencia)",
-   "receta_texto": [
-    "Requiere receta No"
-   ],
+   "receta_texto": [],
+   "pagina_bloqueada": false,
    "valor": {
     "precio_linea": 6500,
     "precio_hoy": 6500,
@@ -754,11 +795,13 @@
     "escenario_hoy": "Precio en línea",
     "condiciones_hoy": [],
     "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": false,
     "promedio_por_pluma": 6500.0,
     "total_tratamiento": 26000,
     "escenario_tratamiento": "Precio en línea",
     "condiciones_tratamiento": [],
     "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": false,
     "notas_tratamiento": [],
     "desglose_tratamiento": [
      6500,
@@ -785,6 +828,7 @@
     "escenario": "Precio en línea",
     "condiciones": [],
     "canal": "En línea",
+    "requiere_cuenta": false,
     "receta": "No indicado en la página"
    },
    "tratamiento": {
@@ -797,6 +841,7 @@
     "escenario": "Precio en línea",
     "condiciones": [],
     "canal": "En línea",
+    "requiere_cuenta": false,
     "receta": "No indicado en la página"
    },
    "ventaja_vs_segundo": 25.0,
@@ -810,34 +855,34 @@
   },
   "5": {
    "hoy": {
-    "id": "benavides:1050873",
-    "pharmacy": "benavides",
-    "pharmacy_name": "Farmacias Benavides",
-    "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
-    "precio": 3882.0,
-    "pagas": 3882.0,
-    "escenario": "Precio en imagen desde $3,882",
-    "condiciones": [
-     "Tarjeta Benavides Recompensas"
-    ],
-    "canal": "En línea/app (por confirmar en la imagen)",
-    "receta": "Sí (lo indica la página)"
+    "id": "guadalajara:1460714",
+    "pharmacy": "guadalajara",
+    "pharmacy_name": "Farmacias Guadalajara",
+    "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-5mg-0.6ml-solucion-inyectable-pluma-precargada--2.4-ml.-1460714.html",
+    "precio": 4680,
+    "pagas": 4775,
+    "escenario": "Precio en línea",
+    "condiciones": [],
+    "canal": "En línea",
+    "requiere_cuenta": false,
+    "receta": "No indicado en la página"
    },
    "tratamiento": {
     "id": "benavides:1050873",
     "pharmacy": "benavides",
     "pharmacy_name": "Farmacias Benavides",
     "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
-    "precio": 3882.0,
+    "precio": 4331.15,
     "pagas": null,
-    "escenario": "Precio en imagen desde $3,882",
+    "escenario": "Escalonado por compra: 20% → 25% → 30% → 35%",
     "condiciones": [
      "Tarjeta Benavides Recompensas"
     ],
     "canal": "En línea/app (por confirmar en la imagen)",
+    "requiere_cuenta": true,
     "receta": "Sí (lo indica la página)"
    },
-   "ventaja_vs_segundo": 798.0,
+   "ventaja_vs_segundo": 348.85,
    "ranking": [
     "benavides:1050873",
     "guadalajara:1460714",
@@ -848,6 +893,49 @@
   }
  },
  "banners": [
+  {
+   "pharmacy": "ahorro",
+   "pharmacy_name": "Farmacias del Ahorro",
+   "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
+   "src": "https://production-media.fahorro.com/media/catalog/category/Mounjaro.jpg",
+   "link": "",
+   "alt": "Mounjaro ",
+   "texto": "",
+   "promos": [],
+   "condicion": null,
+   "canal": null,
+   "hash": "763202ff61c2"
+  },
+  {
+   "pharmacy": "yza",
+   "pharmacy_name": "Farmacias YZA",
+   "pagina": "https://www.yza.mx/",
+   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dw8de8394a/images/homepage/hero-carousel/CH15_P09_2026_WEB.png",
+   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
+   "alt": "Aprovecha",
+   "texto": "-\nmoofiro CEE\nmos EEN\npei\nmame\nEmp\nra\nEl\n=\nMETE\n3,771,\n4,920\n6,428\nprecios en\na C Mounjaro Tirzepatida 2.5 Mg/0.6 MI Sal )\neN q Mounijaro Tirzepatida 5 Mg/0.6 MI sal )\nA 1 Mounjaro Tirzepatida 7.5 Mg/0.6 MI Sal)\nMounjaro.\nES\nz\nmou\nE\nmouffiro\" GER\nmr\n>\nnos\nE\nE\n5\n\"6,403\n\"7,999\n7,999\nLo,\n(- Mounjaro Kwikpen 10 Mg/O.6 MI Sol >)\nEcol C Mounjaro Kwikpen 12.5 Mg/0.6 MI Sol J\nE C Mounjaro Kwikpen 15 Mg/O0.6 MI Sol )\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consu",
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre 2026"
+   ],
+   "condicion": null,
+   "canal": null,
+   "hash": "3ab25a96e1fb"
+  },
+  {
+   "pharmacy": "yza",
+   "pharmacy_name": "Farmacias YZA",
+   "pagina": "https://www.yza.mx/",
+   "src": "https://ilpqgczhqhtmsypfafjr.supabase.co/functions/v1/r2-image?key=campaigns%2F180fe1ab-045e-42a9-b442-19368730436e%2Fd472d3f4-24f5-4187-bd47-a86bf2165731.webp&itok=1789954082.sDk78PYTVmwLQacS702HDsQz88o3Kdf2n5vIJ37985w",
+   "link": "",
+   "alt": "",
+   "texto": "3,771,\n:/920\n6,428\nMounjaro Tirzeptida 2.5 Mg\nMounjaro Tirzepatid.\n/06MISol\nMounjaro\nirzepati\n/06MISol\n6,403\n==.\n7,999\nmes\n7.999\n((Mcaniaro Kwvikpen 10 M\nMounjaro Kwikpen 12.5 MiJ0.6 MISol\nKnen 15 M/0.6 MISol\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consulta a tu médico.\nMejores precios\nen Mounjaro.\na]\na]\na Sn.\n:4/920\n6,428\n(Gama Trcpaid 25050501)\nMETIO)\n2 (cuna Treat 15Mg0 OMS)\nE\nZE\n7.\n6,403\n999\n999\nMCTATENTIIEO)\n2 eno open 25902155)\nMERINETEO)\nPromoció",
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre 2026"
+   ],
+   "condicion": null,
+   "canal": null,
+   "hash": "3e60f567f7df"
+  },
   {
    "pharmacy": "benavides",
    "pharmacy_name": "Farmacias Benavides",
@@ -880,51 +968,6 @@
    "condicion": "Tarjeta Benavides Recompensas",
    "canal": null,
    "hash": "5b892b3ba188"
-  },
-  {
-   "pharmacy": "yza",
-   "pharmacy_name": "Farmacias YZA",
-   "pagina": "https://www.yza.mx/",
-   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dw8de8394a/images/homepage/hero-carousel/CH15_P09_2026_WEB.png",
-   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
-   "alt": "Aprovecha",
-   "texto": "-\nmoofiro CEE\nmos EEN\npei\nmame\nEmp\nra\nEl\n=\nMETE\n3,771,\n4,920\n6,428\nprecios en\na C Mounjaro Tirzepatida 2.5 Mg/0.6 MI Sal )\neN q Mounijaro Tirzepatida 5 Mg/0.6 MI sal )\nA 1 Mounjaro Tirzepatida 7.5 Mg/0.6 MI Sal)\nMounjaro.\nES\nz\nmou\nE\nmouffiro\" GER\nmr\n>\nnos\nE\nE\n5\n\"6,403\n\"7,999\n7,999\nLo,\n(- Mounjaro Kwikpen 10 Mg/O.6 MI Sol >)\nEcol C Mounjaro Kwikpen 12.5 Mg/0.6 MI Sol J\nE C Mounjaro Kwikpen 15 Mg/O0.6 MI Sol )\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consu",
-   "promos": [
-    "Vigencia: del 1 al 30 de septiembre 2026"
-   ],
-   "condicion": null,
-   "canal": null,
-   "hash": "3ab25a96e1fb"
-  },
-  {
-   "pharmacy": "yza",
-   "pharmacy_name": "Farmacias YZA",
-   "pagina": "https://www.yza.mx/",
-   "src": "https://ilpqgczhqhtmsypfafjr.supabase.co/functions/v1/r2-image?key=campaigns%2F180fe1ab-045e-42a9-b442-19368730436e%2Fd472d3f4-24f5-4187-bd47-a86bf2165731.webp&itok=1789953270.4j9-s9v25jA-LwLEJG-tKJqntBKYB6oqHRreJH1FrkU",
-   "link": "",
-   "alt": "",
-   "texto": "3,771,\n:/920\n6,428\nMounjaro Tirzeptida 2.5 Mg\nMounjaro Tirzepatid.\n/06MISol\nMounjaro\nirzepati\n/06MISol\n6,403\n==.\n7,999\nmes\n7.999\n((Mcaniaro Kwvikpen 10 M\nMounjaro Kwikpen 12.5 MiJ0.6 MISol\nKnen 15 M/0.6 MISol\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consulta a tu médico.\nMejores precios\nen Mounjaro.\na]\na]\na Sn.\n:4/920\n6,428\n(Gama Trcpaid 25050501)\nMETIO)\n2 (cuna Treat 15Mg0 OMS)\nE\nZE\n7.\n6,403\n999\n999\nMCTATENTIIEO)\n2 eno open 25902155)\nMERINETEO)\nPromoció",
-   "promos": [
-    "Vigencia: del 1 al 30 de septiembre 2026"
-   ],
-   "condicion": null,
-   "canal": null,
-   "hash": "3e60f567f7df"
-  },
-  {
-   "pharmacy": "yza",
-   "pharmacy_name": "Farmacias YZA",
-   "pagina": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
-   "src": "https://ilpqgczhqhtmsypfafjr.supabase.co/functions/v1/r2-image?key=campaigns%2F180fe1ab-045e-42a9-b442-19368730436e%2F43cd721c-af79-48fe-bf53-969d91035b91.webp&itok=1789953270.07NYDTlaevPSSS5wVPTux3LDH2F3bolY72Gg_KNdG7c",
-   "link": "",
-   "alt": "",
-   "texto": "3,771,\n:/920\n6,428\nMounjaro Tirzeptida 2.5 Mg\nMounjaro Tirzepatid.\n/06MISol\nMounjaro\nirzepati\n/06MISol\n6,403\n==.\n7,999\nmes\n7.999\n((Mcaniaro Kwvikpen 10 M\nMounjaro Kwikpen 12.5 MiJ0.6 MISol\nKnen 15 M/0.6 MISol\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consulta a tu médico.\nMejores precios\nen Mounjaro.\na]\na]\na Sn.\n:4/920\n6,428\n(Gama Trcpaid 25050501)\nMETIO)\n2 (cuna Treat 15Mg0 OMS)\nE\nZE\n7.\n6,403\n999\n999\nMCTATENTIIEO)\n2 eno open 25902155)\nMERINETEO)\nPromoció",
-   "promos": [
-    "Vigencia: del 1 al 30 de septiembre 2026"
-   ],
-   "condicion": null,
-   "canal": null,
-   "hash": "3e60f567f7df"
   }
  ],
  "errores": {},
@@ -934,5 +977,10 @@
   "sanpablo": "Farmacias San Pablo",
   "guadalajara": "Farmacias Guadalajara",
   "yza": "Farmacias YZA"
+ },
+ "notas_farmacia": {
+  "guadalajara": "Su sitio avisa que el precio en línea puede variar según la ubicación y que es distinto al de tienda física.",
+  "yza": "Cobertura en CDMX reciente: confirma que hagan envío a tu C.P. o si hay que recoger en sucursal.",
+  "sanpablo": "Envío gratis a CDMX."
  }
 }

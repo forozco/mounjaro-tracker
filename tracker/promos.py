@@ -77,6 +77,21 @@ def condition_of(text: str) -> str | None:
     return None
 
 
+def buscar_cupon(text: str) -> str | None:
+    """Código de cupón (MOUNJARO40). Pide contexto de 'cupón/código' para no confundirse."""
+    if not _CUPON_CTX.search(text):
+        return None
+    for m in _CUPON.finditer(text):
+        code = m.group(1)
+        if code.startswith("HP") or code in ("MXN",):
+            continue
+        # el OCR a veces se come la primera letra: OUNJARO40 → MOUNJARO40
+        if "UNJARO" in code and not code.startswith("MOUNJARO"):
+            code = "MOUNJARO" + code.split("UNJARO")[-1]
+        return code
+    return None
+
+
 def parse_text(lines: list[str], source: str) -> list[Promo]:
     promos: list[Promo] = []
     joined = "\n".join(lines)
@@ -103,6 +118,10 @@ def parse_text(lines: list[str], source: str) -> list[Promo]:
             promos.append(Promo("vigencia", "Vigencia: " + " ".join(m.group(1).split())[:60], source, raw=line))
         if m := _MSI.search(line):
             promos.append(Promo("msi", f"{m.group(1)} meses sin intereses", source, n=int(m.group(1)), raw=line))
+    if cup := buscar_cupon(joined):
+        promos.append(Promo("cupon", f"Cupón {cup}", source, condition=f"Cupón {cup}",
+                            canal=context_canal, raw=cup))
+
     # Bloque tipo "Promociones con tu tarjeta / 20% de desc" en líneas separadas
     if not any(p.kind == "pct" for p in promos):
         for i, line in enumerate(lines):
@@ -168,13 +187,7 @@ def parse_image(ocr: dict, ref_price: float | None) -> list[Promo]:
         if pcts and re.search(r"desc|dcto|ahorra|precio|promo|oferta", text, re.I):
             promos.append(Promo("pct", f"{max(pcts)}% de descuento (imagen)", "imagen", pct=float(max(pcts)), condition=cond, canal=canal, raw=text[:200]))
 
-    cupon = None
-    if _CUPON_CTX.search(text):
-        for m in _CUPON.finditer(text):
-            code = m.group(1)
-            if code not in ("HP", "MXN") and not code.startswith("HP"):
-                cupon = code
-                break
+    cupon = buscar_cupon(text)
     if cupon:
         cond = f"Cupón {cupon}"
         for pr in promos:
