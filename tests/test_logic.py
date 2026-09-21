@@ -114,6 +114,29 @@ check("acumulación reparte el costo", v["promedio_por_pluma"] == 4500.0, v["pro
 v = evaluate(6000.0, parse_image({"text": "90% de descuento", "boxes": [], "prices": [], "percents": [90]}, 6000.0))
 check("un descuento absurdo se ignora", v["precio_hoy"] == 6000.0, v["precio_hoy"])
 
+# --- avisos por correo (aquí tronó en la primera corrida real) ---
+from datetime import datetime  # noqa: E402
+
+from tracker import notify  # noqa: E402
+
+def _latest():
+    pick = {"precio": 4331.0, "pharmacy": "benavides", "pharmacy_name": "Farmacias Benavides",
+            "url": "u", "escenario": "Escalonado", "condiciones": [], "canal": "En línea",
+            "receta": "No", "requiere_cuenta": True}
+    return {"recomendacion": {"5": {"tratamiento": dict(pick), "hoy": dict(pick)}},
+            "ofertas": [], "banners": [], "errores": {}, "dosis": ["5"], "horizonte_plumas": 4,
+            "generado": "2026-09-21T14:00", "zona": "CDMX", "cp": "03023", "farmacias": {}}
+
+tarde = datetime(2026, 9, 21, 14, 0)
+motivos, _ = notify.decide(_latest(), {"best": {"5": {"precio": 4331.0, "ph": "benavides"}}}, tarde)
+check("sin cambios no manda correo", motivos == [], motivos)
+motivos, _ = notify.decide(_latest(), {"best": {"5": {"precio": 4331.0, "ph": "yza"}}}, tarde)
+check("avisa si cambia la farmacia que conviene", any("Cambió" in m for m in motivos), motivos)
+motivos, _ = notify.decide(_latest(), {"best": {"5": {"precio": 5000.0, "ph": "benavides"}}}, tarde)
+check("avisa si baja el precio", any("Bajó" in m for m in motivos), motivos)
+motivos, _ = notify.decide(_latest(), {}, datetime(2026, 9, 21, 7, 0))
+check("resumen diario en la corrida de la mañana", any("Resumen" in m for m in motivos), motivos)
+
 print()
 if fallos:
     print(f"{len(fallos)} prueba(s) fallaron: {', '.join(fallos)}")

@@ -65,9 +65,15 @@ jobs:
         run: |
           git config user.name "mounjaro-tracker"
           git config user.email "actions@github.com"
-          git add data docs/data
-          git diff --staged --quiet || git commit -m "Revisión $(date -u +'%Y-%m-%d %H:%M') UTC"
-          git push
+          git add data docs/data docs/img
+          git diff --staged --quiet && exit 0
+          git commit -m "Revisión $(date -u +'%Y-%m-%d %H:%M') UTC"
+          # si alguien más subió algo mientras corría la revisión, reintentar encima
+          for intento in 1 2 3; do
+            git push && exit 0
+            git pull --rebase --autostash origin main || exit 1
+          done
+          exit 1
 
       - name: Guardar reporte como artefacto
         if: always()

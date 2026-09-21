@@ -43,7 +43,7 @@ def decide(latest: dict, state: dict, started) -> tuple[list[str], bool]:
                 reasons.append(f"Bajó el mejor precio de {dose} mg: {money(old['precio'])} → {money(t['precio'])} "
                                f"por pluma en {t['pharmacy_name']}")
                 urgent = True
-            elif old["ph"] != t["ph"]:
+            elif old["ph"] != t["pharmacy"]:
                 reasons.append(f"Cambió la mejor opción de {dose} mg: ahora conviene {t['pharmacy_name']} ({money(t['precio'])}/pluma)")
                 urgent = True
         else:
