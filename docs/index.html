@@ -241,7 +241,9 @@
         en 35% como el de Benavides, así que con Enlace el ciclo de cuatro compras se repite todo el año.
         San Pablo lo confirmó el 21 de septiembre de 2026, por teléfono (55-5354-9000) y por escrito en su
         WhatsApp: “el descuento mayor es el de la 4ta compra, pero después de esta 4ta compra se reinicia la
-        mecánica de descuentos escalonados… cada 4 compras son un ciclo”. Es del laboratorio, no de la farmacia,
+        mecánica de descuentos escalonados… cada 4 compras son un ciclo”
+        (<a href="img/terminos/sanpablo-ciclo-4-compras-20260921.jpg" target="_blank" rel="noopener">ver captura</a>).
+        Es del laboratorio, no de la farmacia,
         así que aplica igual en las demás cadenas de Enlace. No está publicado en el sitio de San Pablo, así que
         conviene volver a preguntarlo de vez en cuando.</li>
       <li>Las compras se acumulan <strong>en la misma cadena</strong>; si cambias de farmacia, empiezas de nuevo.</li>
@@ -333,10 +335,13 @@ const MESES = 12;
 // Enlace como para su precio de "4ª compra".
 const reinicia = (ph, v) => ph === "sanpablo"
   || (v.condiciones_tratamiento || []).some(c => /Enlace/.test(c || ""));
-// Dónde publica cada farmacia la regla de su escalonado
+// Dónde publica cada farmacia la regla de su escalonado, y dónde no la publica pero
+// la contestó: ahí lo que se enseña es la captura de su respuesta
 const REGLAS = { benavides: "https://www.benavides.com.mx/terminos-y-condiciones" };
+const CAPTURAS = { sanpablo: "img/terminos/sanpablo-ciclo-4-compras-20260921.jpg" };
 const verRegla = ph => REGLAS[ph]
-  ? ` · <a href="${REGLAS[ph]}" target="_blank" rel="noopener">ver regla</a>` : "";
+  ? ` · <a href="${REGLAS[ph]}" target="_blank" rel="noopener">ver regla</a>`
+  : CAPTURAS[ph] ? ` · <a href="${CAPTURAS[ph]}" target="_blank" rel="noopener">ver captura</a>` : "";
 function anual(o) {
   const v = o.valor, d = v.desglose_tratamiento || [], e = v.escenario_tratamiento || "";
   const ult = d[d.length - 1];
@@ -352,7 +357,7 @@ function anual(o) {
   if (reinicia(o.pharmacy, v)) {
     const ciclo = Array.from({ length: MESES }, (_, i) => d[i % d.length]);
     return { avg: ciclo.reduce((a, b) => a + b, 0) / MESES, seguro: true,
-      st: `confirmado por teléfono: después de la ${d.length}.ª vuelve a empezar, y el ciclo se repite` };
+      st: `confirmado: después de la ${d.length}.ª vuelve a empezar, y el ciclo se repite` };
   }
   const avg = (d.reduce((a, b) => a + b, 0) + ult * (MESES - d.length)) / MESES;
   if (o.pharmacy === "benavides" && /^Escalonado/.test(e))
@@ -396,8 +401,8 @@ function despues(ph, des, v) {
       <strong class="num">${MX(des[0])}</strong> y el ciclo se repite, así que el promedio se queda en
       <strong class="num">${MX(Math.round(suma / k))}</strong> por pluma todo el año, no baja más.
       San Pablo lo confirmó el 21 de septiembre de 2026, por teléfono (55-5354-9000) y por escrito en su
-      WhatsApp: “cada 4 compras son un ciclo”. No está publicado en su sitio, así que conviene volver a
-      preguntarlo de vez en cuando.`;
+      WhatsApp: “cada 4 compras son un ciclo”${verRegla("sanpablo")}. No está publicado en su sitio, así que
+      conviene volver a preguntarlo de vez en cuando.`;
   if (ph === "benavides") return `Después de la ${k}.ª te quedas en <strong class="num">${MX(ult)}</strong> por pluma
     mientras cada compra caiga dentro de los 35 días de la anterior; si te pasas, vuelves a la 1.ª.
     En un año, una al mes, el promedio baja a <strong class="num">${MX(anio)}</strong>.${verRegla("benavides")}`;
