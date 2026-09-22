@@ -76,7 +76,7 @@ BUSCADORES = {
 NOTAS_FARMACIA = {
     "guadalajara": "Su sitio avisa que el precio en línea puede variar según la ubicación y que es distinto al de tienda física.",
     "yza": "Cobertura en CDMX reciente: confirma que hagan envío a tu C.P. o si hay que recoger en sucursal.",
-    "sanpablo": "Envío gratis a CDMX. Después de la 4.ª compra el precio vuelve a empezar desde el primer nivel, así que el ciclo de cuatro compras se repite; con Enlace Lilly eso significa volver al 20% (confirmado por teléfono el 21 de septiembre de 2026).",
+    "sanpablo": "Envío gratis a CDMX. Después de la 4.ª compra el precio vuelve a empezar desde el primer nivel, así que el ciclo de cuatro compras se repite; con Enlace Lilly eso significa volver al 20% (confirmado por San Pablo el 21 de septiembre de 2026, por teléfono y por WhatsApp).",
     "benavides": "Después de la 4.ª compra te quedas en el descuento máximo mientras cada compra caiga dentro de los 35 días de la anterior; si te pasas, vuelves al primer nivel.",
 }
 
