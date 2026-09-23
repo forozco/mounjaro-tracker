@@ -1,5 +1,5 @@
 {
- "generado": "2026-09-23T07:30-06:00",
+ "generado": "2026-09-23T14:09-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -1051,6 +1051,20 @@
   {
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
+   "pagina": "https://www.fahorro.com/",
+   "src": "https://production-media.fahorro.com/media/wysiwyg/Banner_Control_de_Peso_1400x480.jpg",
+   "link": "https://www.fahorro.com/control-de-peso.html",
+   "alt": "",
+   "texto": "WM\nFoundayz'\na\nAN\nmounjaro wWegovy\nRYBELSUS trulicity Saxenda\n(orforlipron)\n=\nAQUÍ\nBELSUS?\nSemaglutida\nyy:\nTabletas\nSemaglutida\nOral\nCaja con 30 tabletas\ní\nM8.\ne Instructivo anexo.\nFoundayz”\n0.8 mg\natm,\nUS\n2 Ñ\nJero con 3 mL y 4 aguas\no\nva desemaghuida en 3 ml e solución.\nOrforglipron\nAS\nSET\nCaja con 31\nTableta\nJO)\nr0:\nE y\nVía de administración: O:\nAS\nJa\ns3\nMONEDERO DEL AHORRO\nENVÍO GRATIS\nEvita la automedicación para un tratamiento eficaz, controlando posibles efectos secundarios.\nÚSALO PARA\nSIE",
+   "promos": [],
+   "condicion": "Monedero de la farmacia",
+   "canal": null,
+   "hash": "6c5ae430afe0",
+   "thumb": "img/6c5ae430afe0.jpg"
+  },
+  {
+   "pharmacy": "ahorro",
+   "pharmacy_name": "Farmacias del Ahorro",
    "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
    "src": "https://production-media.fahorro.com/media/catalog/category/Mounjaro.jpg",
    "link": "",
@@ -1130,22 +1144,6 @@
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
    "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
-   "src": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_35_.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
-   "link": "https://www.fahorro.com/mounjaro-kwikpen-10mg-0-6ml-3-ml.html",
-   "alt": "Mounjaro Kwikpen 10Mg/0.6Ml 3 ml",
-   "texto": "HP3453\nmounjaro”\n10\n0\ntirzepatida\nSolución\n10 mg/0.6 mL\nInyectable\nFormula:\nCada 0.5 ml, contienent\nTirzepatida ...\n10 mg\nVehiculo chp\ny\n0.0 mL\nLa pluma precargada KvilkPanO\nmultidosis puede entreger 4 dosis\nde 0.8 mL.\nCaia con 1 pluma precargada\nKwlaPan* multidosis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que el médico señale.\nVIA DE ADMINISTRACIÓN:\nSubcutánes. Luase instructive\nanexo.\nPas\nIngresa el cupón correspondiente\nen tu carrito de compra.\nMOUNJAROS5\nA SÓLO\n56,/32.\"\nHP3453\nmg\nmounjaro\" ",
-   "promos": [
-    "Cupón MOUNJAROS5"
-   ],
-   "condicion": "Cupón / código",
-   "canal": null,
-   "hash": "0633da96032c",
-   "thumb": "img/0633da96032c.jpg"
-  },
-  {
-   "pharmacy": "ahorro",
-   "pharmacy_name": "Farmacias del Ahorro",
-   "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
    "src": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_34_.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
    "link": "https://www.fahorro.com/mounjaro-kwikpen-7-5mg-0-6ml-3-ml.html",
    "alt": "Mounjaro Kwikpen 7.5Mg/0.6Ml 3 ml",
@@ -1157,6 +1155,22 @@
    "canal": null,
    "hash": "3a95b44bad42",
    "thumb": "img/3a95b44bad42.jpg"
+  },
+  {
+   "pharmacy": "ahorro",
+   "pharmacy_name": "Farmacias del Ahorro",
+   "pagina": "https://www.fahorro.com/control-de-peso/mounjaro.html",
+   "src": "https://production-media.fahorro.com/media/catalog/product/d/i/dise_o_sin_t_tulo_35_.png?optimize=medium&bg-color=255%2C255%2C255&fit=bounds&height=140&width=140&canvas=140%3A140",
+   "link": "https://www.fahorro.com/mounjaro-kwikpen-10mg-0-6ml-3-ml.html",
+   "alt": "Mounjaro Kwikpen 10Mg/0.6Ml 3 ml",
+   "texto": "HP3453\nmounjaro”\n10\n0\ntirzepatida\nSolución\n10 mg/0.6 mL\nInyectable\nFormula:\nCada 0.5 ml, contienent\nTirzepatida ...\n10 mg\nVehiculo chp\ny\n0.0 mL\nLa pluma precargada KvilkPanO\nmultidosis puede entreger 4 dosis\nde 0.8 mL.\nCaia con 1 pluma precargada\nKwlaPan* multidosis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que el médico señale.\nVIA DE ADMINISTRACIÓN:\nSubcutánes. Luase instructive\nanexo.\nPas\nIngresa el cupón correspondiente\nen tu carrito de compra.\nMOUNJAROS5\nA SÓLO\n56,/32.\"\nHP3453\nmg\nmounjaro\" ",
+   "promos": [
+    "Cupón MOUNJAROS5"
+   ],
+   "condicion": "Cupón / código",
+   "canal": null,
+   "hash": "0633da96032c",
+   "thumb": "img/0633da96032c.jpg"
   },
   {
    "pharmacy": "ahorro",
@@ -1229,7 +1243,7 @@
    "id": "benavides-escalonado",
    "nombre": "Benavides · Descuento Escalonado Mounjaro",
    "url": "https://www.benavides.com.mx/terminos-y-condiciones",
-   "verificado": "2026-09-23T07:30-06:00",
+   "verificado": "2026-09-23T14:09-06:00",
    "cambio": false,
    "error": null,
    "texto": "Descuento aplica presentando la tarjeta Benavides Recompensas, limitado a 2 piezas de cualquier presentación al mes (30 días) por cliente. El descuento es intransferible y está ligado a la tarjeta Benavides Recompensas, que recibe la comunicación. Promoción válida con un máximo de 2 piezas por cliente, sin importar la presentación. El límite es total por marca, no por presentación. El descuento se aplicará a las 2 piezas de menor precio. Promoción sujeta a la compra de productos participantes. El descuento se asigna de forma progresiva conforme a la frecuencia de compra dentro del periodo establecido. El descuento máximo se otorga con la 4ª compra. Para conservar o incrementar el nivel de descuento, las compras deberán realizarse dentro de los 35 días posteriores a la compra anterior; en caso contrario, el beneficio se reiniciará al nivel inicial (primera compra). Los descuentos, vigencias y beneficios pueden variar según el historial de compra del cliente. No acumulable con otras promociones. La contabilización de compras acumuladas comienza a partir del lanzamiento de este programa de adherencia; no incluye compras retroactivas. No aplica en devoluciones. Consulta a tu médico. Evita automedicarte.",
