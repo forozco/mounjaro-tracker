@@ -1,5 +1,5 @@
 {
- "generado": "2026-09-29T21:10-06:00",
+ "generado": "2026-09-30T07:33-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -224,8 +224,8 @@
    "name": "Mounjaro Kwikpen 2.5Mg/0.6Ml 3 ml",
    "url": "https://www.fahorro.com/mounjaro-kwikpen-2-5mg-0-6ml-3-ml.html",
    "sku": "7501082243710",
-   "precio_lista": 6114,
-   "precio_linea": 6114,
+   "precio_lista": 6310,
+   "precio_linea": 6310,
    "in_stock": true,
    "promos": [
     {
@@ -233,7 +233,7 @@
      "label": "3 meses sin intereses",
      "source": "página",
      "n": 3,
-     "raw": "$2,038.00 x 3 meses sin intereses"
+     "raw": "$2,103.33 x 3 meses sin intereses"
     },
     {
      "kind": "cupon",
@@ -273,7 +273,7 @@
    "receta_texto": [],
    "pagina_bloqueada": false,
    "valor": {
-    "precio_linea": 6114,
+    "precio_linea": 6310,
     "precio_hoy": 3590.0,
     "precio_hoy_pagas": 3590.0,
     "escenario_hoy": "Precio en imagen desde $3,590 con cupón MOUNJARO40",
@@ -298,7 +298,7 @@
      3590.0
     ],
     "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 41.3,
+    "ahorro_vs_linea_pct": 43.1,
     "limite": null,
     "msi": 3
    },
@@ -696,6 +696,104 @@
    }
   },
   {
+   "id": "guadalajara:1460714",
+   "pharmacy": "guadalajara",
+   "pharmacy_name": "Farmacias Guadalajara",
+   "dose": "5",
+   "name": "Mounjaro KwikPen 5mg/0.6ml Solución Inyectable Pluma Precargada, 2.4 ml.",
+   "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-5mg-0.6ml-solucion-inyectable-pluma-precargada--2.4-ml.-1460714.html",
+   "sku": "1460714",
+   "precio_lista": 9186,
+   "precio_linea": 4775,
+   "in_stock": true,
+   "promos": [
+    {
+     "kind": "gift",
+     "label": "Agujas de regalo",
+     "source": "página",
+     "raw": "Agujas gratis"
+    },
+    {
+     "kind": "limit",
+     "label": "Límite 2 piezas",
+     "source": "página",
+     "n": 2,
+     "raw": "Límite de compra: 2 piezas de Mounjaro por cliente al mes."
+    },
+    {
+     "kind": "gift",
+     "label": "Agujas de regalo",
+     "source": "imagen",
+     "condition": "Cupón / código",
+     "raw": "Agujas Ultra-Fine gratis"
+    }
+   ],
+   "imagenes_promo": [
+    {
+     "url": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_A_1280_AL.jpg",
+     "promos": [
+      "Agujas de regalo",
+      "Agujas de regalo",
+      "Agujas de regalo",
+      "Agujas de regalo"
+     ],
+     "texto": "Agujas Ultra-Fine gratis\n¿Cómo obtener\nlas agujas gratis?\nmounjaro (EF\ntirzepatida\nSolución\n5 mg/0.6 mL\n119 Agrega el código\nInyectable\nMounjaro que\nFórmula:\ndeseas\nCada 0.6 mL contienen:\n3\nTirzepatida\nVehículo cbp ..\nq 0.6 mL.\n5 mg\nLa pluma precargad\n==\n==\nde 0.6 mL.\nmultidosis puede en\nembecto”\nAgrega agujas\nn=]\n==\n==\n==\n==\n==\nUltra-Fine 4mm\nKwikPen* multidosi\nCaja con 1 pluma pi\nUltra-Fine”\nins",
+     "thumb": "img/1143f5310aa9.jpg"
+    },
+    {
+     "url": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_P_1280_E.jpg",
+     "promos": [
+      "Agujas de regalo",
+      "Agujas de regalo"
+     ],
+     "texto": "Agujas Ultra-Fine gratis\nmounjaro”\ntirzepatida\nSolución\ne\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida\ndi\n-5 mg\n==\nVehículo cbp\n0.6 mL\no =>\nLa pluma precargada KwikPen\".\nMN\nmultidosis puede entregar 4 dosis\nembecta”\nN==\nde 0.6 mL.\nn=\nCaja con 1 pluma precargada\nUltra-Fine”\nKwikPen% multidosis con 2.4 mL €\ninstructivo anexo.\nAgujas para pluma\nAgulhas para caneta\nDOSIS: La que ",
+     "thumb": "img/73cd7c2f63b4.jpg"
+    }
+   ],
+   "imagenes": [
+    "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_A_1280_AL.jpg",
+    "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_S_1280_F.jpg",
+    "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_P_1280_E.jpg"
+   ],
+   "receta": "No pidió receta hasta el carrito",
+   "receta_texto": [
+    "Su venta requiere receta médica."
+   ],
+   "pagina_bloqueada": false,
+   "valor": {
+    "precio_linea": 4775,
+    "precio_hoy": 4680,
+    "precio_hoy_pagas": 4775,
+    "escenario_hoy": "Precio en línea",
+    "condiciones_hoy": [],
+    "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": false,
+    "promedio_por_pluma": 4680.0,
+    "total_tratamiento": 18720,
+    "escenario_tratamiento": "Precio en línea",
+    "condiciones_tratamiento": [],
+    "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": false,
+    "notas_tratamiento": [],
+    "desglose_tratamiento": [
+     4775,
+     4775,
+     4775,
+     4775
+    ],
+    "regalo_valor": 95,
+    "ahorro_vs_linea_pct": 2.0,
+    "limite": 2,
+    "msi": null
+   },
+   "receta_checkout": {
+    "pharmacy": "guadalajara",
+    "resultado": "No pidió receta hasta el carrito",
+    "evidencia": [],
+    "url_revisada": "https://www.farmaciasguadalajara.com/carrito"
+   }
+  },
+  {
    "id": "ahorro:7501082243727",
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
@@ -799,104 +897,6 @@
    }
   },
   {
-   "id": "guadalajara:1460714",
-   "pharmacy": "guadalajara",
-   "pharmacy_name": "Farmacias Guadalajara",
-   "dose": "5",
-   "name": "Mounjaro KwikPen 5mg/0.6ml Solución Inyectable Pluma Precargada, 2.4 ml.",
-   "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-5mg-0.6ml-solucion-inyectable-pluma-precargada--2.4-ml.-1460714.html",
-   "sku": "1460714",
-   "precio_lista": 9186,
-   "precio_linea": 4775,
-   "in_stock": true,
-   "promos": [
-    {
-     "kind": "gift",
-     "label": "Agujas de regalo",
-     "source": "página",
-     "raw": "Agujas gratis"
-    },
-    {
-     "kind": "limit",
-     "label": "Límite 2 piezas",
-     "source": "página",
-     "n": 2,
-     "raw": "Límite de compra: 2 piezas de Mounjaro por cliente al mes."
-    },
-    {
-     "kind": "gift",
-     "label": "Agujas de regalo",
-     "source": "imagen",
-     "condition": "Cupón / código",
-     "raw": "Agujas Ultra-Fine gratis"
-    }
-   ],
-   "imagenes_promo": [
-    {
-     "url": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_A_1280_AL.jpg",
-     "promos": [
-      "Agujas de regalo",
-      "Agujas de regalo",
-      "Agujas de regalo",
-      "Agujas de regalo"
-     ],
-     "texto": "Agujas Ultra-Fine gratis\n¿Cómo obtener\nlas agujas gratis?\nmounjaro (EF\ntirzepatida\nSolución\n5 mg/0.6 mL\n119 Agrega el código\nInyectable\nMounjaro que\nFórmula:\ndeseas\nCada 0.6 mL contienen:\n3\nTirzepatida\nVehículo cbp ..\nq 0.6 mL.\n5 mg\nLa pluma precargad\n==\n==\nde 0.6 mL.\nmultidosis puede en\nembecto”\nAgrega agujas\nn=]\n==\n==\n==\n==\n==\nUltra-Fine 4mm\nKwikPen* multidosi\nCaja con 1 pluma pi\nUltra-Fine”\nins",
-     "thumb": "img/1143f5310aa9.jpg"
-    },
-    {
-     "url": "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_P_1280_E.jpg",
-     "promos": [
-      "Agujas de regalo",
-      "Agujas de regalo"
-     ],
-     "texto": "Agujas Ultra-Fine gratis\nmounjaro”\ntirzepatida\nSolución\ne\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida\ndi\n-5 mg\n==\nVehículo cbp\n0.6 mL\no =>\nLa pluma precargada KwikPen\".\nMN\nmultidosis puede entregar 4 dosis\nembecta”\nN==\nde 0.6 mL.\nn=\nCaja con 1 pluma precargada\nUltra-Fine”\nKwikPen% multidosis con 2.4 mL €\ninstructivo anexo.\nAgujas para pluma\nAgulhas para caneta\nDOSIS: La que ",
-     "thumb": "img/73cd7c2f63b4.jpg"
-    }
-   ],
-   "imagenes": [
-    "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_A_1280_AL.jpg",
-    "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_S_1280_F.jpg",
-    "https://www.movil.farmaciasguadalajara.com/wcsstore/FGCAS/wcs/products/1460714_P_1280_E.jpg"
-   ],
-   "receta": "No pidió receta hasta el carrito",
-   "receta_texto": [
-    "Su venta requiere receta médica."
-   ],
-   "pagina_bloqueada": false,
-   "valor": {
-    "precio_linea": 4775,
-    "precio_hoy": 4680,
-    "precio_hoy_pagas": 4775,
-    "escenario_hoy": "Precio en línea",
-    "condiciones_hoy": [],
-    "canal_hoy": "En línea",
-    "requiere_cuenta_hoy": false,
-    "promedio_por_pluma": 4680.0,
-    "total_tratamiento": 18720,
-    "escenario_tratamiento": "Precio en línea",
-    "condiciones_tratamiento": [],
-    "canal_tratamiento": "En línea",
-    "requiere_cuenta_tratamiento": false,
-    "notas_tratamiento": [],
-    "desglose_tratamiento": [
-     4775,
-     4775,
-     4775,
-     4775
-    ],
-    "regalo_valor": 95,
-    "ahorro_vs_linea_pct": 2.0,
-    "limite": 2,
-    "msi": null
-   },
-   "receta_checkout": {
-    "pharmacy": "guadalajara",
-    "resultado": "No pidió receta hasta el carrito",
-    "evidencia": [],
-    "url_revisada": "https://www.farmaciasguadalajara.com/carrito"
-   }
-  },
-  {
    "id": "yza:MXYZ_7501082243727",
    "pharmacy": "yza",
    "pharmacy_name": "Farmacias YZA",
@@ -992,19 +992,17 @@
   },
   "5": {
    "hoy": {
-    "id": "ahorro:7501082243727",
-    "pharmacy": "ahorro",
-    "pharmacy_name": "Farmacias del Ahorro",
-    "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
-    "precio": 4680.0,
-    "pagas": 4775.0,
-    "escenario": "Precio en imagen desde $4,775 con cupón MOUNJARO20",
-    "condiciones": [
-     "Cupón MOUNJARO20"
-    ],
+    "id": "guadalajara:1460714",
+    "pharmacy": "guadalajara",
+    "pharmacy_name": "Farmacias Guadalajara",
+    "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-5mg-0.6ml-solucion-inyectable-pluma-precargada--2.4-ml.-1460714.html",
+    "precio": 4680,
+    "pagas": 4775,
+    "escenario": "Precio en línea",
+    "condiciones": [],
     "canal": "En línea",
-    "requiere_cuenta": true,
-    "receta": "Menciona receta, pero sin pedir datos"
+    "requiere_cuenta": false,
+    "receta": "No pidió receta hasta el carrito"
    },
    "tratamiento": {
     "id": "sanpablo:000000000070009209",
@@ -1025,64 +1023,13 @@
    "ranking": [
     "sanpablo:000000000070009209",
     "benavides:1050873",
-    "ahorro:7501082243727",
     "guadalajara:1460714",
+    "ahorro:7501082243727",
     "yza:MXYZ_7501082243727"
    ]
   }
  },
  "banners": [
-  {
-   "pharmacy": "yza",
-   "pharmacy_name": "Farmacias YZA",
-   "pagina": "https://www.yza.mx/",
-   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dw8de8394a/images/homepage/hero-carousel/CH15_P09_2026_WEB.png",
-   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
-   "alt": "Aprovecha",
-   "texto": "-\nmoofiro CEE\nmos EEN\npei\nmame\nEmp\nra\nEl\n=\nMETE\n3,771,\n4,920\n6,428\nprecios en\na C Mounjaro Tirzepatida 2.5 Mg/0.6 MI Sal )\neN q Mounijaro Tirzepatida 5 Mg/0.6 MI sal )\nA 1 Mounjaro Tirzepatida 7.5 Mg/0.6 MI Sal)\nMounjaro.\nES\nz\nmou\nE\nmouffiro\" GER\nmr\n>\nnos\nE\nE\n5\n\"6,403\n\"7,999\n7,999\nLo,\n(- Mounjaro Kwikpen 10 Mg/O.6 MI Sol >)\nEcol C Mounjaro Kwikpen 12.5 Mg/0.6 MI Sol J\nE C Mounjaro Kwikpen 15 Mg/O0.6 MI Sol )\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consu",
-   "promos": [
-    "Vigencia: del 1 al 30 de septiembre 2026"
-   ],
-   "condicion": null,
-   "canal": null,
-   "hash": "3ab25a96e1fb",
-   "thumb": "img/3ab25a96e1fb.jpg"
-  },
-  {
-   "pharmacy": "benavides",
-   "pharmacy_name": "Farmacias Benavides",
-   "pagina": "https://www.benavides.com.mx/",
-   "src": "https://www.benavides.com.mx/media/wysiwyg/FABE-BannerHome2026__SeptHome2026-Syptime_01-Desktop.png.png",
-   "link": "https://www.benavides.com.mx/promociones-eli-mounjaro?utm_source=ecommerce&utm_medium=banner-home-septiembre&utm_campaign=mounjaro&utm_content=comercializado",
-   "alt": "",
-   "texto": "il\nloo\nde\nhen\nsl\nñ\nDocti\n5]\nlb creación\nJen\nmoujaro\nnp\nmosaro CEE\nIl smoime\nSola\nzepatida\nSms\ne instructivo anexo.\nCaja con 30 tabletas.\nInyectable\n15mo/06 me\nrra\nhi\nFoundayz”\n0.8 mg\nY\nFoundayz:\nll\nE\nE\ntraen\nTableta\nOrforglipron\n(orforglipron)\nÍJ\nmounjaro-\nmd AE\nil reparó\n123 mejo cm\nmg\n1 slo\n' 1omgosme\nVía de administración: Oral.\ne instructivo anexo.\nCaja con 30 tabletas.\nFsagnsm\nim\nFoundayz”\nFoundayz\nMounjaro\n0.8 mg y 2.5 mg\nUltra-Fine\"\n2.5, 5,7.5, 10, 12.5 y 15 mg/O.6 ml.\n=\nTableta\nOrforglip",
-   "promos": [
-    "Vigencia: del 1al 30 de septiembre del 2026 S",
-    "40% de descuento (imagen)"
-   ],
-   "condicion": "Tarjeta Benavides Recompensas",
-   "canal": null,
-   "hash": "95d1efc0c33d",
-   "thumb": "img/95d1efc0c33d.jpg"
-  },
-  {
-   "pharmacy": "benavides",
-   "pharmacy_name": "Farmacias Benavides",
-   "pagina": "https://www.benavides.com.mx/",
-   "src": "https://www.benavides.com.mx/media/wysiwyg/FABE-BannerHome2026_1__SeptHome2026-Syptime_02-Mobile.png",
-   "link": "https://www.benavides.com.mx/promociones-eli-mounjaro?utm_source=ecommerce&utm_medium=banner-home-septiembre&utm_campaign=mounjaro&utm_content=comercializado",
-   "alt": "",
-   "texto": "<Í\nye\nAHORA\nS\nBLE -\nDIS\nPONI\nNS\nCaja con 30 tabletas\ne instructivo anexo.\nFoundayz:\nFoundayz”\n0.8 mg\nTA4178\n(orforglipron)\nOrforglipron\nTableta\nCaja con 30 tabletas\ne instructivo anexo.\nVía de administración: Oral.\nFoundayz”\nFoundayz\nOrforglipron\n0.8 mg y 2.5 mg\nTableta\nVía de administración: Oral.\nc/30 tabs.\n1052379 - 1052385\nbenavides\nrecompensas\nembecto:\nUltra\nne\nAgujas pe\nlas\nGRATIS\n%o\nEn la compra de\n*Presentando tu tarjeta\n32G\n10\nMounjaro Pluma\ne\nBenavides Recompensas\nmm\n1027946\nf-.\nla\nHP9",
-   "promos": [
-    "Vigencia: del 1 al 30 de septiembre del 2026",
-    "Límite 2 piezas",
-    "Escalonado por compra: 35% → 38% → 40%"
-   ],
-   "condicion": "Tarjeta Benavides Recompensas",
-   "canal": null,
-   "hash": "5b892b3ba188",
-   "thumb": "img/5b892b3ba188.jpg"
-  },
   {
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
@@ -1225,6 +1172,57 @@
    "canal": null,
    "hash": "bd913945ef8c",
    "thumb": "img/bd913945ef8c.jpg"
+  },
+  {
+   "pharmacy": "benavides",
+   "pharmacy_name": "Farmacias Benavides",
+   "pagina": "https://www.benavides.com.mx/",
+   "src": "https://www.benavides.com.mx/media/wysiwyg/FABE-BannerHome2026__SeptHome2026-Syptime_01-Desktop.png.png",
+   "link": "https://www.benavides.com.mx/promociones-eli-mounjaro?utm_source=ecommerce&utm_medium=banner-home-septiembre&utm_campaign=mounjaro&utm_content=comercializado",
+   "alt": "",
+   "texto": "il\nloo\nde\nhen\nsl\nñ\nDocti\n5]\nlb creación\nJen\nmoujaro\nnp\nmosaro CEE\nIl smoime\nSola\nzepatida\nSms\ne instructivo anexo.\nCaja con 30 tabletas.\nInyectable\n15mo/06 me\nrra\nhi\nFoundayz”\n0.8 mg\nY\nFoundayz:\nll\nE\nE\ntraen\nTableta\nOrforglipron\n(orforglipron)\nÍJ\nmounjaro-\nmd AE\nil reparó\n123 mejo cm\nmg\n1 slo\n' 1omgosme\nVía de administración: Oral.\ne instructivo anexo.\nCaja con 30 tabletas.\nFsagnsm\nim\nFoundayz”\nFoundayz\nMounjaro\n0.8 mg y 2.5 mg\nUltra-Fine\"\n2.5, 5,7.5, 10, 12.5 y 15 mg/O.6 ml.\n=\nTableta\nOrforglip",
+   "promos": [
+    "Vigencia: del 1al 30 de septiembre del 2026 S",
+    "40% de descuento (imagen)"
+   ],
+   "condicion": "Tarjeta Benavides Recompensas",
+   "canal": null,
+   "hash": "95d1efc0c33d",
+   "thumb": "img/95d1efc0c33d.jpg"
+  },
+  {
+   "pharmacy": "benavides",
+   "pharmacy_name": "Farmacias Benavides",
+   "pagina": "https://www.benavides.com.mx/",
+   "src": "https://www.benavides.com.mx/media/wysiwyg/FABE-BannerHome2026_1__SeptHome2026-Syptime_02-Mobile.png",
+   "link": "https://www.benavides.com.mx/promociones-eli-mounjaro?utm_source=ecommerce&utm_medium=banner-home-septiembre&utm_campaign=mounjaro&utm_content=comercializado",
+   "alt": "",
+   "texto": "<Í\nye\nAHORA\nS\nBLE -\nDIS\nPONI\nNS\nCaja con 30 tabletas\ne instructivo anexo.\nFoundayz:\nFoundayz”\n0.8 mg\nTA4178\n(orforglipron)\nOrforglipron\nTableta\nCaja con 30 tabletas\ne instructivo anexo.\nVía de administración: Oral.\nFoundayz”\nFoundayz\nOrforglipron\n0.8 mg y 2.5 mg\nTableta\nVía de administración: Oral.\nc/30 tabs.\n1052379 - 1052385\nbenavides\nrecompensas\nembecto:\nUltra\nne\nAgujas pe\nlas\nGRATIS\n%o\nEn la compra de\n*Presentando tu tarjeta\n32G\n10\nMounjaro Pluma\ne\nBenavides Recompensas\nmm\n1027946\nf-.\nla\nHP9",
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre del 2026",
+    "Límite 2 piezas",
+    "Escalonado por compra: 35% → 38% → 40%"
+   ],
+   "condicion": "Tarjeta Benavides Recompensas",
+   "canal": null,
+   "hash": "5b892b3ba188",
+   "thumb": "img/5b892b3ba188.jpg"
+  },
+  {
+   "pharmacy": "yza",
+   "pharmacy_name": "Farmacias YZA",
+   "pagina": "https://www.yza.mx/",
+   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dw8de8394a/images/homepage/hero-carousel/CH15_P09_2026_WEB.png",
+   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
+   "alt": "Aprovecha",
+   "texto": "-\nmoofiro CEE\nmos EEN\npei\nmame\nEmp\nra\nEl\n=\nMETE\n3,771,\n4,920\n6,428\nprecios en\na C Mounjaro Tirzepatida 2.5 Mg/0.6 MI Sal )\neN q Mounijaro Tirzepatida 5 Mg/0.6 MI sal )\nA 1 Mounjaro Tirzepatida 7.5 Mg/0.6 MI Sal)\nMounjaro.\nES\nz\nmou\nE\nmouffiro\" GER\nmr\n>\nnos\nE\nE\n5\n\"6,403\n\"7,999\n7,999\nLo,\n(- Mounjaro Kwikpen 10 Mg/O.6 MI Sol >)\nEcol C Mounjaro Kwikpen 12.5 Mg/0.6 MI Sol J\nE C Mounjaro Kwikpen 15 Mg/O0.6 MI Sol )\nPromoción válida del 1 al 30 de septiembre 2026. Consulta productos participantes. Consu",
+   "promos": [
+    "Vigencia: del 1 al 30 de septiembre 2026"
+   ],
+   "condicion": null,
+   "canal": null,
+   "hash": "3ab25a96e1fb",
+   "thumb": "img/3ab25a96e1fb.jpg"
   }
  ],
  "errores": {},
@@ -1246,7 +1244,7 @@
    "id": "benavides-escalonado",
    "nombre": "Benavides · Descuento Escalonado Mounjaro",
    "url": "https://www.benavides.com.mx/terminos-y-condiciones",
-   "verificado": "2026-09-29T21:10-06:00",
+   "verificado": "2026-09-30T07:33-06:00",
    "cambio": false,
    "error": null,
    "texto": "Descuento aplica presentando la tarjeta Benavides Recompensas, limitado a 2 piezas de cualquier presentación al mes (30 días) por cliente. El descuento es intransferible y está ligado a la tarjeta Benavides Recompensas, que recibe la comunicación. Promoción válida con un máximo de 2 piezas por cliente, sin importar la presentación. El límite es total por marca, no por presentación. El descuento se aplicará a las 2 piezas de menor precio. Promoción sujeta a la compra de productos participantes. El descuento se asigna de forma progresiva conforme a la frecuencia de compra dentro del periodo establecido. El descuento máximo se otorga con la 4ª compra. Para conservar o incrementar el nivel de descuento, las compras deberán realizarse dentro de los 35 días posteriores a la compra anterior; en caso contrario, el beneficio se reiniciará al nivel inicial (primera compra). Los descuentos, vigencias y beneficios pueden variar según el historial de compra del cliente. No acumulable con otras promociones. La contabilización de compras acumuladas comienza a partir del lanzamiento de este programa de adherencia; no incluye compras retroactivas. No aplica en devoluciones. Consulta a tu médico. Evita automedicarte.",
