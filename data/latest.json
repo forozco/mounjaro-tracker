@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-30T12:37-06:00",
+ "generado": "2026-10-30T17:27-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -559,136 +559,6 @@
    }
   },
   {
-   "id": "benavides:1050873",
-   "pharmacy": "benavides",
-   "pharmacy_name": "Farmacias Benavides",
-   "dose": "5",
-   "name": "5 mg Tirzepatida/0.6 ml Solución",
-   "url": "https://www.benavides.com.mx/mounjaro-5-mg-tirzepatida-0-6-ml-solucion-1-jeringa-prellenada",
-   "sku": "1050873",
-   "precio_lista": 5974,
-   "precio_linea": 5974,
-   "in_stock": true,
-   "promos": [
-    {
-     "kind": "msi",
-     "label": "3 meses sin intereses",
-     "source": "página",
-     "n": 3,
-     "raw": "Envíos GRATIS + 3MSI compra mín. $1,000 pesos"
-    },
-    {
-     "kind": "pct",
-     "label": "20% de descuento",
-     "source": "página",
-     "pct": 20.0,
-     "condition": "Tarjeta de lealtad de la farmacia",
-     "raw": "20% de desc"
-    },
-    {
-     "kind": "limit",
-     "label": "Límite 2 piezas",
-     "source": "imagen",
-     "n": 2,
-     "canal": "En línea/app (por confirmar en la imagen)",
-     "raw": "*Descuento de 40% solo válido en 2.5 mg. Promoción válida en máximo de 2 piezas por cliente por marca Mounjaro al mes (30 días)."
-    },
-    {
-     "kind": "tiers",
-     "label": "Escalonado por compra: 20% → 25% → 30% → 35%",
-     "source": "imagen",
-     "tiers": [
-      20.0,
-      25.0,
-      30.0,
-      35.0
-     ],
-     "condition": "Tarjeta Benavides Recompensas",
-     "canal": "En línea/app (por confirmar en la imagen)",
-     "raw": "Exclusivo | TECUITIPLIia | a | Precio final 20% 54,778 | Precio final 25% $4,480 Y | Precio final > 3% $4,181 | us s3882 MN"
-    }
-   ],
-   "imagenes_promo": [
-    {
-     "url": "https://www.benavides.com.mx/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/1050873_1.jpg",
-     "promos": [
-      "Límite 2 piezas",
-      "Límite 2 piezas",
-      "Escalonado por compra: 20% → 25% → 30% → 35%"
-     ],
-     "texto": "Exclusivo\nbenavides\nrecompensas\nHP3455\ncon\nmy\nnm\n0.6 mL\nmounjaro”\ntirzepatida\nSolución\n5 mg/0.6 mL\nTERA COMPRA\nInyectable\n20%\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida\nennnasannoss\n5 mg\neooccnnos\n0.6 mL\nVehículo cbp\nLa pluma precargada KwikPen9\nmultidosis puede entregar 4 dosis\nde 0.6 mL.\n2DA COMPRA\n25%\nCaja con 1 pluma precargada\nKwikPen9 multidosis con 2.4 mL e\ninstructivo anexo.\nDOSIS: La que",
-     "thumb": "img/c89183e8974d.jpg"
-    },
-    {
-     "url": "https://www.benavides.com.mx/media/catalog/product/cache/e9b3cd68cf301023ca3840e5fcb628f3/1/0/1050873.jpg",
-     "promos": [
-      "Precio en imagen desde $3,882"
-     ],
-     "texto": "Con Benavides Recomper\ncomp\n$3,882\nE Obtén hasta $5 O en cupones\nsonas\nmou\nrepatid\nSolón\ninyecta\nma/o6 mi\no\nE a\nEra\niio\nA\nña\nE\nNAS\nEr\nma\nes\na\nOz\nCon Benavides Recompensas\nA\n(PRA\n$3,882\nE e» $50 encupones\nmounjaro\nSolón\nrepatid\nSma/o6 mi\ninyecta\nE\nEs\nEra\na\nEA\na e\nA\npS\nE\nASE\na\non es\nEra\ne\nas\nCon Benavides Recompensas COMPRA Y ) y",
-     "thumb": "img/76d7e138c879.jpg"
-    },
-    {
-     "url": "https://www.benavides.com.mx/media/catalog/product/cache/e9b3cd68cf301023ca3840e5fcb628f3/1/0/1050873_1.jpg",
-     "promos": [
-      "Precio en imagen desde $4,181"
-     ],
-     "texto": "Exclusivo\ncon\nE\nmoujaro\" (ERE\nHraepatida\n1\nPRA\nmom\ncable\n20%\nis\ne\nEn\na\n25%\npe\nE\nE\npc\no\nEn\nnt\nLa\nEXlusto\n[excuusivo En ]\n82\n¿LÍNEA Yap]\n“5% $4/480\n30% $4,181",
-     "thumb": "img/b165b0a24b33.jpg"
-    }
-   ],
-   "imagenes": [
-    "https://www.benavides.com.mx/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/1050873.jpg",
-    "https://www.benavides.com.mx/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/1/0/1050873_1.jpg",
-    "https://www.benavides.com.mx/media/catalog/product/cache/e9b3cd68cf301023ca3840e5fcb628f3/1/0/1050873.jpg",
-    "https://www.benavides.com.mx/media/catalog/product/cache/e9b3cd68cf301023ca3840e5fcb628f3/1/0/1050873_1.jpg",
-    "https://www.benavides.com.mx/media/catalog/product/cache/2c7977919d0ee0a3de4c72b73c33ffee/1/0/1050873.jpg",
-    "https://www.benavides.com.mx/media/catalog/product/cache/2c7977919d0ee0a3de4c72b73c33ffee/1/0/1050873_1.jpg"
-   ],
-   "receta": "No pidió receta hasta el carrito",
-   "receta_texto": [
-    "Farmacia Receta No Obligatoria"
-   ],
-   "pagina_bloqueada": false,
-   "valor": {
-    "precio_linea": 5974,
-    "precio_hoy": 4779.2,
-    "precio_hoy_pagas": 4779.2,
-    "escenario_hoy": "20% de descuento",
-    "condiciones_hoy": [
-     "Tarjeta de lealtad de la farmacia"
-    ],
-    "canal_hoy": "En línea",
-    "requiere_cuenta_hoy": true,
-    "promedio_por_pluma": 4331.15,
-    "total_tratamiento": 17324.6,
-    "escenario_tratamiento": "Escalonado por compra: 20% → 25% → 30% → 35%",
-    "condiciones_tratamiento": [
-     "Tarjeta Benavides Recompensas"
-    ],
-    "canal_tratamiento": "En línea/app (por confirmar en la imagen)",
-    "requiere_cuenta_tratamiento": true,
-    "notas_tratamiento": [
-     "Cada compra debe hacerse dentro del plazo que marque la farmacia"
-    ],
-    "desglose_tratamiento": [
-     4779.2,
-     4480.5,
-     4181.8,
-     3883.1
-    ],
-    "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 27.5,
-    "limite": 2,
-    "msi": 3
-   },
-   "receta_checkout": {
-    "pharmacy": "benavides",
-    "resultado": "No pidió receta hasta el carrito",
-    "evidencia": [],
-    "url_revisada": "https://www.benavides.com.mx/checkout/cart/"
-   }
-  },
-  {
    "id": "guadalajara:1460714",
    "pharmacy": "guadalajara",
    "pharmacy_name": "Farmacias Guadalajara",
@@ -986,10 +856,9 @@
     "requiere_cuenta": true,
     "receta": "No pidió receta hasta el carrito"
    },
-   "ventaja_vs_segundo": 5.08,
+   "ventaja_vs_segundo": 353.93,
    "ranking": [
     "sanpablo:000000000070009209",
-    "benavides:1050873",
     "guadalajara:1460714",
     "yza:MXYZ_7501082243727",
     "ahorro:7501082243727"
@@ -997,6 +866,22 @@
   }
  },
  "banners": [
+  {
+   "pharmacy": "yza",
+   "pharmacy_name": "Farmacias YZA",
+   "pagina": "https://www.yza.mx/",
+   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dwdb09a88c/images/homepage/hero-carousel/CH15_P10_2026_WEB.png",
+   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
+   "alt": "Aprovecha",
+   "texto": "-\no]\noso EEN\npei\nmame\nSp\nra\nEl\nna\n=\nMETE\n3,771,\n:4/920\n6,428\nprecios en\na G Mounjaro Tirzepatida 2.5 mg/0.6 ml Sal )\neN C Mouniaro Tirzepatida 5 mg/0.6 ml sal)\nA € Mounjaro Tirzepatida 7.5 mg/0.6 ml sal)\nMounjaro.\nES\nz\nmou\nE\nmostro GER\nms\n3\nnos\nas\nES\n5\n\"6,403\n\"7,999\n7,999\nLe,\n(- Mounjaro Kwikpen 10 mg/O.6 ml Sol >)\nEcol á Mounjaro Kwikpen 12.5 mg/0.6 ml Sol J\nE d Mounjaro Kwikpen 15 mg/0.6 ml Sol )\nPromoción válida del 1 al 31 de octubre 2026. Consulta productos participantes. Consulta a tu médi",
+   "promos": [
+    "Vigencia: del 1 al 31 de octubre 2026"
+   ],
+   "condicion": null,
+   "canal": null,
+   "hash": "aff4b46c213e",
+   "thumb": "img/aff4b46c213e.jpg"
+  },
   {
    "pharmacy": "benavides",
    "pharmacy_name": "Farmacias Benavides",
@@ -1029,6 +914,20 @@
    "canal": null,
    "hash": "7980f953b16c",
    "thumb": "img/7980f953b16c.jpg"
+  },
+  {
+   "pharmacy": "sanpablo",
+   "pharmacy_name": "Farmacias San Pablo",
+   "pagina": "https://www.farmaciasanpablo.com.mx/",
+   "src": "https://assets1.farmaciasanpablo.com.mx/banners/slider/SliderPrincipal-EliLilly_EnBocaDeTodos-Oct-d-v3.jpg",
+   "link": "https://nuevoyo.com/",
+   "alt": "En boca de todos",
+   "texto": "|\nA\no\nL:\ne)\n/\nEl:\n10]\ny\nsi\ny otros usos se eRCUBACAn estrictamente pro\nY\nek novo\nW\n(x\nad\nESCANEA Y CONOCE\nDISPONIBILIDAD\nyo pl\nel\ny.\nE PA\nUN\nY DESCUENTOS,\nLS A DY ls PA",
+   "promos": [],
+   "condicion": null,
+   "canal": null,
+   "hash": "932cbecdac01",
+   "thumb": "img/932cbecdac01.jpg"
   },
   {
    "pharmacy": "ahorro",
@@ -1167,36 +1066,6 @@
    "canal": null,
    "hash": "a74fc35bec40",
    "thumb": "img/a74fc35bec40.jpg"
-  },
-  {
-   "pharmacy": "sanpablo",
-   "pharmacy_name": "Farmacias San Pablo",
-   "pagina": "https://www.farmaciasanpablo.com.mx/",
-   "src": "https://assets1.farmaciasanpablo.com.mx/banners/slider/SliderPrincipal-EliLilly_EnBocaDeTodos-Oct-d-v3.jpg",
-   "link": "https://nuevoyo.com/",
-   "alt": "En boca de todos",
-   "texto": "|\nA\no\nL:\ne)\n/\nEl:\n10]\ny\nsi\ny otros usos se eRCUBACAn estrictamente pro\nY\nek novo\nW\n(x\nad\nESCANEA Y CONOCE\nDISPONIBILIDAD\nyo pl\nel\ny.\nE PA\nUN\nY DESCUENTOS,\nLS A DY ls PA",
-   "promos": [],
-   "condicion": null,
-   "canal": null,
-   "hash": "932cbecdac01",
-   "thumb": "img/932cbecdac01.jpg"
-  },
-  {
-   "pharmacy": "yza",
-   "pharmacy_name": "Farmacias YZA",
-   "pagina": "https://www.yza.mx/",
-   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dwdb09a88c/images/homepage/hero-carousel/CH15_P10_2026_WEB.png",
-   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
-   "alt": "Aprovecha",
-   "texto": "-\no]\noso EEN\npei\nmame\nSp\nra\nEl\nna\n=\nMETE\n3,771,\n:4/920\n6,428\nprecios en\na G Mounjaro Tirzepatida 2.5 mg/0.6 ml Sal )\neN C Mouniaro Tirzepatida 5 mg/0.6 ml sal)\nA € Mounjaro Tirzepatida 7.5 mg/0.6 ml sal)\nMounjaro.\nES\nz\nmou\nE\nmostro GER\nms\n3\nnos\nas\nES\n5\n\"6,403\n\"7,999\n7,999\nLe,\n(- Mounjaro Kwikpen 10 mg/O.6 ml Sol >)\nEcol á Mounjaro Kwikpen 12.5 mg/0.6 ml Sol J\nE d Mounjaro Kwikpen 15 mg/0.6 ml Sol )\nPromoción válida del 1 al 31 de octubre 2026. Consulta productos participantes. Consulta a tu médi",
-   "promos": [
-    "Vigencia: del 1 al 31 de octubre 2026"
-   ],
-   "condicion": null,
-   "canal": null,
-   "hash": "aff4b46c213e",
-   "thumb": "img/aff4b46c213e.jpg"
   }
  ],
  "errores": {},
@@ -1218,7 +1087,7 @@
    "id": "benavides-escalonado",
    "nombre": "Benavides · Descuento Escalonado Mounjaro",
    "url": "https://www.benavides.com.mx/terminos-y-condiciones",
-   "verificado": "2026-10-30T12:37-06:00",
+   "verificado": "2026-10-30T17:27-06:00",
    "cambio": false,
    "error": null,
    "texto": "Descuento aplica presentando la tarjeta Benavides Recompensas, limitado a 2 piezas de cualquier presentación al mes (30 días) por cliente. El descuento es intransferible y está ligado a la tarjeta Benavides Recompensas, que recibe la comunicación. Promoción válida con un máximo de 2 piezas por cliente, sin importar la presentación. El límite es total por marca, no por presentación. El descuento se aplicará a las 2 piezas de menor precio. Promoción sujeta a la compra de productos participantes. El descuento se asigna de forma progresiva conforme a la frecuencia de compra dentro del periodo establecido. El descuento máximo se otorga con la 4ª compra. Para conservar o incrementar el nivel de descuento, las compras deberán realizarse dentro de los 35 días posteriores a la compra anterior; en caso contrario, el beneficio se reiniciará al nivel inicial (primera compra). Los descuentos, vigencias y beneficios pueden variar según el historial de compra del cliente. No acumulable con otras promociones. La contabilización de compras acumuladas comienza a partir del lanzamiento de este programa de adherencia; no incluye compras retroactivas. No aplica en devoluciones. Consulta a tu médico. Evita automedicarte.",
