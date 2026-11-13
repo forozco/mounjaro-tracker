@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-12T19:02-06:00",
+ "generado": "2026-11-13T04:29-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -965,69 +965,22 @@
  },
  "banners": [
   {
-   "pharmacy": "yza",
-   "pharmacy_name": "Farmacias YZA",
-   "pagina": "https://www.yza.mx/",
-   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dw01934efe/images/homepage/promo-pushes/PPW_P11_2026_WEB.png",
-   "link": "https://www.yza.mx/promociones-farmacias-yza/especiales-mounjaro/",
-   "alt": "Descarga la nueva app YZA",
-   "texto": "==\ne\nS\n3,771,\n\"7920\n6,428\n=\nnn\nMounjaro Tirz\ntida\n5 mg\nmi Sol\nMour\naro Tir\nida 5 mg/0.6 ml Sol\nMou\n'o Tirzer\nid\n5 mg/0.6 ml Sol\n==\n5\n\"6,403\n\"7999\n7,999\n5\n(ouniaro Kwikpen 10 mg/05 mio!) aro (ouniaro Kwikpen 10 mg/05 mio!)\n10 mg/0.6 ml Sol\n(QHouniaro Kwvikpen 12.5 mg/05miSol >) ro (QHouniaro Kwvikpen 12.5 mg/05miSol >)\nmg\n6 ml Sol\nMounjaro Kwikpen 15 mg/0.6 1\n5\nol\nPromoción válida del 1 al 30 de noviembre 2026. Consulta productos participantes. Consulta a tu médico.",
+   "pharmacy": "sanpablo",
+   "pharmacy_name": "Farmacias San Pablo",
+   "pagina": "https://www.farmaciasanpablo.com.mx/",
+   "src": "https://cdn-1.assets.spapi.io/aa833780-8780-4f4a-b7e4-97538ea71c3c.jpg",
+   "link": "",
+   "alt": "Retail Media Slide",
+   "texto": "Desdi\nAhorra\nCon el programa enlace\nÚnicamente en mostrador**\n0%\n40%\nen\nvenza\nos\nmeros\ness,\nSIN COSTO\nen la 19 compra\neS\nen todas las compras\nCaja de Jeringas o Agujas\nUltra-Fine en la compra de\nmounjaro”\nmounjaro'(J\nmounjaro (JE\nmounjaro”\nmounjaro'\nMounjaro\ntirzepatida\ntirzepatida\ntirzepatida\ntirzepatida\ntirzepatida\nmouifaro”\nSolución\nSolución\nSolución\nSolución\nSolución\ntirtepatida,\n€ Mounjaro\n15 mg/0.S mL.\n12.5 m9/0.6 mL.\n10 mg/0.6 mL.\n5 mg/0.6 mL.\n25%\nSolución\nInyectable\nInyectable\n7.5 mg/0.6",
    "promos": [
-    "Vigencia: del 1 al 30 de noviembre 2026"
+    "6 meses sin intereses",
+    "Vigencia: del 05 de noviembre de 2026 al 30 de junio de 2027",
+    "Escalonado por compra: 25% → 30% → 35% → 40%"
    ],
-   "condicion": "Compra en línea / app",
-   "canal": null,
-   "hash": "df7dde923600",
-   "thumb": "img/df7dde923600.jpg"
-  },
-  {
-   "pharmacy": "benavides",
-   "pharmacy_name": "Farmacias Benavides",
-   "pagina": "https://www.benavides.com.mx/",
-   "src": "https://www.benavides.com.mx/media/wysiwyg/NovHome2026-Foundayz_01-Desktop_1_.png",
-   "link": "https://www.benavides.com.mx/promociones-mounjaro-foundayz?utm_source=ecommerce&utm_medium=banner-home-noviembre&utm_campaign=moujaro-foundayz&utm_content=comercializado",
-   "alt": "",
-   "texto": "!\n3\nAHORA\nHasta\nSS\nBLE >\nSigue tu\nam\nto\n$ pai\ndeco\nC DIS\nPONIBLE\nsl\nInpec\nmea\nRd\n%\nSolo\nrzepatida\nE\nFoundayz”\nPOS\n15m9/06 me\nCoiacon\ncai ana\ntubltas\nNS\n=\nOrforglipron\nFoundayz”\n40\ndesc.\nMD\nTableta\nFoundayz:\nll\nVía de administración: Oral.\nOrforglipron\nbenavides\nAS\n*Presentando tu tarjeta\nraeatid\nmoujaro\nTableta\n(orforglipron)\n5)\nBenavides Recompensas\n8\nda\n2\nso\neS malos\nVía de administración: Oral.\npet]\na\nSlacn\n10m9/t6m\nmm\nLay\nog\nma\nLo,\nMAA 0.8 mg\n0)\nsetas\nFoundayz\nMounjaro\nOrforglipron\nFoundayz”",
-   "promos": [
-    "Límite 2 piezas",
-    "40% de descuento (imagen)"
-   ],
-   "condicion": "Tarjeta Benavides Recompensas",
-   "canal": null,
-   "hash": "5cef653654ec",
-   "thumb": "img/5cef653654ec.jpg"
-  },
-  {
-   "pharmacy": "benavides",
-   "pharmacy_name": "Farmacias Benavides",
-   "pagina": "https://www.benavides.com.mx/",
-   "src": "https://www.benavides.com.mx/media/wysiwyg/NovHome2026-Foundayz_02-Mobile_1_.png",
-   "link": "https://www.benavides.com.mx/promociones-mounjaro-foundayz?utm_source=ecommerce&utm_medium=banner-home-noviembre&utm_campaign=moujaro-foundayz&utm_content=comercializado",
-   "alt": "",
-   "texto": "SS\nAHORA\nC DIS\nPONI\nBLE >\nNS\ninstructivo anexo.\nCaja con 30 tabletas\nFoundayz”\ninstructivo anexo.\nCaja con 30 tabletas\nFoundauyz:\nOrforglipron\nFoundayz”\nTableta\n(orforglipron)\nVía de administración: Oral.\nOrforglipron\nTableta\nVía de administración: Oral.\nsinst\nCaja con 30 tabletas\nanexo.\ntaa,\nFoundayz EXE]\nCaja con 30 tabletas.\nFoundayz\nSinstrucivo anexo.\n0.8 mg, 2.5 mg, 5.5 mg y 9mg\nTableta\nOrforglipron\nFoundayz”\nVía de administración: Oral.\nOrforglipron\nc/ 30 tabs.\nTableta\nVía de administració",
-   "promos": [
-    "Vigencia: del 1 al 30 de noviembre del 2026",
-    "Límite 2 piezas",
-    "40% de descuento (imagen)"
-   ],
-   "condicion": "Tarjeta Benavides Recompensas",
-   "canal": null,
-   "hash": "0de0ac12001d",
-   "thumb": "img/0de0ac12001d.jpg"
-  },
-  {
-   "pharmacy": "ahorro",
-   "pharmacy_name": "Farmacias del Ahorro",
-   "pagina": "https://www.fahorro.com/",
-   "src": "https://production-media.fahorro.com/media/wysiwyg/Banners_home_GLP_1_1400x480_2_1.jpg",
-   "link": "https://www.fahorro.com/control-de-peso",
-   "alt": "",
-   "texto": "0\nvease\nmouifjaro\" AEREA\nSolución\ntrzepatida\nMEJOR VERSIÓN\nInyectable\n5mg/0.5 ml\nFórmis\nprue\nestá AQUÍ\nmn\nútirzepatida\nmouilaro (CERA\nrra pco\n“olución\n> 025imaldosis\nayectable.\n.S mg/0.6 ml\nAprovecha\nno\ntao\n2 ts\nSemaglutida\n%\nFoundayz” WEE\ne\ny\nunas\ngim\nFonos me comen\nSam\nprecios especiales\nOrforglipron\name\nTableta\ncon tu\nmoneoeno DeL AHomo (2d\nVía do administración: Oral.\ne\ny\nDimite\nda rancho\nAra\n[\nTo queremos. bon.\nE)\nSemaglutida\nmE\npa\nASÓLO\nEl\n$2,900\nFound\nENVÍO GRATIS\nmounjaro Wegovy'\n(ortorg",
-   "promos": [],
-   "condicion": "Monedero de la farmacia",
-   "canal": null,
-   "hash": "855fbe3616d9",
-   "thumb": "img/855fbe3616d9.jpg"
+   "condicion": "Tarjeta Enlace Lilly",
+   "canal": "Solo en sucursal",
+   "hash": "61cf90812ed4",
+   "thumb": "img/61cf90812ed4.jpg"
   },
   {
    "pharmacy": "ahorro",
@@ -1152,6 +1105,22 @@
    "canal": null,
    "hash": "8b29226bbcee",
    "thumb": "img/8b29226bbcee.jpg"
+  },
+  {
+   "pharmacy": "yza",
+   "pharmacy_name": "Farmacias YZA",
+   "pagina": "https://www.yza.mx/",
+   "src": "https://www.yza.mx/on/demandware.static/-/Sites-YzaMexico-Library/default/dw1c7a8a0c/images/homepage/promo-pushes/PPW_P11_2026_WEB_BF_26.png",
+   "link": "https://www.yza.mx/promociones-farmacias-yza/buen-fin-%7C-mounjaro/",
+   "alt": "Descarga la nueva app YZA",
+   "texto": "Bu\nFl\nMÁS BARATO DEL AÑO.\nELN DESEMANA,\nES\n=\nEz\nS\nE\na\nE\n=\na]\nE\na\nmedie\nCesa,\nE\n=\nEN\nE\n=\nE\n=\nmed\nES\nES\nan\nEN\nE\n==\nES\n(ora)\n-\nMounjaro Tirzepatida 5 mg/0.6 ml Sol )\nMounjaro Tirzepatida 7.5 mg/0.6 ml Sol )\n= German)\n:\nPromoción válida del 13 al 17 de noviembre 2026. Consulta productos participantes. Consulta a tu médico.\nMedicamentos Mounjaro.\nFl\nFIN DE SEMANA,\nMÁS BARATO DEL AÑO.\n13AL7 DENOVIEMBRE. y\nmba\nmo\nz\nE\nE\nEN\nE\npr\npa\nEN\nme GER\nE\n=\nE\n3,771,\n11920\n6,428 “6,403 7999\n7.999\n_\n2 ( Mounjaro Tirze",
+   "promos": [
+    "Vigencia: del 13 al 17 de noviembre 2026"
+   ],
+   "condicion": "Compra en línea / app",
+   "canal": null,
+   "hash": "217179a1122e",
+   "thumb": "img/217179a1122e.jpg"
   }
  ],
  "errores": {},
@@ -1173,7 +1142,7 @@
    "id": "benavides-escalonado",
    "nombre": "Benavides · Descuento Escalonado Mounjaro",
    "url": "https://www.benavides.com.mx/terminos-y-condiciones",
-   "verificado": "2026-11-12T19:02-06:00",
+   "verificado": "2026-11-13T04:29-06:00",
    "cambio": false,
    "error": null,
    "texto": "Descuento aplica presentando la tarjeta Benavides Recompensas, limitado a 2 piezas de cualquier presentación al mes (30 días) por cliente. El descuento es intransferible y está ligado a la tarjeta Benavides Recompensas, que recibe la comunicación. Promoción válida con un máximo de 2 piezas por cliente, sin importar la presentación. El límite es total por marca, no por presentación. El descuento se aplicará a las 2 piezas de menor precio. Promoción sujeta a la compra de productos participantes. El descuento se asigna de forma progresiva conforme a la frecuencia de compra dentro del periodo establecido. El descuento máximo se otorga con la 4ª compra. Para conservar o incrementar el nivel de descuento, las compras deberán realizarse dentro de los 35 días posteriores a la compra anterior; en caso contrario, el beneficio se reiniciará al nivel inicial (primera compra). Los descuentos, vigencias y beneficios pueden variar según el historial de compra del cliente. No acumulable con otras promociones. La contabilización de compras acumuladas comienza a partir del lanzamiento de este programa de adherencia; no incluye compras retroactivas. No aplica en devoluciones. Consulta a tu médico. Evita automedicarte.",
