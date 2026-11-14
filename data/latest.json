@@ -1,5 +1,5 @@
 {
- "generado": "2026-11-13T14:36-06:00",
+ "generado": "2026-11-13T18:33-06:00",
  "zona": "CDMX · Narvarte Oriente",
  "cp": "03023",
  "horizonte_plumas": 4,
@@ -198,6 +198,92 @@
    }
   },
   {
+   "id": "ahorro:7501082243710",
+   "pharmacy": "ahorro",
+   "pharmacy_name": "Farmacias del Ahorro",
+   "dose": "2.5",
+   "name": "Mounjaro Kwikpen 2.5Mg/0.6Ml 3 ml",
+   "url": "https://www.fahorro.com/mounjaro-kwikpen-2-5mg-0-6ml-3-ml.html",
+   "sku": "7501082243710",
+   "precio_lista": 6310,
+   "precio_linea": 6310,
+   "in_stock": true,
+   "promos": [
+    {
+     "kind": "msi",
+     "label": "3 meses sin intereses",
+     "source": "página",
+     "n": 3,
+     "raw": "$2,103.33 x 3 meses sin intereses"
+    },
+    {
+     "kind": "image_price",
+     "label": "Precio en imagen desde $3,520",
+     "source": "imagen",
+     "price": 3520.0,
+     "raw": "$3,520, $5,920"
+    }
+   ],
+   "imagenes_promo": [
+    {
+     "url": "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_1_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+     "promos": [
+      "Precio en imagen desde $3,520"
+     ],
+     "texto": "HP3466\nmounjaro FLES\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida\n2.5 mg\nVehículo cl\n0.6 mL\nLa pluma precargada KwikPen9\ncaos\nmultidosis puede entregar\n4 dosis de 0.6 mL.\nul\n¡ne\nCaja con 1 pluma precargada\nKwikPen9 multidosis con 2.4 mL e\ninstructivo anexo.\nAñade ambos\nDOSIS: La que el médico señale.\nVÍA DE ADMINISTRACIÓN:\nprodutos al carrito\nSubcutánea",
+     "thumb": "img/ac955d65abf9.jpg"
+    }
+   ],
+   "imagenes": [
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_1_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_3.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width="
+   ],
+   "receta": "Menciona receta, pero sin pedir datos",
+   "receta_texto": [],
+   "pagina_bloqueada": false,
+   "valor": {
+    "precio_linea": 6310,
+    "precio_hoy": 3520.0,
+    "precio_hoy_pagas": 3520.0,
+    "escenario_hoy": "Precio en imagen desde $3,520",
+    "condiciones_hoy": [
+     "Promo vista en imagen: revisa condiciones"
+    ],
+    "canal_hoy": "En línea",
+    "requiere_cuenta_hoy": false,
+    "promedio_por_pluma": 3520.0,
+    "total_tratamiento": 14080.0,
+    "escenario_tratamiento": "Precio en imagen desde $3,520",
+    "condiciones_tratamiento": [
+     "Promo vista en imagen: revisa condiciones"
+    ],
+    "canal_tratamiento": "En línea",
+    "requiere_cuenta_tratamiento": false,
+    "notas_tratamiento": [],
+    "desglose_tratamiento": [
+     3520.0,
+     3520.0,
+     3520.0,
+     3520.0
+    ],
+    "regalo_valor": 0,
+    "ahorro_vs_linea_pct": 44.2,
+    "limite": null,
+    "msi": 3
+   },
+   "receta_checkout": {
+    "pharmacy": "ahorro",
+    "resultado": "Menciona receta, pero sin pedir datos",
+    "evidencia": [
+     "Requisitos de recetas"
+    ],
+    "url_revisada": "https://www.fahorro.com/checkout/cart/"
+   }
+  },
+  {
    "id": "benavides:1050874",
    "pharmacy": "benavides",
    "pharmacy_name": "Farmacias Benavides",
@@ -346,15 +432,15 @@
    }
   },
   {
-   "id": "ahorro:7501082243710",
+   "id": "ahorro:7501082243727",
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
-   "dose": "2.5",
-   "name": "Mounjaro Kwikpen 2.5Mg/0.6Ml 3 ml",
-   "url": "https://www.fahorro.com/mounjaro-kwikpen-2-5mg-0-6ml-3-ml.html",
-   "sku": "7501082243710",
-   "precio_lista": 6310,
-   "precio_linea": 6310,
+   "dose": "5",
+   "name": "Mounjaro Kwikpen 5Mg/0.6Ml 3 ml",
+   "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
+   "sku": "7501082243727",
+   "precio_lista": 6075,
+   "precio_linea": 6075,
    "in_stock": true,
    "promos": [
     {
@@ -362,49 +448,68 @@
      "label": "3 meses sin intereses",
      "source": "página",
      "n": 3,
-     "raw": "$2,103.33 x 3 meses sin intereses"
+     "raw": "$2,025.00 x 3 meses sin intereses"
+    },
+    {
+     "kind": "tier_at",
+     "label": "4ª compra: $3,815",
+     "source": "imagen",
+     "n": 4,
+     "price": 3815.0,
+     "condition": "Monedero de la farmacia",
+     "raw": "$3,815"
     },
     {
      "kind": "image_price",
-     "label": "Precio en imagen desde $3,786",
+     "label": "Precio en imagen desde $3,815",
      "source": "imagen",
-     "price": 3786.0,
-     "raw": "$3,786"
+     "price": 3815.0,
+     "raw": "$3,815, $4,137, $4,471, $4,781"
     }
    ],
    "imagenes_promo": [
     {
-     "url": "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_2_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+     "url": "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727-2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
      "promos": [
-      "Precio en imagen desde $3,786"
+      "4ª compra: $3,815"
      ],
-     "texto": "HP3466\nmounjaro FLES\ntirzepatida\nSolución\n2.5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida\n2.5 mg\nVehículo cl\n0.6 mL\nLa pluma precargada KwikPen9\nesos\nmultidosis puede entregar\n4 dosis de 0.6 mL.\nul\n¡ne\na\nCaja con 1 pluma precargada\nKwikPen9 multidosis con 2.4 mL e\ninstructivo anexo.\nAñade ambos\nDOSIS: La que el médico señale.\nVÍA DE ADMINISTRACIÓN:\nprodutos al carrito\nSubcután",
-     "thumb": "img/cda84d50cecb.jpg"
+     "texto": "HP3455\nmounjaro”\ntirzepatida\nSolución\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida ...\n5 mg\n0.6 mL\nVehículo cbp\nempecto” ]\nE\nLa pluma precargada KwikPenO\nmultidosis puede entregar 4 dosis\nUltra-Fine”\nma\n|\nde 0.6 mL.\n|\n1)\nCaja con 1 pluma precargada\nKwikPen0 multidosis con 2.4 mL e\na\ninstructivo anexo.\nDOSIS: La que el médico. señale.\nAñade ambos produtos\nVÍA DE ADMINISTRACIÓN",
+     "thumb": "img/c1e5c3f2052b.jpg"
+    },
+    {
+     "url": "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_1_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+     "promos": [
+      "Precio en imagen desde $3,815"
+     ],
+     "texto": "¡Cada paso te da un\nHP3455\ndescuento mayor!\npana,\nmounjaro”\ntirzepatida\nSolución\n$4,781”\nLA\n5 mg/0.6 mL\nInyectable\nFórmula:\nCada 0.6 mL contienen\nTirzepatida\n5 mg\nVehículo cbp ......... 0.6 mL\nA\n$4,471”\nLa pluma precargada KwikPenO\nmultidosis puede entregar 4 dosis\nde 0.6 mL.\nCaja con 1 pluma precargada\nKwikPenO multidosis con 2.4 mL e\nEN $4, 137%\ninstructivo anexo.\nDOSIS: La que el médico señale\n",
+     "thumb": "img/3ecf80cfb5cb.jpg"
     }
    ],
    "imagenes": [
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_2_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_3.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243710_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width="
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727-2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_1_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/0/0/00-mecanica.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_3.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
+    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width="
    ],
    "receta": "Menciona receta, pero sin pedir datos",
    "receta_texto": [],
    "pagina_bloqueada": false,
    "valor": {
-    "precio_linea": 6310,
-    "precio_hoy": 3786.0,
-    "precio_hoy_pagas": 3786.0,
-    "escenario_hoy": "Precio en imagen desde $3,786",
+    "precio_linea": 6075,
+    "precio_hoy": 3815.0,
+    "precio_hoy_pagas": 3815.0,
+    "escenario_hoy": "Precio en imagen desde $3,815",
     "condiciones_hoy": [
      "Promo vista en imagen: revisa condiciones"
     ],
     "canal_hoy": "En línea",
     "requiere_cuenta_hoy": false,
-    "promedio_por_pluma": 3786.0,
-    "total_tratamiento": 15144.0,
-    "escenario_tratamiento": "Precio en imagen desde $3,786",
+    "promedio_por_pluma": 3815.0,
+    "total_tratamiento": 15260.0,
+    "escenario_tratamiento": "Precio en imagen desde $3,815",
     "condiciones_tratamiento": [
      "Promo vista en imagen: revisa condiciones"
     ],
@@ -412,13 +517,13 @@
     "requiere_cuenta_tratamiento": false,
     "notas_tratamiento": [],
     "desglose_tratamiento": [
-     3786.0,
-     3786.0,
-     3786.0,
-     3786.0
+     3815.0,
+     3815.0,
+     3815.0,
+     3815.0
     ],
     "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 40.0,
+    "ahorro_vs_linea_pct": 37.2,
     "limite": null,
     "msi": 3
    },
@@ -801,90 +906,6 @@
     "evidencia": [],
     "url_revisada": null
    }
-  },
-  {
-   "id": "ahorro:7501082243727",
-   "pharmacy": "ahorro",
-   "pharmacy_name": "Farmacias del Ahorro",
-   "dose": "5",
-   "name": "Mounjaro Kwikpen 5Mg/0.6Ml 3 ml",
-   "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
-   "sku": "7501082243727",
-   "precio_lista": 6075,
-   "precio_linea": 6075,
-   "in_stock": true,
-   "promos": [
-    {
-     "kind": "msi",
-     "label": "3 meses sin intereses",
-     "source": "página",
-     "n": 3,
-     "raw": "$2,025.00 x 3 meses sin intereses"
-    },
-    {
-     "kind": "tier_at",
-     "label": "5ª compra: $4,860",
-     "source": "imagen",
-     "n": 5,
-     "price": 4860.0,
-     "raw": "$4,860"
-    }
-   ],
-   "imagenes_promo": [
-    {
-     "url": "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_2_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-     "promos": [
-      "5ª compra: $4,860"
-     ],
-     "texto": "HP3455\nmounjaro”\nDos\ntirzepatida\ncompra\nSolución\n1\n20%\nde descuento\n5 mg/0.6 mL\nInyectable\nA\nFórmula:\nCada 0.6 mL contienen:\nTirzepatida ..\n5 mg\n0.6 mL\n25%\nVehículo cbp\ny\nde descuento\nLa pluma precargada KwikPen9\nmo\nmultidosis puede entregar 4 dosis\nde 0.6 mL.\nFine\nR\nCaja con 1 pluma precargada\nKwikPen8 multidosis con 2.4 mL e\ncompras\n30%\ninstructivo anexo.\nCo\n3\nde descuento\nAñade ambos\nDOSIS: La ",
-     "thumb": "img/32ddaa4771d2.jpg"
-    }
-   ],
-   "imagenes": [
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_2_.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/0/0/00-mecanica.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_3.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_2.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=",
-    "https://production-media.fahorro.com/media/catalog/product/7/5/7501082243727_5.jpg?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width="
-   ],
-   "receta": "Menciona receta, pero sin pedir datos",
-   "receta_texto": [],
-   "pagina_bloqueada": false,
-   "valor": {
-    "precio_linea": 6075,
-    "precio_hoy": 6075,
-    "precio_hoy_pagas": 6075,
-    "escenario_hoy": "Precio en línea",
-    "condiciones_hoy": [],
-    "canal_hoy": "En línea",
-    "requiere_cuenta_hoy": false,
-    "promedio_por_pluma": 6075.0,
-    "total_tratamiento": 24300,
-    "escenario_tratamiento": "Precio en línea",
-    "condiciones_tratamiento": [],
-    "canal_tratamiento": "En línea",
-    "requiere_cuenta_tratamiento": false,
-    "notas_tratamiento": [],
-    "desglose_tratamiento": [
-     6075,
-     6075,
-     6075,
-     6075
-    ],
-    "regalo_valor": 0,
-    "ahorro_vs_linea_pct": 0.0,
-    "limite": null,
-    "msi": 3
-   },
-   "receta_checkout": {
-    "pharmacy": "ahorro",
-    "resultado": "Menciona receta, pero sin pedir datos",
-    "evidencia": [
-     "Requisitos de recetas"
-    ],
-    "url_revisada": "https://www.fahorro.com/checkout/cart/"
-   }
   }
  ],
  "recomendacion": {
@@ -919,51 +940,71 @@
    "ranking": [
     "guadalajara:1460706",
     "sanpablo:000000000070009211",
+    "ahorro:7501082243710",
     "benavides:1050874",
-    "yza:MXYZ_7501082243710",
-    "ahorro:7501082243710"
+    "yza:MXYZ_7501082243710"
    ]
   },
   "5": {
    "hoy": {
-    "id": "guadalajara:1460714",
-    "pharmacy": "guadalajara",
-    "pharmacy_name": "Farmacias Guadalajara",
-    "url": "https://www.farmaciasguadalajara.com/diabetes-y-endocrinas/antidiabeticos/mounjaro-kwikpen-5mg-0.6ml-solucion-inyectable-pluma-precargada--2.4-ml.-1460714.html",
-    "precio": 4680,
-    "pagas": 4775,
-    "escenario": "Precio en línea",
-    "condiciones": [],
-    "canal": "En línea",
-    "requiere_cuenta": false,
-    "receta": "No pidió receta hasta el carrito"
-   },
-   "tratamiento": {
-    "id": "sanpablo:000000000070009209",
-    "pharmacy": "sanpablo",
-    "pharmacy_name": "Farmacias San Pablo",
-    "url": "https://www.farmaciasanpablo.com.mx/medicamentos/supervision-medica/m---n---o/mounjaro-5-0-mg-2-4-ml-solucion-caja/p/000000000070009209",
-    "precio": 4326.07,
-    "pagas": null,
-    "escenario": "Escalonado por compra: 20% → 25% → 30% → 35%",
+    "id": "ahorro:7501082243727",
+    "pharmacy": "ahorro",
+    "pharmacy_name": "Farmacias del Ahorro",
+    "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
+    "precio": 3815.0,
+    "pagas": 3815.0,
+    "escenario": "Precio en imagen desde $3,815",
     "condiciones": [
-     "Tarjeta Enlace Lilly"
+     "Promo vista en imagen: revisa condiciones"
     ],
     "canal": "En línea",
-    "requiere_cuenta": true,
-    "receta": "No pidió receta hasta el carrito"
+    "requiere_cuenta": false,
+    "receta": "Menciona receta, pero sin pedir datos"
    },
-   "ventaja_vs_segundo": 2.95,
+   "tratamiento": {
+    "id": "ahorro:7501082243727",
+    "pharmacy": "ahorro",
+    "pharmacy_name": "Farmacias del Ahorro",
+    "url": "https://www.fahorro.com/mounjaro-kwikpen-5mg-0-6ml-3-ml.html",
+    "precio": 3815.0,
+    "pagas": null,
+    "escenario": "Precio en imagen desde $3,815",
+    "condiciones": [
+     "Promo vista en imagen: revisa condiciones"
+    ],
+    "canal": "En línea",
+    "requiere_cuenta": false,
+    "receta": "Menciona receta, pero sin pedir datos"
+   },
+   "ventaja_vs_segundo": 511.07,
    "ranking": [
+    "ahorro:7501082243727",
     "sanpablo:000000000070009209",
     "benavides:1050873",
     "guadalajara:1460714",
-    "yza:MXYZ_7501082243727",
-    "ahorro:7501082243727"
+    "yza:MXYZ_7501082243727"
    ]
   }
  },
  "banners": [
+  {
+   "pharmacy": "sanpablo",
+   "pharmacy_name": "Farmacias San Pablo",
+   "pagina": "https://www.farmaciasanpablo.com.mx/",
+   "src": "https://cdn-1.assets.spapi.io/a3bd24e6-7174-409c-ab8a-2d16d30cd531.jpg",
+   "link": "",
+   "alt": "Retail Media Slide",
+   "texto": "Desdi\nAhorra\nCon el programa enlace\n0%\n40%\nen\nvenza\nos\nmeros\ness,\nen la 19 compra\neS\nen todas las compras\nObtén 3 o 6 MSI\nE\nmounjaro”\nmounjaro'(J\nmounjaro (JE\nmounjaro”\nmounjaro'\ntirzepatida\ntirzepatida\ntirzepatida\ntirzepatida\ntirzepatida\nmouifaro”\nEnvío GRATIS*\nSolución\nSolución\nSolución\nSolución\nSolución\ntirtepatida,\n€ Mounjaro\ncoo BBVA\n15 mg/0.S mL.\n12.5 m9/0.6 mL.\n10 mg/0.6 mL.\n5 mg/0.6 mL.\n25%\nSolución\nInyectable\nInyectable\n7.5 mg/0.6 mL.\nInyectable\nInyectable\n25 mg/0SmL\nTirzepatida 2.5 MG\n",
+   "promos": [
+    "6 meses sin intereses",
+    "Vigencia: del 05 de noviembre de 2026 al 30 de junio de 2027",
+    "Escalonado por compra: 20% → 35%"
+   ],
+   "condicion": "Tarjeta Enlace Lilly",
+   "canal": "Solo en sucursal",
+   "hash": "9bbabb9219e6",
+   "thumb": "img/9bbabb9219e6.jpg"
+  },
   {
    "pharmacy": "ahorro",
    "pharmacy_name": "Farmacias del Ahorro",
@@ -1089,24 +1130,6 @@
    "thumb": "img/8b29226bbcee.jpg"
   },
   {
-   "pharmacy": "sanpablo",
-   "pharmacy_name": "Farmacias San Pablo",
-   "pagina": "https://www.farmaciasanpablo.com.mx/",
-   "src": "https://cdn-1.assets.spapi.io/a3bd24e6-7174-409c-ab8a-2d16d30cd531.jpg",
-   "link": "",
-   "alt": "Retail Media Slide",
-   "texto": "Desdi\nAhorra\nCon el programa enlace\n0%\n40%\nen\nvenza\nos\nmeros\ness,\nen la 19 compra\neS\nen todas las compras\nObtén 3 o 6 MSI\nE\nmounjaro”\nmounjaro'(J\nmounjaro (JE\nmounjaro”\nmounjaro'\ntirzepatida\ntirzepatida\ntirzepatida\ntirzepatida\ntirzepatida\nmouifaro”\nEnvío GRATIS*\nSolución\nSolución\nSolución\nSolución\nSolución\ntirtepatida,\n€ Mounjaro\ncoo BBVA\n15 mg/0.S mL.\n12.5 m9/0.6 mL.\n10 mg/0.6 mL.\n5 mg/0.6 mL.\n25%\nSolución\nInyectable\nInyectable\n7.5 mg/0.6 mL.\nInyectable\nInyectable\n25 mg/0SmL\nTirzepatida 2.5 MG\n",
-   "promos": [
-    "6 meses sin intereses",
-    "Vigencia: del 05 de noviembre de 2026 al 30 de junio de 2027",
-    "Escalonado por compra: 20% → 35%"
-   ],
-   "condicion": "Tarjeta Enlace Lilly",
-   "canal": "Solo en sucursal",
-   "hash": "9bbabb9219e6",
-   "thumb": "img/9bbabb9219e6.jpg"
-  },
-  {
    "pharmacy": "yza",
    "pharmacy_name": "Farmacias YZA",
    "pagina": "https://www.yza.mx/",
@@ -1142,7 +1165,7 @@
    "id": "benavides-escalonado",
    "nombre": "Benavides · Descuento Escalonado Mounjaro",
    "url": "https://www.benavides.com.mx/terminos-y-condiciones",
-   "verificado": "2026-11-13T14:36-06:00",
+   "verificado": "2026-11-13T18:33-06:00",
    "cambio": false,
    "error": null,
    "texto": "Descuento aplica presentando la tarjeta Benavides Recompensas, limitado a 2 piezas de cualquier presentación al mes (30 días) por cliente. El descuento es intransferible y está ligado a la tarjeta Benavides Recompensas, que recibe la comunicación. Promoción válida con un máximo de 2 piezas por cliente, sin importar la presentación. El límite es total por marca, no por presentación. El descuento se aplicará a las 2 piezas de menor precio. Promoción sujeta a la compra de productos participantes. El descuento se asigna de forma progresiva conforme a la frecuencia de compra dentro del periodo establecido. El descuento máximo se otorga con la 4ª compra. Para conservar o incrementar el nivel de descuento, las compras deberán realizarse dentro de los 35 días posteriores a la compra anterior; en caso contrario, el beneficio se reiniciará al nivel inicial (primera compra). Los descuentos, vigencias y beneficios pueden variar según el historial de compra del cliente. No acumulable con otras promociones. La contabilización de compras acumuladas comienza a partir del lanzamiento de este programa de adherencia; no incluye compras retroactivas. No aplica en devoluciones. Consulta a tu médico. Evita automedicarte.",
